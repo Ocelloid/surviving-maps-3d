@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@auth/core':
+        specifier: ^0.38.0
+        version: 0.38.0(nodemailer@6.10.0)
       '@auth/drizzle-adapter':
         specifier: ^1.7.2
-        version: 1.8.0
+        version: 1.8.0(nodemailer@6.10.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.7.3)(zod@3.24.2)
@@ -26,6 +29,9 @@ importers:
       '@trpc/server':
         specifier: ^11.0.0-rc.446
         version: 11.0.0-rc.817(typescript@5.7.3)
+      '@types/nodemailer':
+        specifier: ^6.4.17
+        version: 6.4.17
       drizzle-orm:
         specifier: ^0.33.0
         version: 0.33.0(@types/react@18.3.18)(postgres@3.4.5)(react@18.3.1)
@@ -37,7 +43,10 @@ importers:
         version: 15.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-auth:
         specifier: 5.0.0-beta.25
-        version: 5.0.0-beta.25(next@15.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 5.0.0-beta.25(next@15.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nodemailer@6.10.0)(react@18.3.1)
+      nodemailer:
+        specifier: ^6.10.0
+        version: 6.10.0
       postgres:
         specifier: ^3.4.4
         version: 3.4.5
@@ -735,6 +744,9 @@ packages:
 
   '@types/node@20.17.19':
     resolution: {integrity: sha512-LEwC7o1ifqg/6r2gn9Dns0f1rhK+fPFDoMiceTJ6kWmVk6bgXBI/9IOWfVan4WiAavK9pIVWdX0/e3J+eEUh5A==}
+
+  '@types/nodemailer@6.4.17':
+    resolution: {integrity: sha512-I9CCaIp6DTldEg7vyUTZi8+9Vo0hi1/T8gv3C89yk1rSAAzoKQ8H8ki/jBYJSFoH/BisgLP8tkZMlQ91CIquww==}
 
   '@types/prop-types@15.7.14':
     resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
@@ -1786,6 +1798,10 @@ packages:
       sass:
         optional: true
 
+  nodemailer@6.10.0:
+    resolution: {integrity: sha512-SQ3wZCExjeSatLE/HBaXS5vqUOQk6GtBdIIKxiFdmm01mOQZX/POJkO3SUX1wDiYcwUOJwT23scFSC9fY2H8IA==}
+    engines: {node: '>=6.0.0'}
+
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
@@ -2399,7 +2415,7 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@auth/core@0.37.2':
+  '@auth/core@0.37.2(nodemailer@6.10.0)':
     dependencies:
       '@panva/hkdf': 1.2.1
       '@types/cookie': 0.6.0
@@ -2408,18 +2424,22 @@ snapshots:
       oauth4webapi: 3.3.0
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
+    optionalDependencies:
+      nodemailer: 6.10.0
 
-  '@auth/core@0.38.0':
+  '@auth/core@0.38.0(nodemailer@6.10.0)':
     dependencies:
       '@panva/hkdf': 1.2.1
       jose: 6.0.8
       oauth4webapi: 3.3.0
       preact: 10.24.3
       preact-render-to-string: 6.5.11(preact@10.24.3)
+    optionalDependencies:
+      nodemailer: 6.10.0
 
-  '@auth/drizzle-adapter@1.8.0':
+  '@auth/drizzle-adapter@1.8.0(nodemailer@6.10.0)':
     dependencies:
-      '@auth/core': 0.38.0
+      '@auth/core': 0.38.0(nodemailer@6.10.0)
     transitivePeerDependencies:
       - '@simplewebauthn/browser'
       - '@simplewebauthn/server'
@@ -2826,6 +2846,10 @@ snapshots:
   '@types/node@20.17.19':
     dependencies:
       undici-types: 6.19.8
+
+  '@types/nodemailer@6.4.17':
+    dependencies:
+      '@types/node': 20.17.19
 
   '@types/prop-types@15.7.14': {}
 
@@ -4010,11 +4034,13 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-auth@5.0.0-beta.25(next@15.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1):
+  next-auth@5.0.0-beta.25(next@15.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nodemailer@6.10.0)(react@18.3.1):
     dependencies:
-      '@auth/core': 0.37.2
+      '@auth/core': 0.37.2(nodemailer@6.10.0)
       next: 15.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
+    optionalDependencies:
+      nodemailer: 6.10.0
 
   next@15.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -4040,6 +4066,8 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  nodemailer@6.10.0: {}
 
   normalize-path@3.0.0: {}
 
