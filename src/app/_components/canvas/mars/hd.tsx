@@ -6,7 +6,11 @@ export default function MarsHD() {
   const normalTexture = useTexture("/textures/mars_12k_normal.jpg");
   return (
     <Sphere>
-      <meshStandardMaterial map={colorTexture} normalMap={normalTexture} />
+      <meshStandardMaterial
+        map={colorTexture}
+        normalMap={normalTexture}
+        normalScale={[4, 4]}
+      />
       <sphereGeometry args={[1, 512, 512]} />
     </Sphere>
   );
