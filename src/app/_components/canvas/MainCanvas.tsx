@@ -3,22 +3,16 @@ import { Canvas } from "@react-three/fiber";
 import CameraAnimation from "./CameraAnimation";
 import Mars from "./Mars";
 import { PointLight } from "three";
-import { OrbitControls } from "@react-three/drei";
 import { Environment, Text } from "@react-three/drei";
-import { Suspense, useState } from "react";
-import * as THREE from "three";
+import { Suspense } from "react";
+import Controls from "./Controls";
 
 export default function MainCanvas() {
-  const [lastCameraPosition, setLastCameraPosition] = useState(
-    new THREE.Vector3(1.5, 1, -1.5),
-  );
-  const light = new PointLight();
+  const light = new PointLight("white", 100);
   light.position.set(-3, 1, 2);
-  light.intensity = 100;
 
-  const sun = new PointLight();
+  const sun = new PointLight("lightyellow", 500);
   sun.position.set(-5, 1, -5);
-  sun.intensity = 500;
 
   return (
     <Canvas
@@ -42,27 +36,7 @@ export default function MainCanvas() {
           background
           backgroundBlurriness={0.025}
         />
-        <OrbitControls
-          onChange={(e) => {
-            const cam = e?.target?.object;
-            if (!cam) return;
-            if (cam?.position.distanceTo(new THREE.Vector3(0, 0, 0)) < 1.25) {
-              cam.position.set(
-                lastCameraPosition.x,
-                lastCameraPosition.y,
-                lastCameraPosition.z,
-              );
-            } else {
-              setLastCameraPosition(
-                new THREE.Vector3(
-                  cam.position.x,
-                  cam.position.y,
-                  cam.position.z,
-                ),
-              );
-            }
-          }}
-        />
+        <Controls />
         <Mars />
       </Suspense>
     </Canvas>
