@@ -1,9 +1,11 @@
 "use client";
-import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import Pin from "./Pin";
+import MarsSD from "./mars/sd";
+import MarsMD from "./mars/md";
+import MarsHD from "./mars/hd";
 
 const convertUVtoCoordinates = (uv: THREE.Vector2) => {
   const x = Number((360 * uv.x - 360).toFixed(0));
@@ -11,7 +13,7 @@ const convertUVtoCoordinates = (uv: THREE.Vector2) => {
   return new THREE.Vector2(x < -180 ? x + 360 : x, y);
 };
 
-export default function MarsHD() {
+export default function Planet() {
   const meshRef = useRef<THREE.Mesh>(null);
   const [pin, setPin] = useState<THREE.Vector3>(
     new THREE.Vector3(
@@ -30,13 +32,10 @@ export default function MarsHD() {
     }
   });
 
-  const colorTexture = useTexture("/textures/mars_12k_color.jpg");
-  const normalTexture = useTexture("/textures/mars_12k_normal.jpg");
-
   return (
     <mesh ref={meshRef}>
       <Pin pin={pin} coord={coord} />
-      <mesh
+      <group
         onClick={(e) => {
           const coord = convertUVtoCoordinates(e.uv ?? new THREE.Vector2(0, 0));
           if (Math.abs(coord.y) <= 70) {
@@ -45,13 +44,12 @@ export default function MarsHD() {
           }
         }}
       >
-        <meshStandardMaterial
-          map={colorTexture}
-          normalMap={normalTexture}
-          normalScale={[5, 5]}
-        />
-        <sphereGeometry args={[1, 512, 512]} />
-      </mesh>
+        <Suspense fallback={<MarsSD />}>
+          <Suspense fallback={<MarsMD />}>
+            <MarsHD />
+          </Suspense>
+        </Suspense>
+      </group>
     </mesh>
   );
 }

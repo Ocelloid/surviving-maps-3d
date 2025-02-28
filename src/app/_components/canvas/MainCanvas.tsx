@@ -1,7 +1,7 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import CameraAnimation from "./CameraAnimation";
-import Mars from "./Mars";
+import Planet from "./Planet";
 import { PointLight } from "three";
 import Controls from "./Controls";
 import Space from "./Space";
@@ -31,7 +31,7 @@ export default function MainCanvas() {
       <CameraAnimation />
       <Controls />
       <Space />
-      <Mars />
+      <Planet />
     </Canvas>
   );
 }

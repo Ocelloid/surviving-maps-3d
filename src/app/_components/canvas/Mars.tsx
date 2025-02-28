@@ -3,7 +3,7 @@ import { Sphere, useTexture } from "@react-three/drei";
 import type * as THREE from "three";
 import { Suspense, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import MarsHD from "./MarsHD";
+import MarsHD from "./Planet";
 
 export default function Mars() {
   const meshRef = useRef<THREE.Mesh>(null);
