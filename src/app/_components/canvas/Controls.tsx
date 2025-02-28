@@ -8,6 +8,7 @@ export default function Controls() {
   );
   return (
     <OrbitControls
+      enablePan={false}
       onChange={(e) => {
         const cam = e?.target?.object;
         if (!cam) return;
