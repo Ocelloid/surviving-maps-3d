@@ -15,7 +15,7 @@ export default function CameraAnimation() {
     if (animate) {
       state.camera.lookAt(0, 0, 0);
       state.camera.position.lerp(vec, 0.016);
-      if (state.camera.position.distanceTo(vec) < 0.1) {
+      if (state.camera.position.distanceTo(vec) < 0.115) {
         setAnimate(false);
       }
     }
