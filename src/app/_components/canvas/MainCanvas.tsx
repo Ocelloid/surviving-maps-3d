@@ -3,9 +3,8 @@ import { Canvas } from "@react-three/fiber";
 import CameraAnimation from "./CameraAnimation";
 import Mars from "./Mars";
 import { PointLight } from "three";
-import { Environment, Text } from "@react-three/drei";
-import { Suspense } from "react";
 import Controls from "./Controls";
+import Space from "./Space";
 
 export default function MainCanvas() {
   const light = new PointLight("white", 100);
@@ -29,16 +28,10 @@ export default function MainCanvas() {
         scene.add(camera);
       }}
     >
-      <Suspense fallback={<Text>Loading...</Text>}>
-        <CameraAnimation />
-        <Environment
-          files={"/textures/environment.hdr"}
-          background
-          backgroundBlurriness={0.025}
-        />
-        <Controls />
-        <Mars />
-      </Suspense>
+      <CameraAnimation />
+      <Controls />
+      <Space />
+      <Mars />
     </Canvas>
   );
 }
