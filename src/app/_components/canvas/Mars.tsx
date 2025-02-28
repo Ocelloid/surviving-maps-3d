@@ -1,13 +1,29 @@
-import { Sphere } from "@react-three/drei";
-import * as THREE from "three";
-import { useCallback } from "react";
+"use client";
+import { Sphere, useTexture } from "@react-three/drei";
+import type * as THREE from "three";
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
 
 export default function Mars() {
-  const measuredRef = useCallback((node: THREE.Mesh | null) => {
-    if (node !== null) {
-      node.geometry = new THREE.SphereGeometry(1, 512, 512);
-      console.log(node);
+  const meshRef = useRef<THREE.Mesh>(null);
+  useFrame((_state, delta) => {
+    // console.log(_state, delta);
+    if (meshRef.current) {
+      meshRef.current.rotation.y += 0.01 * delta;
     }
-  }, []);
-  return <Sphere ref={measuredRef} />;
+  });
+
+  const colorTexture = useTexture("/textures/mars_12k_color.jpg");
+  const normalTexture = useTexture("/textures/mars_12k_normal.jpg");
+
+  return (
+    <Sphere ref={meshRef}>
+      <meshStandardMaterial
+        map={colorTexture}
+        normalMap={normalTexture}
+        normalScale={[5, 5]}
+      />
+      <sphereGeometry args={[1, 512, 512]} />
+    </Sphere>
+  );
 }
