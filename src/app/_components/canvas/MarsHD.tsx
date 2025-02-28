@@ -13,8 +13,16 @@ const convertUVtoCoordinates = (uv: THREE.Vector2) => {
 
 export default function MarsHD() {
   const meshRef = useRef<THREE.Mesh>(null);
-  const [pin, setPin] = useState<THREE.Vector3>(new THREE.Vector3(0, 0, 0));
-  const [coord, setCoord] = useState<THREE.Vector2>(new THREE.Vector2(0, 0));
+  const [pin, setPin] = useState<THREE.Vector3>(
+    new THREE.Vector3(
+      0.6546557125770007,
+      0.3166304348005583,
+      -0.6864056397686533,
+    ),
+  );
+  const [coord, setCoord] = useState<THREE.Vector2>(
+    new THREE.Vector2(-134, 18),
+  );
 
   useFrame((_state, delta) => {
     if (meshRef.current) {
@@ -31,7 +39,6 @@ export default function MarsHD() {
       <mesh
         onClick={(e) => {
           const coord = convertUVtoCoordinates(e.uv ?? new THREE.Vector2(0, 0));
-          console.log(coord);
           if (Math.abs(coord.y) <= 70) {
             setPin(e.normal ?? new THREE.Vector3(0, 0, 0));
             setCoord(coord);
