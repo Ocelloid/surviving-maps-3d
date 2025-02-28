@@ -10,7 +10,7 @@ import * as THREE from "three";
 
 export default function MainCanvas() {
   const [lastCameraPosition, setLastCameraPosition] = useState(
-    new THREE.Vector3(1, 1, -1),
+    new THREE.Vector3(1.5, 1, -1.5),
   );
   const light = new PointLight();
   light.position.set(-3, 1, 2);
@@ -22,8 +22,13 @@ export default function MainCanvas() {
 
   return (
     <Canvas
-      className="h-full w-full"
-      style={{ height: "100vh" }}
+      style={{
+        height: "100vh",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 1,
+      }}
       onCreated={({ camera, scene }) => {
         camera.add(sun);
         camera.add(light);
@@ -41,7 +46,7 @@ export default function MainCanvas() {
           onChange={(e) => {
             const cam = e?.target?.object;
             if (!cam) return;
-            if (cam?.position.distanceTo(new THREE.Vector3(0, 0, 0)) < 1.1) {
+            if (cam?.position.distanceTo(new THREE.Vector3(0, 0, 0)) < 1.25) {
               cam.position.set(
                 lastCameraPosition.x,
                 lastCameraPosition.y,

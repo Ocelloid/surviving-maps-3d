@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 
 export default function CameraAnimation() {
   const [animate, setAnimate] = useState(false);
-  const vec = new THREE.Vector3(1, 1, -1);
+  const vec = new THREE.Vector3(1.5, 1, -1.5);
 
   useEffect(() => {
     setAnimate(true);
