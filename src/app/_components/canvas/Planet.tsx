@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import Pin from "./Pin";
 import MarsSD from "./mars/sd";
 import MarsMD from "./mars/md";
-import MarsHD from "./mars/hd";
+// import MarsHD from "./mars/hd";
 
 const convertUVtoCoordinates = (uv: THREE.Vector2) => {
   const x = Number((360 * uv.x - 360).toFixed(0));
