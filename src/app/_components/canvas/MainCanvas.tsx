@@ -5,18 +5,27 @@ import Mars from "./Mars";
 import { PointLight } from "three";
 import { OrbitControls } from "@react-three/drei";
 import { Environment, Text } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import * as THREE from "three";
 
 export default function MainCanvas() {
+  const [lastCameraPosition, setLastCameraPosition] = useState(
+    new THREE.Vector3(1, 1, -1),
+  );
   const light = new PointLight();
   light.position.set(-3, 1, 2);
-  light.intensity = 50;
+  light.intensity = 100;
+
+  const sun = new PointLight();
+  sun.position.set(-5, 1, -5);
+  sun.intensity = 500;
+
   return (
     <Canvas
       className="h-full w-full"
       style={{ height: "100vh" }}
       onCreated={({ camera, scene }) => {
+        camera.add(sun);
         camera.add(light);
         scene.add(camera);
       }}
@@ -31,12 +40,21 @@ export default function MainCanvas() {
         <OrbitControls
           onChange={(e) => {
             const cam = e?.target?.object;
-            console.log(cam?.position.distanceTo(new THREE.Vector3(0, 0, 0)));
-            if (
-              cam &&
-              cam.position.distanceTo(new THREE.Vector3(0, 0, 0)) < 1.1
-            ) {
-              cam.position.set(0.66, 0.66, -0.66);
+            if (!cam) return;
+            if (cam?.position.distanceTo(new THREE.Vector3(0, 0, 0)) < 1.1) {
+              cam.position.set(
+                lastCameraPosition.x,
+                lastCameraPosition.y,
+                lastCameraPosition.z,
+              );
+            } else {
+              setLastCameraPosition(
+                new THREE.Vector3(
+                  cam.position.x,
+                  cam.position.y,
+                  cam.position.z,
+                ),
+              );
             }
           }}
         />
