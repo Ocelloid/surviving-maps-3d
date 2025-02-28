@@ -1,5 +1,5 @@
 import MainCanvas from "./_components/canvas/MainCanvas";
-import UI from "./_components/ui/UI";
+// import UI from "./_components/ui/UI";
 
 export default function Home() {
   return (
