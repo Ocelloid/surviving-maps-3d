@@ -4,9 +4,9 @@ import { type Metadata } from "next";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "Surviving Mars 3D Maps",
+  title: "Surviving Maps 3D",
   description:
-    "A website for the community to visualise and find the best spots",
+    "A website for the Surviving Mars playes to visualise and find the best spots",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
