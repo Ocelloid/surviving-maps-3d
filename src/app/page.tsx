@@ -1,11 +1,11 @@
 import MainCanvas from "./_components/canvas/MainCanvas";
-import Menu from "./_components/menu/Menu";
+import UI from "./_components/ui/UI";
 
 export default function Home() {
   return (
     <main className="flex h-full min-h-screen flex-col bg-slate-950 text-white">
       <MainCanvas />
-      <Menu />
+      {/* <UI /> */}
     </main>
   );
 }
