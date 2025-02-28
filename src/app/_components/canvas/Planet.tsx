@@ -45,9 +45,9 @@ export default function Planet() {
         }}
       >
         <Suspense fallback={<MarsSD />}>
-          <Suspense fallback={<MarsMD />}>
-            <MarsHD />
-          </Suspense>
+          {/* <Suspense fallback={<MarsMD />}> */}
+          <MarsMD />
+          {/* </Suspense> */}
         </Suspense>
       </group>
     </mesh>
