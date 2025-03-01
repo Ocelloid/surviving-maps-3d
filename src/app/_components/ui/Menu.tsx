@@ -8,10 +8,16 @@ const Rhombi = ({ value }: { value: number }) => {
   return (
     <div className="flex w-min flex-row gap-0.5">
       {Array.from({ length: value }).map((_, i) => (
-        <div className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-400/75" />
+        <div
+          key={"filled_" + i}
+          className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-400/75"
+        />
       ))}
       {Array.from({ length: 4 - value }).map((_, i) => (
-        <div className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-950" />
+        <div
+          key={"unfilled_" + i}
+          className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-950"
+        />
       ))}
     </div>
   );
