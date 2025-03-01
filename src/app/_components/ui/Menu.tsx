@@ -2,14 +2,18 @@
 import Wrapper from "./Wrapper";
 import { useStore } from "~/store";
 import Image from "next/image";
+import IconLoading from "./IconLoading";
 
 export default function Menu() {
   const { locData, locationLoading } = useStore();
   return (
     <Wrapper>
-      {locationLoading ? (
-        <p>Loading...</p>
-      ) : (
+      <div className="relative flex flex-col">
+        {locationLoading && (
+          <div className="absolute -left-8 -top-8 z-20 flex h-full w-[400px] flex-col items-center rounded-tl-3xl bg-violet-700/25 pt-96">
+            <IconLoading className="animate-spin" />
+          </div>
+        )}
         <div className="flex flex-col gap-2">
           <p className="text-4xl">
             {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
@@ -97,26 +101,34 @@ export default function Menu() {
               <p className="absolute left-[25px] top-0">{locData?.meteors}</p>
             </div>
           </div>
+          <Image
+            src={`/topology/${locData?.map_name}.png`}
+            className="bevel-clip-sm rounded-tl-2xl"
+            alt="topology"
+            width={480}
+            height={270}
+          />
+          <p className="-mt-2 ml-auto text-xs">Map Name: {locData?.map_name}</p>
+          <p className="text-2xl text-yellow-400">
+            {locData?.namedLoc?.name_en}
+          </p>
           <p>Difficulty Challenge: {locData?.difficulty}</p>
           <p>Temperature: {locData?.temperature}</p>
-          <p>Map Name: {locData?.map_name}</p>
-          <p>Named Location: {locData?.namedLoc?.name_en}</p>
-          <p>
-            Breakthroughs:{" "}
-            {locData?.bts_loc?.filter((btsloc) => btsloc.ver_id === 1).length}
-          </p>
-          <div className="flex flex-col gap-4 py-4">
+          <p className="mt-2 text-2xl">Breakthroughs</p>
+          <div className="flex flex-col gap-4">
             {locData?.bts_loc
               ?.filter((btsloc) => btsloc.ver_id === 1)
-              .map((btsloc) => (
-                <div className="flex flex-col gap-2" key={btsloc.bt?.id}>
-                  <p>{btsloc.bt?.name_en}</p>
-                  <p>{btsloc.bt?.desc_en}</p>
+              .map((btsloc, i) => (
+                <div className="flex flex-col gap-0" key={btsloc.bt?.id}>
+                  <p>
+                    {i + 1}. {btsloc.bt?.name_en}
+                  </p>
+                  <p className="text-xs italic">{btsloc.bt?.desc_en}</p>
                 </div>
               ))}
           </div>
         </div>
-      )}
+      </div>
     </Wrapper>
   );
 }
