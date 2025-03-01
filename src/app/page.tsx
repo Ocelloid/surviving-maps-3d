@@ -3,7 +3,7 @@ import MainCanvas from "./_components/canvas/MainCanvas";
 
 export default function Home() {
   return (
-    <main className="flex h-full min-h-screen flex-col bg-slate-950 text-white">
+    <main className="flex h-full min-h-screen flex-col">
       <MainCanvas />
       {/* <UI /> */}
     </main>

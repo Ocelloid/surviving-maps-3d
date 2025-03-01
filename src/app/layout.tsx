@@ -16,10 +16,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable}`}
+      className={`${GeistSans.variable} h-full bg-slate-950 text-slate-100`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="h-full">
         <Providers>{children}</Providers>
       </body>
     </html>

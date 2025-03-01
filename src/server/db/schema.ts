@@ -42,11 +42,12 @@ export const locations = createTable("location", {
   difficulty: integer("difficulty"),
 });
 
-export const locationsRelations = relations(locations, ({ one }) => ({
+export const locationsRelations = relations(locations, ({ one, many }) => ({
   namedLoc: one(namedLocations, {
     fields: [locations.named_loc_id],
     references: [namedLocations.id],
   }),
+  bts_loc: many(breakthroughsInLocations),
 }));
 
 export const namedLocations = createTable("named_location", {
@@ -88,10 +89,18 @@ export const breakthroughs = createTable("breakthrough", {
   desc_sp: text("desc_sp"),
 });
 
+export const breakthroughsRelations = relations(breakthroughs, ({ many }) => ({
+  bts_loc: many(breakthroughsInLocations),
+}));
+
 export const versions = createTable("version", {
   id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
   name: varchar("name", { length: 256 }),
 });
+
+export const versionsRelations = relations(versions, ({ many }) => ({
+  bts_loc: many(breakthroughsInLocations),
+}));
 
 export const breakthroughsInLocations = createTable(
   "breakthrough_in_location",
