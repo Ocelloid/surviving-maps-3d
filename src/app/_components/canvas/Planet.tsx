@@ -1,6 +1,6 @@
 "use client";
 import * as THREE from "three";
-import { Suspense, use, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import Pin from "./Pin";
 import MarsSD from "./mars/sd";

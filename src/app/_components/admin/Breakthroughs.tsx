@@ -38,13 +38,13 @@ export function Breakthroughs() {
 
   const removeBS = (str: string) => {
     return str
-      .replace("<color flavor>", "")
-      .replace("<color em>", "")
-      .replace("</color>", "")
-      .replace("<right>", "")
-      .replace("</right>", "")
-      .replace("<left>", "")
-      .replace("</left>", "");
+      .replaceAll("<color flavor>", "")
+      .replaceAll("<color em>", "")
+      .replaceAll("</color>", "")
+      .replaceAll("<right>", "")
+      .replaceAll("</right>", "")
+      .replaceAll("<left>", "")
+      .replaceAll("</left>", "");
   };
 
   const parseNamesCSV = async (
