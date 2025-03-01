@@ -12,4 +12,13 @@
       0 calc(100% - 40px)
     );
   }
+  .text-outline {
+    text-shadow:
+      0 0 0.5rem #000,
+      0 0 1rem #000,
+      0 0 2rem #000,
+      0 0 4rem #000,
+      0 0 8rem #000,
+      0 0 16rem #000;
+  }
 }

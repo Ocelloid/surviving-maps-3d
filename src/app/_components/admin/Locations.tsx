@@ -1,4 +1,4 @@
-import { Button, Select, SelectItem } from "@heroui/react";
+import { Button, Select, SelectItem, Checkbox } from "@heroui/react";
 import { api } from "~/trpc/react";
 import Papa from "papaparse";
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
@@ -57,6 +57,7 @@ export function Locations() {
   const [isParsing, setIsParsing] = useState(false);
   const [locationsData, setLocationsData] = useState<CSVDataRow[]>([]);
   const [version, setVersion] = useState<string>(VERSIONS[0]!.name);
+  const [override, setOverride] = useState(false);
 
   const [firstHundredLocations] =
     api.location.getFirstHundredLocations.useSuspenseQuery();
@@ -109,10 +110,10 @@ export function Locations() {
       locationsMutation.mutate({
         version,
         rows: locationsData,
-        override: true,
+        override,
       });
     }
-  }, [locationsData, locationsMutation, version]);
+  }, [locationsData, locationsMutation, version, override]);
 
   return (
     <div className="flex flex-col">
@@ -129,6 +130,9 @@ export function Locations() {
             </SelectItem>
           ))}
         </Select>
+        <Checkbox isSelected={override} onValueChange={setOverride}>
+          Override
+        </Checkbox>
         <div className="flex h-full w-min flex-col">
           <Button size="lg" onPress={handleSeedLocations}>
             Seed Locations
@@ -149,16 +153,36 @@ export function Locations() {
         </div>
       </div>
       {isParsing && <p>Parsing CSV...</p>}
-      {firstHundredLocations?.map((loc, i) => (
-        <div className="grid grid-cols-4 justify-between" key={i}>
-          <p>
-            {loc.lat_dir} {loc.lat_deg} {loc.lon_dir} {loc.lon_deg}
-          </p>
-          <p>{loc.map_name}</p>
-          <p>{loc.namedLoc?.name_en}</p>
-          <p>Breakthroughs: {loc.bts_loc.length}</p>
+      <div className="flex flex-col gap-2 py-2">
+        <div className="grid grid-cols-4 justify-between text-xl">
+          <p>Coordinates</p>
+          <p>Map Name</p>
+          <p>Location Name</p>
+          <p>Breakthroughs</p>
         </div>
-      ))}
+        {firstHundredLocations?.map((loc, i) => (
+          <div className="grid grid-cols-4 justify-between" key={i}>
+            <p>
+              {loc.lat_dir} {loc.lat_deg} {loc.lon_dir} {loc.lon_deg}
+            </p>
+            <p>{loc.map_name}</p>
+            <p>{loc.namedLoc?.name_en}</p>
+            <p>
+              {[
+                ...new Set(
+                  loc.bts_loc.map(
+                    (bt) =>
+                      bt.ver.name +
+                      ": " +
+                      loc.bts_loc.filter((b) => b.ver.name === bt.ver.name)
+                        .length,
+                  ),
+                ),
+              ].join(",\n")}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

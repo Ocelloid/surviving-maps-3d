@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 
 import {
@@ -63,77 +63,77 @@ const CSVDataRow = z.object({
   Water: z.string(),
 });
 
-type Location = {
+export type Location = {
   id: number;
-  lat_dir: string;
-  lat_deg: string;
-  lon_dir: string;
-  lon_deg: string;
-  altitude: number;
-  named_loc_id: number;
-  map_name: string;
-  topography: string;
-  concrete: number;
-  water: number;
-  metals: number;
-  rare_metals: number;
-  temperature: number;
-  meteors: number;
-  dust_devils: number;
-  dust_storms: number;
-  cold_waves: number;
-  difficulty: number;
+  lat_dir: string | null;
+  lat_deg: string | null;
+  lon_dir: string | null;
+  lon_deg: string | null;
+  altitude: number | null;
+  named_loc_id: number | null;
+  map_name: string | null;
+  topography: string | null;
+  concrete: number | null;
+  water: number | null;
+  metals: number | null;
+  rare_metals: number | null;
+  temperature: number | null;
+  meteors: number | null;
+  dust_devils: number | null;
+  dust_storms: number | null;
+  cold_waves: number | null;
+  difficulty: number | null;
   bts_loc?: BreakthroughInLocation[];
-  namedLoc?: NamedLocation;
+  namedLoc?: NamedLocation | null;
 };
 
 type NamedLocation = {
   id: number;
-  name_en: string;
-  name_br: string;
-  name_fr: string;
-  name_ge: string;
-  name_po: string;
-  name_ru: string;
-  name_sc: string;
-  name_sp: string;
+  name_en: string | null;
+  name_br: string | null;
+  name_fr: string | null;
+  name_ge: string | null;
+  name_po: string | null;
+  name_ru: string | null;
+  name_sc: string | null;
+  name_sp: string | null;
   coordinates?: Location[];
 };
 
 type BreakthroughInLocation = {
   id: number;
-  bt_id: number;
-  loc_id: number;
-  ver_id: number;
-  bt?: Breakthrough;
-  loc?: Location;
-  ver?: Version;
+  bt_id: number | null;
+  loc_id: number | null;
+  ver_id: number | null;
+  bt?: Breakthrough | null;
+  loc?: Location | null;
+  ver?: Version | null;
 };
 
 type Breakthrough = {
   id: number;
-  name_en: string;
-  name_br: string;
-  name_fr: string;
-  name_ge: string;
-  name_po: string;
-  name_ru: string;
-  name_sc: string;
-  name_sp: string;
-  desc_en: string;
-  desc_br: string;
-  desc_fr: string;
-  desc_ge: string;
-  desc_po: string;
-  desc_ru: string;
-  desc_sc: string;
-  desc_sp: string;
+  name_en: string | null;
+  name_br: string | null;
+  name_fr: string | null;
+  name_ge: string | null;
+  name_po: string | null;
+  name_ru: string | null;
+  name_sc: string | null;
+  name_sp: string | null;
+  desc_en: string | null;
+  desc_br: string | null;
+  desc_fr: string | null;
+  desc_ge: string | null;
+  desc_po: string | null;
+  desc_ru: string | null;
+  desc_sc: string | null;
+  desc_sp: string | null;
   bts_loc?: BreakthroughInLocation[];
 };
 
 type Version = {
   id: number;
-  name: string;
+  name: string | null;
   bts_loc?: BreakthroughInLocation[];
 };
 
@@ -400,6 +400,31 @@ export const locationRouter = createTRPCRouter({
     });
     return locations;
   }),
+
+  getLocationByCoords: publicProcedure
+    .input(
+      z.object({
+        lat_deg: z.string(),
+        lon_deg: z.string(),
+        lat_dir: z.string(),
+        lon_dir: z.string(),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const location = await ctx.db.query.locations.findFirst({
+        where: and(
+          eq(locations.lat_deg, input.lat_deg),
+          eq(locations.lon_deg, input.lon_deg),
+          eq(locations.lat_dir, input.lat_dir),
+          eq(locations.lon_dir, input.lon_dir),
+        ),
+        with: {
+          namedLoc: true,
+          bts_loc: { with: { bt: true, ver: true } },
+        },
+      });
+      return location;
+    }),
   // create: protectedProcedure
   //   .input(z.object({ name: z.string().min(1) }))
   //   .mutation(async ({ ctx, input }) => {

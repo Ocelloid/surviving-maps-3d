@@ -53,7 +53,7 @@ export default function Pin({
           url="/lmb.png"
           side={THREE.DoubleSide}
           transparent
-          scale={[0.35, 0.5]}
+          scale={[0.4, 0.6]}
           position={[-2.5, 0, 0]}
         />
         <Text
@@ -69,7 +69,7 @@ export default function Pin({
           url="/rmb.png"
           side={THREE.DoubleSide}
           transparent
-          scale={[0.35, 0.5]}
+          scale={[0.4, 0.6]}
           position={[1, 0, 0]}
         />
         <Text

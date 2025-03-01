@@ -1,10 +1,12 @@
 "use client";
 import * as THREE from "three";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, use, useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import Pin from "./Pin";
 import MarsSD from "./mars/sd";
 import MarsMD from "./mars/md";
+import { api } from "~/trpc/react";
+import { useStore } from "~/store";
 // import MarsHD from "./mars/hd";
 
 const convertUVtoCoordinates = (uv: THREE.Vector2) => {
@@ -14,6 +16,7 @@ const convertUVtoCoordinates = (uv: THREE.Vector2) => {
 };
 
 export default function Planet() {
+  const { setLocation, setLocationLoading } = useStore();
   const meshRef = useRef<THREE.Mesh>(null);
   const [pin, setPin] = useState<THREE.Vector3>(
     new THREE.Vector3(
@@ -25,6 +28,34 @@ export default function Planet() {
   const [coord, setCoord] = useState<THREE.Vector2>(
     new THREE.Vector2(-134, 18),
   );
+
+  const {
+    data: locationDetails,
+    isLoading: isLoadingLocationDetails,
+    refetch: refetchLocation,
+  } = api.location.getLocationByCoords.useQuery(
+    {
+      lat_deg: Math.abs(coord.y).toString(),
+      lat_dir: coord.y > 0 ? "N" : "S",
+      lon_deg: Math.abs(coord.x).toString(),
+      lon_dir: coord.x > 0 ? "E" : "W",
+    },
+    {
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      refetchOnMount: false,
+    },
+  );
+
+  useEffect(() => {
+    if (locationDetails && !isLoadingLocationDetails) {
+      setLocation(locationDetails);
+    }
+  }, [locationDetails, setLocation, isLoadingLocationDetails]);
+
+  useEffect(() => {
+    setLocationLoading(isLoadingLocationDetails);
+  }, [setLocationLoading, isLoadingLocationDetails]);
 
   useFrame((_state, delta) => {
     if (meshRef.current) {
@@ -41,6 +72,7 @@ export default function Planet() {
           if (Math.abs(coord.y) <= 70) {
             setPin(e.normal ?? new THREE.Vector3(0, 0, 0));
             setCoord(coord);
+            void refetchLocation();
           }
         }}
       >
