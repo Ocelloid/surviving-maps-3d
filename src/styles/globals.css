@@ -22,6 +22,16 @@
       0 calc(100% - 20px)
     );
   }
+  .bevel-clip-xs {
+    clip-path: polygon(
+      0 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
+  }
   .text-outline {
     text-shadow:
       0 0 0.5rem #000,

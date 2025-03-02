@@ -54,6 +54,7 @@ type FilterSelection = {
 export default function Filter() {
   const {
     filter,
+    applyFilter,
     clearFilter,
     setCoordinates, // input
     setVersionId, // select
@@ -141,11 +142,6 @@ export default function Filter() {
     }
   };
 
-  const handleApplyFilter = () => {
-    console.log("apply filter");
-    console.log(filter);
-  };
-
   return (
     <Wrapper style={{ width: "15%", overflow: "auto", maxHeight: "96vh" }}>
       <div className="relative flex flex-col gap-1">
@@ -159,7 +155,7 @@ export default function Filter() {
         >
           Clear
         </Button>
-        <Button size="sm" color="success" onPress={handleApplyFilter}>
+        <Button size="sm" color="success" onPress={() => applyFilter()}>
           Apply
         </Button>
         <Input

@@ -4,16 +4,16 @@ import { useStore } from "~/store";
 import Image from "next/image";
 import { CircularProgress, Skeleton } from "@heroui/react";
 
-const Rhombi = ({ value }: { value: number }) => {
+export const Rhombi = ({ value }: { value: number | null }) => {
   return (
     <div className="flex w-min flex-row gap-0.5 pl-1">
-      {Array.from({ length: value }).map((_, i) => (
+      {Array.from({ length: value ?? 0 }).map((_, i) => (
         <div
           key={"filled_" + i}
           className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-400/75"
         />
       ))}
-      {Array.from({ length: 4 - value }).map((_, i) => (
+      {Array.from({ length: 4 - (value ?? 0) }).map((_, i) => (
         <div
           key={"unfilled_" + i}
           className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-950"
@@ -109,6 +109,7 @@ export default function LocationDetails() {
             <Image
               src={`/topology/${locData.map_name}.png`}
               className="bevel-clip-sm mt-2 rounded-tl-2xl"
+              priority={true}
               alt="topology"
               width={480}
               height={270}

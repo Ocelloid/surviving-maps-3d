@@ -1,6 +1,5 @@
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray, gte, lte, type SQL } from "drizzle-orm";
 import { z } from "zod";
-
 import {
   createTRPCRouter,
   protectedProcedure,
@@ -138,6 +137,154 @@ export type Version = {
 };
 
 export const locationRouter = createTRPCRouter({
+  getFilteredLocations: publicProcedure
+    .input(
+      z.object({
+        filter: z.object({
+          coordinates: z.string().optional(),
+          versionId: z.number().nullable().optional(),
+          namedLocationIds: z.array(z.number()).optional(),
+          mapNames: z.array(z.string()).optional(),
+          topographyNames: z.array(z.string()).optional(),
+          breakthroughIds: z.array(z.number()).optional(),
+          minAltitude: z.number().optional(),
+          maxAltitude: z.number().optional(),
+          minConcrete: z.number().optional(),
+          maxConcrete: z.number().optional(),
+          minWater: z.number().optional(),
+          maxWater: z.number().optional(),
+          minMetals: z.number().optional(),
+          maxMetals: z.number().optional(),
+          minRareMetals: z.number().optional(),
+          maxRareMetals: z.number().optional(),
+          minTemperature: z.number().optional(),
+          maxTemperature: z.number().optional(),
+          minMeteors: z.number().optional(),
+          maxMeteors: z.number().optional(),
+          minDustDevils: z.number().optional(),
+          maxDustDevils: z.number().optional(),
+          minDustStorms: z.number().optional(),
+          maxDustStorms: z.number().optional(),
+          minColdWaves: z.number().optional(),
+          maxColdWaves: z.number().optional(),
+          minDifficulty: z.number().optional(),
+          maxDifficulty: z.number().optional(),
+        }),
+      }),
+    )
+    .query(async ({ ctx, input }) => {
+      const filters: SQL[] = [];
+      const coords = input.filter.coordinates?.split(" ") ?? [];
+      if (!!coords[0]) filters.push(eq(locations.lat_dir, coords[0]));
+      if (!!coords[1]) filters.push(eq(locations.lat_deg, coords[1]));
+      if (!!coords[2]) filters.push(eq(locations.lon_dir, coords[2]));
+      if (!!coords[3]) filters.push(eq(locations.lon_deg, coords[3]));
+
+      if (
+        !!input.filter.namedLocationIds &&
+        input.filter.namedLocationIds.length > 0
+      )
+        filters.push(inArray(locations.id, input.filter.namedLocationIds));
+
+      if (!!input.filter.mapNames && input.filter.mapNames.length > 0)
+        filters.push(inArray(locations.map_name, input.filter.mapNames));
+
+      if (
+        !!input.filter.topographyNames &&
+        input.filter.topographyNames.length > 0
+      )
+        filters.push(
+          inArray(locations.topography, input.filter.topographyNames),
+        );
+
+      if (
+        !!input.filter.breakthroughIds &&
+        input.filter.breakthroughIds.length > 0 &&
+        input.filter.versionId
+      )
+        filters.push(
+          inArray(
+            locations.id,
+            ctx.db
+              .select({ id: breakthroughsInLocations.loc_id })
+              .from(breakthroughsInLocations)
+              .where(
+                and(
+                  inArray(
+                    breakthroughsInLocations.bt_id,
+                    input.filter.breakthroughIds,
+                  ),
+                  eq(breakthroughsInLocations.ver_id, input.filter.versionId),
+                ),
+              ),
+          ),
+        );
+
+      if (!!input.filter.minAltitude && !!input.filter.maxAltitude) {
+        filters.push(gte(locations.altitude, input.filter.minAltitude));
+        filters.push(lte(locations.altitude, input.filter.maxAltitude));
+      }
+
+      if (!!input.filter.minConcrete && !!input.filter.maxConcrete) {
+        filters.push(gte(locations.concrete, input.filter.minConcrete));
+        filters.push(lte(locations.concrete, input.filter.maxConcrete));
+      }
+
+      if (!!input.filter.minWater && !!input.filter.maxWater) {
+        filters.push(gte(locations.water, input.filter.minWater));
+        filters.push(lte(locations.water, input.filter.maxWater));
+      }
+
+      if (!!input.filter.minMetals && !!input.filter.maxMetals) {
+        filters.push(gte(locations.metals, input.filter.minMetals));
+        filters.push(lte(locations.metals, input.filter.maxMetals));
+      }
+
+      if (!!input.filter.minRareMetals && !!input.filter.maxRareMetals) {
+        filters.push(gte(locations.rare_metals, input.filter.minRareMetals));
+        filters.push(lte(locations.rare_metals, input.filter.maxRareMetals));
+      }
+
+      if (!!input.filter.minTemperature && !!input.filter.maxTemperature) {
+        filters.push(gte(locations.temperature, input.filter.minTemperature));
+        filters.push(lte(locations.temperature, input.filter.maxTemperature));
+      }
+
+      if (!!input.filter.minMeteors && !!input.filter.maxMeteors) {
+        filters.push(gte(locations.meteors, input.filter.minMeteors));
+        filters.push(lte(locations.meteors, input.filter.maxMeteors));
+      }
+
+      if (!!input.filter.minDustDevils && !!input.filter.maxDustDevils) {
+        filters.push(gte(locations.dust_devils, input.filter.minDustDevils));
+        filters.push(lte(locations.dust_devils, input.filter.maxDustDevils));
+      }
+
+      if (!!input.filter.minDustStorms && !!input.filter.maxDustStorms) {
+        filters.push(gte(locations.dust_storms, input.filter.minDustStorms));
+        filters.push(lte(locations.dust_storms, input.filter.maxDustStorms));
+      }
+
+      if (!!input.filter.minColdWaves && !!input.filter.maxColdWaves) {
+        filters.push(gte(locations.cold_waves, input.filter.minColdWaves));
+        filters.push(lte(locations.cold_waves, input.filter.maxColdWaves));
+      }
+
+      if (!!input.filter.minDifficulty && !!input.filter.maxDifficulty) {
+        filters.push(gte(locations.difficulty, input.filter.minDifficulty));
+        filters.push(lte(locations.difficulty, input.filter.maxDifficulty));
+      }
+
+      const fliteredLocations = await ctx.db.query.locations.findMany({
+        limit: 10,
+        with: {
+          namedLoc: true,
+        },
+        where: and(...filters),
+      });
+      return fliteredLocations;
+    }),
+
   getFilterData: publicProcedure.query(async ({ ctx }) => {
     const namedLocations = await ctx.db.query.namedLocations.findMany();
     const breakthroughs = await ctx.db.query.breakthroughs.findMany();

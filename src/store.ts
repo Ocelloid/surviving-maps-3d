@@ -1,6 +1,9 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { Location } from "~/server/api/routers/location";
+import { db } from "./server/db";
+import { locations } from "./server/db/schema";
+import { and, eq } from "drizzle-orm";
 
 export const MAP_NAMES = [
   { key: "BlankBig_01", label: "BlankBig_01" },
@@ -86,6 +89,7 @@ export type Filter = {
 interface State {
   locData: Location | null;
   locationLoading: boolean;
+  appliedFilter: Filter;
   filter: Filter;
 }
 
@@ -93,6 +97,7 @@ interface Actions {
   setLocation: (location: Location) => void;
   setLocationLoading: (loading: boolean) => void;
   setFilter: (filter: Filter) => void;
+  applyFilter: () => void;
   clearFilter: () => void;
   setCoordinates: (coordinates: string) => void;
   setVersionId: (versionId: number | null) => void;
@@ -124,38 +129,41 @@ interface Actions {
   setMaxDifficulty: (maxDifficulty: number) => void;
 }
 
+const initialFilter = {
+  coordinates: "N 18 W 134",
+  versionId: null,
+  namedLocationIds: [],
+  mapNames: [],
+  topographyNames: [],
+  breakthroughIds: [],
+  minAltitude: -10000,
+  maxAltitude: 30000,
+  minConcrete: 1,
+  maxConcrete: 4,
+  minWater: 1,
+  maxWater: 4,
+  minMetals: 1,
+  maxMetals: 4,
+  minRareMetals: 1,
+  maxRareMetals: 4,
+  minTemperature: -170,
+  maxTemperature: 30,
+  minMeteors: 1,
+  maxMeteors: 4,
+  minDustDevils: 1,
+  maxDustDevils: 4,
+  minDustStorms: 1,
+  maxDustStorms: 4,
+  minColdWaves: 1,
+  maxColdWaves: 4,
+  minDifficulty: 1,
+  maxDifficulty: 300,
+};
+
 export const initialState = {
   locData: null,
-  filter: {
-    coordinates: "N 18 W 134",
-    versionId: null,
-    namedLocationIds: [],
-    mapNames: [],
-    topographyNames: [],
-    breakthroughIds: [],
-    minAltitude: -10000,
-    maxAltitude: 30000,
-    minConcrete: 1,
-    maxConcrete: 4,
-    minWater: 1,
-    maxWater: 4,
-    minMetals: 1,
-    maxMetals: 4,
-    minRareMetals: 1,
-    maxRareMetals: 4,
-    minTemperature: -170,
-    maxTemperature: 30,
-    minMeteors: 1,
-    maxMeteors: 4,
-    minDustDevils: 1,
-    maxDustDevils: 4,
-    minDustStorms: 1,
-    maxDustStorms: 4,
-    minColdWaves: 1,
-    maxColdWaves: 4,
-    minDifficulty: 1,
-    maxDifficulty: 300,
-  },
+  filter: initialFilter,
+  appliedFilter: initialFilter,
   locationLoading: true,
 };
 
@@ -164,6 +172,7 @@ export const useStore = create<State & Actions>()(
     (set, get) => ({
       locData: initialState.locData,
       filter: initialState.filter,
+      appliedFilter: initialState.appliedFilter,
       locationLoading: initialState.locationLoading,
       setLocation: (location: Location) => {
         set({ locData: location });
@@ -173,6 +182,9 @@ export const useStore = create<State & Actions>()(
       },
       clearFilter: () => {
         set({ filter: { ...initialState.filter } });
+      },
+      applyFilter: () => {
+        set({ appliedFilter: get().filter });
       },
       setFilter: (filter: Filter) => {
         set({ filter });
