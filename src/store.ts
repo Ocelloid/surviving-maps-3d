@@ -1,9 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { Location } from "~/server/api/routers/location";
-import { db } from "./server/db";
-import { locations } from "./server/db/schema";
-import { and, eq } from "drizzle-orm";
 
 export const MAP_NAMES = [
   { key: "BlankBig_01", label: "BlankBig_01" },
