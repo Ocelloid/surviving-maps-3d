@@ -127,10 +127,25 @@ export default function Filter() {
     setBreakthroughIds,
   ]);
 
+  const handleClearFilter = () => {
+    clearFilter();
+    setVersionId(filterData?.versions[0]?.id ?? null);
+    setBreakthroughIds(filterData?.breakthroughs.map((b) => b.id) ?? []);
+    setNamedLocationIds(filterData?.namedLocations.map((nl) => nl.id) ?? []);
+  };
+
   return (
     <Wrapper style={{ width: "15%" }}>
-      <div className="flex flex-col gap-2">
+      <div className="relative flex flex-col gap-2">
         <p className="text-2xl uppercase text-blue-300">Filter</p>
+        <Button
+          size="sm"
+          color="danger"
+          onPress={handleClearFilter}
+          className="absolute right-0 top-0 min-w-0"
+        >
+          X
+        </Button>
         <Input
           value={filter.coordinates}
           onValueChange={setCoordinates}

@@ -16,7 +16,7 @@ const convertUVtoCoordinates = (uv: THREE.Vector2) => {
 };
 
 export default function Planet() {
-  const { setLocation, setLocationLoading } = useStore();
+  const { setLocation, setLocationLoading, setCoordinates } = useStore();
   const meshRef = useRef<THREE.Mesh>(null);
   const [pin, setPin] = useState<THREE.Vector3>(
     new THREE.Vector3(
@@ -68,10 +68,15 @@ export default function Planet() {
       <Pin pin={pin} coord={coord} />
       <group
         onClick={(e) => {
-          const coord = convertUVtoCoordinates(e.uv ?? new THREE.Vector2(0, 0));
-          if (Math.abs(coord.y) <= 70) {
+          const newCoord = convertUVtoCoordinates(
+            e.uv ?? new THREE.Vector2(0, 0),
+          );
+          if (Math.abs(newCoord.y) <= 70) {
             setPin(e.normal ?? new THREE.Vector3(0, 0, 0));
-            setCoord(coord);
+            setCoordinates(
+              `${newCoord.y > 0 ? "N" : "S"} ${Math.abs(newCoord.y).toString()} ${newCoord.x > 0 ? "E" : "W"} ${Math.abs(newCoord.x).toString()}`,
+            );
+            setCoord(newCoord);
             void refetchLocation();
           }
         }}

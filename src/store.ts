@@ -166,7 +166,6 @@ export const useStore = create<State & Actions>()(
       filter: initialState.filter,
       locationLoading: initialState.locationLoading,
       setLocation: (location: Location) => {
-        console.log(location);
         set({ locData: location });
       },
       setLocationLoading: (loading: boolean) => {
