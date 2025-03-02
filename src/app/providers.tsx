@@ -7,7 +7,12 @@ import { TRPCReactProvider } from "~/trpc/react";
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <HeroUIProvider locale="en-EN">
-      <NextThemesProvider attribute="class" defaultTheme="dark">
+      <NextThemesProvider
+        attribute="class"
+        enableSystem={true}
+        defaultTheme="dark"
+        forcedTheme="dark"
+      >
         <TRPCReactProvider>
           <SessionProvider>{children}</SessionProvider>
         </TRPCReactProvider>

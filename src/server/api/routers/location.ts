@@ -87,7 +87,7 @@ export type Location = {
   namedLoc?: NamedLocation | null;
 };
 
-type NamedLocation = {
+export type NamedLocation = {
   id: number;
   name_en: string | null;
   name_br: string | null;
@@ -110,7 +110,7 @@ type BreakthroughInLocation = {
   ver?: Version | null;
 };
 
-type Breakthrough = {
+export type Breakthrough = {
   id: number;
   name_en: string | null;
   name_br: string | null;
@@ -131,13 +131,20 @@ type Breakthrough = {
   bts_loc?: BreakthroughInLocation[];
 };
 
-type Version = {
+export type Version = {
   id: number;
   name: string | null;
   bts_loc?: BreakthroughInLocation[];
 };
 
 export const locationRouter = createTRPCRouter({
+  getFilterData: publicProcedure.query(async ({ ctx }) => {
+    const namedLocations = await ctx.db.query.namedLocations.findMany();
+    const breakthroughs = await ctx.db.query.breakthroughs.findMany();
+    const versions = await ctx.db.query.versions.findMany();
+    return { namedLocations, breakthroughs, versions };
+  }),
+
   getNamedLocations: publicProcedure.query(async ({ ctx }) => {
     const namedLocations = await ctx.db.query.namedLocations.findMany();
     return namedLocations;

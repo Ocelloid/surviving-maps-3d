@@ -2,11 +2,11 @@
 import Wrapper from "./Wrapper";
 import { useStore } from "~/store";
 import Image from "next/image";
-import IconLoading from "./IconLoading";
+import { CircularProgress, Skeleton } from "@heroui/react";
 
 const Rhombi = ({ value }: { value: number }) => {
   return (
-    <div className="flex w-min flex-row gap-0.5">
+    <div className="flex w-min flex-row gap-0.5 pl-1">
       {Array.from({ length: value }).map((_, i) => (
         <div
           key={"filled_" + i}
@@ -23,16 +23,20 @@ const Rhombi = ({ value }: { value: number }) => {
   );
 };
 
-export default function Menu() {
+export default function LocationDetails() {
   const { locData, locationLoading } = useStore();
   return (
-    <Wrapper>
-      <div className="relative flex flex-col">
-        {locationLoading && (
-          <div className="absolute -left-8 -top-8 z-20 flex h-full w-[400px] flex-col items-center rounded-tl-3xl bg-violet-700/25 pt-96">
-            <IconLoading className="animate-spin" />
-          </div>
-        )}
+    <Wrapper style={{ width: "25%", position: "relative" }}>
+      {locationLoading && (
+        <div className="absolute left-0 top-0 z-20 flex size-full flex-col rounded-tl-3xl bg-blue-700/25">
+          <CircularProgress
+            aria-label="Loading..."
+            size="lg"
+            className="m-auto"
+          />
+        </div>
+      )}
+      <div className="flex max-h-[calc(100vh-56px)] flex-col overflow-auto">
         <div className="flex flex-col gap-2">
           <p className="text-4xl">
             {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
@@ -99,13 +103,20 @@ export default function Menu() {
               </div>
             </div>
           </div>
-          <Image
-            src={`/topology/${locData?.map_name}.png`}
-            className="bevel-clip-sm mt-2 rounded-tl-2xl"
-            alt="topology"
-            width={480}
-            height={270}
-          />
+          {!!locData?.map_name ? (
+            <Image
+              src={`/topology/${locData.map_name}.png`}
+              className="bevel-clip-sm mt-2 rounded-tl-2xl"
+              alt="topology"
+              width={480}
+              height={270}
+            />
+          ) : (
+            <Skeleton
+              className="bevel-clip-sm mt-2 rounded-tl-2xl"
+              style={{ width: "480px", height: "270px" }}
+            />
+          )}
           <p className="-mt-2 ml-auto text-xs text-blue-300">
             {locData?.map_name}
           </p>
