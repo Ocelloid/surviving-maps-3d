@@ -31,6 +31,10 @@ function FilterSlider({
   return (
     <Slider
       size="sm"
+      classNames={{
+        label: "text-xs text-blue-300",
+        value: "text-xs text-blue-300",
+      }}
       value={value}
       onChange={onChange}
       defaultValue={[minValue, maxValue]}
@@ -136,19 +140,24 @@ export default function Filter() {
 
   return (
     <Wrapper style={{ width: "15%" }}>
-      <div className="relative flex flex-col gap-2">
+      <div className="relative flex flex-col gap-1">
         <p className="text-2xl uppercase text-blue-300">Filter</p>
         <Button
           size="sm"
           color="danger"
+          variant="light"
           onPress={handleClearFilter}
           className="absolute right-0 top-0 min-w-0"
         >
-          X
+          Clear
+        </Button>
+        <Button size="sm" color="success" onPress={handleClearFilter}>
+          Apply
         </Button>
         <Input
           value={filter.coordinates}
           onValueChange={setCoordinates}
+          variant="underlined"
           size="sm"
           label="Coordinates"
           placeholder="N 18 W 134"
@@ -158,6 +167,7 @@ export default function Filter() {
             <Select
               size="sm"
               label="Version"
+              variant="underlined"
               selectedKeys={[Number(filter.versionId)]}
               onSelectionChange={(keys) =>
                 [...keys].includes("")
@@ -173,6 +183,7 @@ export default function Filter() {
             <Select
               size="sm"
               label="Named Location"
+              variant="underlined"
               selectionMode="multiple"
               selectedKeys={filter.namedLocationIds}
               onSelectionChange={(keys) =>
@@ -194,6 +205,7 @@ export default function Filter() {
             <Select
               size="sm"
               label="Map"
+              variant="underlined"
               selectionMode="multiple"
               selectedKeys={filter.mapNames}
               onSelectionChange={(keys) =>
@@ -210,6 +222,7 @@ export default function Filter() {
             <Select
               size="sm"
               label="Topography"
+              variant="underlined"
               selectionMode="multiple"
               selectedKeys={filter.topographyNames}
               onSelectionChange={(keys) =>
@@ -228,6 +241,7 @@ export default function Filter() {
             <Select
               size="sm"
               label="Breakthrough"
+              variant="underlined"
               selectionMode="multiple"
               selectedKeys={filter.breakthroughIds}
               onSelectionChange={(keys) =>
