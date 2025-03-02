@@ -117,8 +117,6 @@ export default function Filter() {
         })),
       );
       setVersionId(filterData.versions[0]?.id ?? null);
-      setNamedLocationIds(filterData.namedLocations.map((nl) => nl.id));
-      setBreakthroughIds(filterData.breakthroughs.map((b) => b.id));
     }
   }, [
     filterData,
@@ -149,8 +147,8 @@ export default function Filter() {
   };
 
   return (
-    <Wrapper style={{ width: "15%" }}>
-      <div className="relative flex max-h-[calc(100vh-56px)] flex-col gap-1 overflow-y-auto overflow-x-hidden">
+    <Wrapper style={{ width: "15%", overflow: "auto", maxHeight: "96vh" }}>
+      <div className="relative flex flex-col gap-1">
         <p className="text-2xl uppercase text-blue-300">Filter</p>
         <Button
           size="sm"
@@ -180,12 +178,9 @@ export default function Filter() {
               variant="underlined"
               selectedKeys={[Number(filter.versionId)]}
               onSelectionChange={(keys) =>
-                [...keys].includes("")
-                  ? setVersionId(Number(versions[0]!.key))
-                  : setVersionId([...keys].map(Number)[0]!)
+                setVersionId([...keys].map(Number)[0]!)
               }
             >
-              <SelectItem key={""}>All</SelectItem>
               <SelectSection title="Named Locations list" items={versions}>
                 {(versionName) => <SelectItem>{versionName.label}</SelectItem>}
               </SelectSection>
@@ -198,11 +193,11 @@ export default function Filter() {
               selectedKeys={filter.namedLocationIds}
               onSelectionChange={(keys) =>
                 [...keys].includes("")
-                  ? setNamedLocationIds(breakthroughs.map((t) => Number(t.key)))
+                  ? setNamedLocationIds([])
                   : setNamedLocationIds([...keys].map(Number))
               }
             >
-              <SelectItem key={""}>All</SelectItem>
+              <SelectItem key={""}>Any</SelectItem>
               <SelectSection
                 title="Named Locations list"
                 items={namedLocations}
@@ -220,11 +215,11 @@ export default function Filter() {
               selectedKeys={filter.mapNames}
               onSelectionChange={(keys) =>
                 [...keys].includes("")
-                  ? setMapNames(MAP_NAMES.map((t) => t.key))
+                  ? setMapNames([])
                   : setMapNames([...keys].map(String))
               }
             >
-              <SelectItem key={""}>All</SelectItem>
+              <SelectItem key={""}>Any</SelectItem>
               <SelectSection title="Map names" items={MAP_NAMES}>
                 {(mapName) => <SelectItem>{mapName.label}</SelectItem>}
               </SelectSection>
@@ -237,11 +232,11 @@ export default function Filter() {
               selectedKeys={filter.topographyNames}
               onSelectionChange={(keys) =>
                 [...keys].includes("")
-                  ? setTopographyNames(TOPOGRAPHY_NAMES.map((t) => t.key))
+                  ? setTopographyNames([])
                   : setTopographyNames([...keys].map(String))
               }
             >
-              <SelectItem key={""}>All</SelectItem>
+              <SelectItem key={""}>Any</SelectItem>
               <SelectSection title="Topography names" items={TOPOGRAPHY_NAMES}>
                 {(topographyName) => (
                   <SelectItem>{topographyName.label}</SelectItem>
@@ -256,11 +251,11 @@ export default function Filter() {
               selectedKeys={filter.breakthroughIds}
               onSelectionChange={(keys) =>
                 [...keys].includes("")
-                  ? setBreakthroughIds(breakthroughs.map((t) => Number(t.key)))
+                  ? setBreakthroughIds([])
                   : setBreakthroughIds([...keys].map(Number))
               }
             >
-              <SelectItem key={""}>All</SelectItem>
+              <SelectItem key={""}>Any</SelectItem>
               <SelectSection title="Breakthrough list" items={breakthroughs}>
                 {(breakthroughName) => (
                   <SelectItem>{breakthroughName.label}</SelectItem>

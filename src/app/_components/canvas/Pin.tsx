@@ -33,7 +33,7 @@ export default function Pin({
         <mesh position={[0, 0, 0]}>
           <meshStandardMaterial
             color={"lightskyblue"}
-            opacity={0.75}
+            opacity={0.5}
             transparent
           />
           <torusGeometry args={[0.5, 0.1, 6, 6]} />
@@ -41,7 +41,7 @@ export default function Pin({
         <mesh position={[0, 0, 0]}>
           <meshStandardMaterial
             color={"lightskyblue"}
-            opacity={0.5}
+            opacity={0.25}
             transparent
           />
           <torusGeometry args={[0.75, 0.025, 6, 6]} />
