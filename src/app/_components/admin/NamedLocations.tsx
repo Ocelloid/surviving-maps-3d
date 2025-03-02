@@ -43,7 +43,6 @@ export function NamedLocations() {
         if (!!row.name_en) rows.push(row);
       },
       complete: function () {
-        console.log(rows);
         namedLocationsMutation.mutate({ names: rows });
         setIsParsing(false);
       },

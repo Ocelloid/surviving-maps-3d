@@ -132,15 +132,25 @@ export default function Filter() {
   ]);
 
   const handleClearFilter = () => {
-    clearFilter();
-    setVersionId(filterData?.versions[0]?.id ?? null);
-    setBreakthroughIds(filterData?.breakthroughs.map((b) => b.id) ?? []);
-    setNamedLocationIds(filterData?.namedLocations.map((nl) => nl.id) ?? []);
+    const confirmed = window.confirm(
+      "Are you sure you want to clear the filter?",
+    );
+    if (confirmed) {
+      clearFilter();
+      setVersionId(filterData?.versions[0]?.id ?? null);
+      setBreakthroughIds(filterData?.breakthroughs.map((b) => b.id) ?? []);
+      setNamedLocationIds(filterData?.namedLocations.map((nl) => nl.id) ?? []);
+    }
+  };
+
+  const handleApplyFilter = () => {
+    console.log("apply filter");
+    console.log(filter);
   };
 
   return (
     <Wrapper style={{ width: "15%" }}>
-      <div className="relative flex flex-col gap-1">
+      <div className="relative flex max-h-[calc(100vh-56px)] flex-col gap-1 overflow-y-auto overflow-x-hidden">
         <p className="text-2xl uppercase text-blue-300">Filter</p>
         <Button
           size="sm"
@@ -151,7 +161,7 @@ export default function Filter() {
         >
           Clear
         </Button>
-        <Button size="sm" color="success" onPress={handleClearFilter}>
+        <Button size="sm" color="success" onPress={handleApplyFilter}>
           Apply
         </Button>
         <Input

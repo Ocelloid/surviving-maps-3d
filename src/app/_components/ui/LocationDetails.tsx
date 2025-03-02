@@ -38,14 +38,16 @@ export default function LocationDetails() {
       )}
       <div className="flex max-h-[calc(100vh-56px)] flex-col overflow-auto">
         <div className="flex flex-col gap-2">
-          <p className="text-4xl">
-            {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
-            {locData?.lon_deg}
-          </p>
-          <div className="gap-1">
-            <p className="-mt-4 text-2xl text-yellow-400">
+          <div className="flex flex-row items-center justify-between">
+            <p className="text-2xl text-yellow-400">
               {locData?.namedLoc?.name_en ?? "Unknown Location"}
             </p>
+            <p className="text-xl">
+              {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
+              {locData?.lon_deg}
+            </p>
+          </div>
+          <div className="gap-1">
             <div className="flex flex-row justify-between">
               <p className="text-blue-300">Difficulty Challenge</p>
               {locData?.difficulty}

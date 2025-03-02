@@ -90,12 +90,12 @@ export function Breakthroughs() {
             setIsParsing(false);
           })
           .catch((err) => {
-            console.log(err);
+            console.error(err);
             setIsParsing(false);
           });
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         setIsParsing(false);
       });
   };

@@ -4,6 +4,7 @@ import { Image, Text } from "@react-three/drei";
 import * as THREE from "three";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { useStore } from "~/store";
 
 export default function Pin({
   pin,
@@ -12,33 +13,54 @@ export default function Pin({
   pin: THREE.Vector3;
   coord: THREE.Vector2;
 }) {
+  const { locationLoading, locData } = useStore();
   const pinRef = useRef<THREE.Group>(null);
+  const hexagonRef = useRef<THREE.Group>(null);
   useFrame(() => {
     if (pinRef.current) {
       pinRef.current.lookAt(new THREE.Vector3(0, 0, 0));
     }
+    if (hexagonRef.current) {
+      if (locationLoading) {
+        hexagonRef.current.rotation.z += 0.01;
+      } else hexagonRef.current.rotation.z -= 0.01;
+    }
   });
+  const hasName = !!locData?.namedLoc?.name_en && !locationLoading;
   return (
     <group position={pin} scale={0.03} ref={pinRef}>
-      <mesh position={[0, 0, 0]}>
-        <meshStandardMaterial
-          color={"lightskyblue"}
-          opacity={0.75}
-          transparent
-        />
-        <torusGeometry args={[0.5, 0.1, 6, 6]} />
-      </mesh>
-      <mesh position={[0, 0, 0]}>
-        <meshStandardMaterial
-          color={"lightskyblue"}
-          opacity={0.5}
-          transparent
-        />
-        <torusGeometry args={[0.75, 0.025, 6, 6]} />
-      </mesh>
+      <group ref={hexagonRef}>
+        <mesh position={[0, 0, 0]}>
+          <meshStandardMaterial
+            color={"lightskyblue"}
+            opacity={0.75}
+            transparent
+          />
+          <torusGeometry args={[0.5, 0.1, 6, 6]} />
+        </mesh>
+        <mesh position={[0, 0, 0]}>
+          <meshStandardMaterial
+            color={"lightskyblue"}
+            opacity={0.5}
+            transparent
+          />
+          <torusGeometry args={[0.75, 0.025, 6, 6]} />
+        </mesh>
+      </group>
+      {hasName && (
+        <Text
+          position={[0, -1, -0.25]}
+          rotation={[0, Math.PI, 0]}
+          outlineColor={"black"}
+          outlineWidth={0.05}
+          color={"#facc15"}
+        >
+          {locData?.namedLoc?.name_en}
+        </Text>
+      )}
       <Text
         rotation={[0, Math.PI, 0]}
-        position={[0, -1.5, -0.25]}
+        position={[0, -2.25 + (hasName ? 0 : 1.25), -0.25]}
         color={"lightskyblue"}
         outlineColor={"black"}
         outlineWidth={0.05}
@@ -48,7 +70,10 @@ export default function Pin({
         {Math.abs(coord.x)}
         {coord.x > 0 ? "°E" : "°W"}
       </Text>
-      <group position={[0, -2.5, -0.25]} rotation={[0, Math.PI, 0]}>
+      <group
+        position={[0, -3.25 + (hasName ? 0 : 1.25), -0.25]}
+        rotation={[0, Math.PI, 0]}
+      >
         <Image
           url="/lmb.png"
           side={THREE.DoubleSide}
