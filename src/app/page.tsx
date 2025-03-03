@@ -9,7 +9,7 @@ export default function Home() {
   const isMobile = useClientMediaQuery("(max-width: 600px)");
   const [showCanvas, setShowCanvas] = useState(!isMobile);
   return (
-    <main className="relative flex h-full min-h-screen flex-col">
+    <main className="relative flex h-full min-h-dvh flex-col">
       {showCanvas && <MainCanvas />}
       <UI />
       <Switch

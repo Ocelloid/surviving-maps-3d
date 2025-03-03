@@ -168,7 +168,7 @@ export default function Filter() {
             content: "overflow-hidden flex-col flex gap-2",
           }}
         >
-          <div className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden md:h-screen md:max-h-[calc(100vh-96px)]">
+          <div className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden md:h-dvh md:max-h-[calc(100vh-96px)]">
             <div className="flex flex-row gap-2">
               <Button
                 size="sm"

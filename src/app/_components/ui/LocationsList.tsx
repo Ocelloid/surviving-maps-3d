@@ -125,7 +125,7 @@ export default function LocationsList() {
           }}
         >
           <div
-            className={`flex flex-grow flex-col gap-1 overflow-x-hidden overflow-y-scroll md:h-screen ${
+            className={`flex flex-grow flex-col gap-1 overflow-x-hidden overflow-y-scroll md:h-dvh ${
               (locationsListData?.total[0]?.count ?? 0) / 10 > 1
                 ? "md:max-h-[calc(100vh-140px)]"
                 : "md:max-h-[calc(100vh-96px)]"

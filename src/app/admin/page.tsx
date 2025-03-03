@@ -18,7 +18,7 @@ export default function Admin() {
     return <div>Not admin</div>;
 
   return (
-    <div className="mx-auto flex h-full min-h-screen w-full max-w-7xl flex-col gap-4 rounded-xl p-4 shadow-md dark">
+    <div className="mx-auto flex h-full min-h-dvh w-full max-w-7xl flex-col gap-4 rounded-xl p-4 shadow-md dark">
       <Tabs
         aria-label="Admin Tabs"
         classNames={{
