@@ -75,7 +75,7 @@ export default function LocationDetails() {
     <Wrapper className="w-full md:w-1/4">
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
-          title="Location Info"
+          title="Location"
           classNames={{
             base: "-mx-2",
             trigger: "p-0",
