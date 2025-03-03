@@ -2,7 +2,7 @@
 import Wrapper from "./Wrapper";
 import { api } from "~/trpc/react";
 import { useEffect, useState, useMemo } from "react";
-import { useStore, initialState, MAP_NAMES, TOPOGRAPHY_NAMES } from "~/store";
+import { useStore, initialFilter, MAP_NAMES, TOPOGRAPHY_NAMES } from "~/store";
 import {
   Button,
   Slider,
@@ -57,6 +57,7 @@ export default function Filter() {
     filter,
     applyFilter,
     clearFilter,
+    setAppliedCoordinates,
     setCoordinates, // input
     setVersionId, // select
     setNamedLocationIds, // multiselect
@@ -165,7 +166,15 @@ export default function Filter() {
         <Button
           size="sm"
           color="success"
-          onPress={() => applyFilter()}
+          onPress={() => {
+            applyFilter();
+            setAppliedCoordinates({
+              lat_dir: filter.coordinates.split(" ")[0] ?? "",
+              lat_deg: filter.coordinates.split(" ")[1] ?? "",
+              lon_dir: filter.coordinates.split(" ")[2] ?? "",
+              lon_deg: filter.coordinates.split(" ")[3] ?? "",
+            });
+          }}
           isDisabled={isInvalid}
         >
           Apply
@@ -290,8 +299,8 @@ export default function Filter() {
             setMinAltitude(numbers[0]!);
             setMaxAltitude(numbers[1]!);
           }}
-          minValue={initialState.filter.minAltitude}
-          maxValue={initialState.filter.maxAltitude}
+          minValue={initialFilter.minAltitude}
+          maxValue={initialFilter.maxAltitude}
           step={50}
         />
         <FilterSlider
@@ -302,8 +311,8 @@ export default function Filter() {
             setMinConcrete(numbers[0]!);
             setMaxConcrete(numbers[1]!);
           }}
-          minValue={initialState.filter.minConcrete}
-          maxValue={initialState.filter.maxConcrete}
+          minValue={initialFilter.minConcrete}
+          maxValue={initialFilter.maxConcrete}
         />
         <FilterSlider
           label="Water"
@@ -313,8 +322,8 @@ export default function Filter() {
             setMinWater(numbers[0]!);
             setMaxWater(numbers[1]!);
           }}
-          minValue={initialState.filter.minWater}
-          maxValue={initialState.filter.maxWater}
+          minValue={initialFilter.minWater}
+          maxValue={initialFilter.maxWater}
         />
         <FilterSlider
           label="Metals"
@@ -324,8 +333,8 @@ export default function Filter() {
             setMinMetals(numbers[0]!);
             setMaxMetals(numbers[1]!);
           }}
-          minValue={initialState.filter.minMetals}
-          maxValue={initialState.filter.maxMetals}
+          minValue={initialFilter.minMetals}
+          maxValue={initialFilter.maxMetals}
         />
         <FilterSlider
           label="Rare Metals"
@@ -335,8 +344,8 @@ export default function Filter() {
             setMinRareMetals(numbers[0]!);
             setMaxRareMetals(numbers[1]!);
           }}
-          minValue={initialState.filter.minRareMetals}
-          maxValue={initialState.filter.maxRareMetals}
+          minValue={initialFilter.minRareMetals}
+          maxValue={initialFilter.maxRareMetals}
         />
         <FilterSlider
           label="Temperature"
@@ -346,8 +355,8 @@ export default function Filter() {
             setMinTemperature(numbers[0]!);
             setMaxTemperature(numbers[1]!);
           }}
-          minValue={initialState.filter.minTemperature}
-          maxValue={initialState.filter.maxTemperature}
+          minValue={initialFilter.minTemperature}
+          maxValue={initialFilter.maxTemperature}
         />
         <FilterSlider
           label="Meteors"
@@ -357,8 +366,8 @@ export default function Filter() {
             setMinMeteors(numbers[0]!);
             setMaxMeteors(numbers[1]!);
           }}
-          minValue={initialState.filter.minMeteors}
-          maxValue={initialState.filter.maxMeteors}
+          minValue={initialFilter.minMeteors}
+          maxValue={initialFilter.maxMeteors}
         />
         <FilterSlider
           label="Dust Devils"
@@ -368,8 +377,8 @@ export default function Filter() {
             setMinDustDevils(numbers[0]!);
             setMaxDustDevils(numbers[1]!);
           }}
-          minValue={initialState.filter.minDustDevils}
-          maxValue={initialState.filter.maxDustDevils}
+          minValue={initialFilter.minDustDevils}
+          maxValue={initialFilter.maxDustDevils}
         />
         <FilterSlider
           label="Dust Storms"
@@ -379,8 +388,8 @@ export default function Filter() {
             setMinDustStorms(numbers[0]!);
             setMaxDustStorms(numbers[1]!);
           }}
-          minValue={initialState.filter.minDustStorms}
-          maxValue={initialState.filter.maxDustStorms}
+          minValue={initialFilter.minDustStorms}
+          maxValue={initialFilter.maxDustStorms}
         />
         <FilterSlider
           label="Cold Waves"
@@ -390,8 +399,8 @@ export default function Filter() {
             setMinColdWaves(numbers[0]!);
             setMaxColdWaves(numbers[1]!);
           }}
-          minValue={initialState.filter.minColdWaves}
-          maxValue={initialState.filter.maxColdWaves}
+          minValue={initialFilter.minColdWaves}
+          maxValue={initialFilter.maxColdWaves}
         />
         <FilterSlider
           label="Difficulty Challenge"
@@ -401,8 +410,8 @@ export default function Filter() {
             setMinDifficulty(numbers[0]!);
             setMaxDifficulty(numbers[1]!);
           }}
-          minValue={initialState.filter.minDifficulty}
-          maxValue={initialState.filter.maxDifficulty}
+          minValue={initialFilter.minDifficulty}
+          maxValue={initialFilter.maxDifficulty}
         />
       </div>
     </Wrapper>

@@ -1,12 +1,11 @@
 "use client";
 import * as THREE from "three";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import Pin from "./Pin";
 import MarsSD from "./mars/sd";
 import MarsMD from "./mars/md";
-import { api } from "~/trpc/react";
-import { useStore } from "~/store";
+import { useStore, type Coordinates } from "~/store";
 // import MarsHD from "./mars/hd";
 
 const convertUVtoCoordinates = (uv: THREE.Vector2) => {
@@ -15,8 +14,15 @@ const convertUVtoCoordinates = (uv: THREE.Vector2) => {
   return new THREE.Vector2(x < -180 ? x + 360 : x, y);
 };
 
+const convertAppliedCoordinatesToUV = (coord: Coordinates) => {
+  const x = Number(coord.lon_deg) * (coord.lon_dir === "W" ? -1 : 1);
+  const y = Number(coord.lat_deg) * (coord.lat_dir === "N" ? -1 : 1);
+  return new THREE.Vector2(x, y);
+};
+
 export default function Planet() {
-  const { setLocation, setLocationLoading, setCoordinates } = useStore();
+  const { setAppliedCoordinates, setCoordinates, appliedCoordinates } =
+    useStore();
   const meshRef = useRef<THREE.Mesh>(null);
   const [pin, setPin] = useState<THREE.Vector3>(
     new THREE.Vector3(
@@ -25,37 +31,6 @@ export default function Planet() {
       -0.6864056397686533,
     ),
   );
-  const [coord, setCoord] = useState<THREE.Vector2>(
-    new THREE.Vector2(-134, 18),
-  );
-
-  const {
-    data: locationDetails,
-    isLoading: isLoadingLocationDetails,
-    refetch: refetchLocation,
-  } = api.location.getLocationByCoords.useQuery(
-    {
-      lat_deg: Math.abs(coord.y).toString(),
-      lat_dir: coord.y > 0 ? "N" : "S",
-      lon_deg: Math.abs(coord.x).toString(),
-      lon_dir: coord.x > 0 ? "E" : "W",
-    },
-    {
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-      refetchOnMount: false,
-    },
-  );
-
-  useEffect(() => {
-    if (locationDetails && !isLoadingLocationDetails) {
-      setLocation(locationDetails);
-    }
-  }, [locationDetails, setLocation, isLoadingLocationDetails]);
-
-  useEffect(() => {
-    setLocationLoading(isLoadingLocationDetails);
-  }, [setLocationLoading, isLoadingLocationDetails]);
 
   useFrame((_state, delta) => {
     if (meshRef.current) {
@@ -65,7 +40,14 @@ export default function Planet() {
 
   return (
     <mesh ref={meshRef}>
-      <Pin pin={pin} coord={coord} />
+      <Pin
+        pin={pin}
+        coord={
+          appliedCoordinates
+            ? convertAppliedCoordinatesToUV(appliedCoordinates)
+            : new THREE.Vector2(0, 0)
+        }
+      />
       <group
         onClick={(e) => {
           const newCoord = convertUVtoCoordinates(
@@ -73,11 +55,15 @@ export default function Planet() {
           );
           if (Math.abs(newCoord.y) <= 70) {
             setPin(e.normal ?? new THREE.Vector3(0, 0, 0));
+            setAppliedCoordinates({
+              lat_dir: newCoord.y > 0 ? "N" : "S",
+              lat_deg: Math.abs(newCoord.y).toString(),
+              lon_dir: newCoord.x > 0 ? "E" : "W",
+              lon_deg: Math.abs(newCoord.x).toString(),
+            });
             setCoordinates(
               `${newCoord.y > 0 ? "N" : "S"} ${Math.abs(newCoord.y).toString()} ${newCoord.x > 0 ? "E" : "W"} ${Math.abs(newCoord.x).toString()}`,
             );
-            setCoord(newCoord);
-            void refetchLocation();
           }
         }}
       >

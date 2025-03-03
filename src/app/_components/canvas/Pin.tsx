@@ -13,7 +13,7 @@ export default function Pin({
   pin: THREE.Vector3;
   coord: THREE.Vector2;
 }) {
-  const { locationLoading, locData } = useStore();
+  const { appliedLocation, isLocationLoading } = useStore();
   const pinRef = useRef<THREE.Group>(null);
   const hexagonRef = useRef<THREE.Group>(null);
   useFrame(() => {
@@ -21,12 +21,12 @@ export default function Pin({
       pinRef.current.lookAt(new THREE.Vector3(0, 0, 0));
     }
     if (hexagonRef.current) {
-      if (locationLoading) {
+      if (isLocationLoading) {
         hexagonRef.current.rotation.z += 0.01;
       } else hexagonRef.current.rotation.z -= 0.01;
     }
   });
-  const hasName = !!locData?.namedLoc?.name_en && !locationLoading;
+  const hasName = !!appliedLocation?.namedLoc?.name_en && !isLocationLoading;
   return (
     <group position={pin} scale={0.03} ref={pinRef}>
       <group ref={hexagonRef}>
@@ -55,7 +55,7 @@ export default function Pin({
           outlineWidth={0.05}
           color={"#facc15"}
         >
-          {locData?.namedLoc?.name_en}
+          {appliedLocation?.namedLoc?.name_en}
         </Text>
       )}
       <Text

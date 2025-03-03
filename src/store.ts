@@ -52,6 +52,13 @@ export const TOPOGRAPHY_NAMES = [
   { key: "Mountainous", label: "Mountainous" },
 ];
 
+export type Coordinates = {
+  lat_dir: string;
+  lat_deg: string;
+  lon_dir: string;
+  lon_deg: string;
+};
+
 export type Filter = {
   coordinates: string;
   versionId: number | null;
@@ -84,14 +91,16 @@ export type Filter = {
 };
 
 interface State {
-  locData: Location | null;
-  locationLoading: boolean;
-  appliedFilter: Filter;
   filter: Filter;
+  appliedFilter: Filter;
+  isLocationLoading: boolean;
+  appliedLocation: Location | null;
+  appliedCoordinates: Coordinates | null;
 }
 
 interface Actions {
-  setLocation: (location: Location) => void;
+  setAppliedCoordinates: (coord: Coordinates) => void;
+  setAppliedLocation: (location: Location) => void;
   setLocationLoading: (loading: boolean) => void;
   setFilter: (filter: Filter) => void;
   applyFilter: () => void;
@@ -126,7 +135,7 @@ interface Actions {
   setMaxDifficulty: (maxDifficulty: number) => void;
 }
 
-const initialFilter = {
+export const initialFilter = {
   coordinates: "",
   versionId: null,
   namedLocationIds: [],
@@ -157,28 +166,38 @@ const initialFilter = {
   maxDifficulty: 240,
 };
 
-export const initialState = {
-  locData: null,
-  filter: initialFilter,
-  appliedFilter: initialFilter,
-  locationLoading: true,
+const initialCoordinates = {
+  lat_dir: "N",
+  lat_deg: "18",
+  lon_dir: "W",
+  lon_deg: "134",
 };
 
 export const useStore = create<State & Actions>()(
   persist(
     (set, get) => ({
-      locData: initialState.locData,
-      filter: initialState.filter,
-      appliedFilter: initialState.appliedFilter,
-      locationLoading: initialState.locationLoading,
-      setLocation: (location: Location) => {
-        set({ locData: location });
-      },
+      filter: initialFilter,
+      appliedFilter: initialFilter,
+      appliedLocation: null,
+      appliedCoordinates: initialCoordinates,
+      isLocationLoading: true,
       setLocationLoading: (loading: boolean) => {
-        set({ locationLoading: loading });
+        set({ isLocationLoading: loading });
+      },
+      setAppliedLocation: (location: Location) => {
+        set({ appliedLocation: location });
+      },
+      setAppliedCoordinates: (coordinates: Coordinates) => {
+        set({ appliedCoordinates: coordinates });
       },
       clearFilter: () => {
-        set({ filter: { ...initialState.filter } });
+        set({
+          filter: initialFilter,
+          appliedFilter: initialFilter,
+          appliedLocation: null,
+          appliedCoordinates: initialCoordinates,
+          isLocationLoading: true,
+        });
       },
       applyFilter: () => {
         set({ appliedFilter: get().filter });

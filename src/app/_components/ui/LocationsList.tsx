@@ -72,9 +72,7 @@ const LocationRow = ({
 };
 
 export default function LocationsList() {
-  const { appliedFilter, setLocation, setLocationLoading } = useStore();
-  const [enabledChoice, setEnabledChoice] = useState(false);
-  const [currentChoice, setCurrentChoice] = useState<Location | null>(null);
+  const { appliedFilter, setAppliedCoordinates } = useStore();
   const [currentPage, setCurrentPage] = useState(1);
 
   const {
@@ -93,22 +91,6 @@ export default function LocationsList() {
     },
   );
 
-  const { data: locationData, isFetched } =
-    api.location.getLocationByCoords.useQuery(
-      {
-        lat_deg: currentChoice?.lat_deg ?? "",
-        lon_deg: currentChoice?.lon_deg ?? "",
-        lat_dir: currentChoice?.lat_dir ?? "",
-        lon_dir: currentChoice?.lon_dir ?? "",
-      },
-      {
-        enabled: currentChoice !== null && enabledChoice,
-        refetchOnWindowFocus: false,
-        refetchOnReconnect: false,
-        refetchOnMount: false,
-      },
-    );
-
   useEffect(() => {
     if (appliedFilter) {
       setCurrentPage(1);
@@ -116,19 +98,13 @@ export default function LocationsList() {
     }
   }, [appliedFilter, refetch]);
 
-  useEffect(() => {
-    if (isFetched && locationData) {
-      setLocation(locationData);
-      setLocationLoading(false);
-      setEnabledChoice(false);
-      setCurrentChoice(null);
-    }
-  }, [isFetched, locationData, setLocation, setLocationLoading]);
-
-  const handleRefetchLocation = (location: Location) => {
-    setEnabledChoice(true);
-    setLocationLoading(true);
-    setCurrentChoice(location);
+  const handleApplyCoordinates = (location: Location) => {
+    setAppliedCoordinates({
+      lat_dir: location.lat_dir ?? "",
+      lat_deg: location.lat_deg ?? "",
+      lon_dir: location.lon_dir ?? "",
+      lon_deg: location.lon_deg ?? "",
+    });
   };
 
   return (
@@ -152,7 +128,7 @@ export default function LocationsList() {
                 <LocationRow
                   key={location.id}
                   location={location}
-                  handleChoose={handleRefetchLocation}
+                  handleChoose={handleApplyCoordinates}
                 />
               ))}
             </div>

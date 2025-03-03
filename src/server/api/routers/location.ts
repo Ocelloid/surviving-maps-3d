@@ -569,6 +569,7 @@ export const locationRouter = createTRPCRouter({
         lon_deg: z.string(),
         lat_dir: z.string(),
         lon_dir: z.string(),
+        versionId: z.number(),
       }),
     )
     .query(async ({ ctx, input }) => {
@@ -581,7 +582,11 @@ export const locationRouter = createTRPCRouter({
         ),
         with: {
           namedLoc: true,
-          bts_loc: { with: { bt: true, ver: true } },
+          bts_loc: {
+            with: { bt: true, ver: true },
+            where: (breakthroughsInLocations, { eq }) =>
+              eq(breakthroughsInLocations.ver_id, input.versionId),
+          },
         },
       });
       return location;
