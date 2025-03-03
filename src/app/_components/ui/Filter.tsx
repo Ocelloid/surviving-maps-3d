@@ -35,6 +35,7 @@ function FilterSlider({
         label: "text-xs text-blue-300",
         value: "text-xs text-blue-300",
       }}
+      showSteps={true}
       value={value}
       onChange={onChange}
       defaultValue={[minValue, maxValue]}

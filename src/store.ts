@@ -133,8 +133,8 @@ const initialFilter = {
   mapNames: [],
   topographyNames: [],
   breakthroughIds: [],
-  minAltitude: -10000,
-  maxAltitude: 30000,
+  minAltitude: -8500,
+  maxAltitude: 21500,
   minConcrete: 1,
   maxConcrete: 4,
   minWater: 1,
@@ -143,8 +143,8 @@ const initialFilter = {
   maxMetals: 4,
   minRareMetals: 1,
   maxRareMetals: 4,
-  minTemperature: -170,
-  maxTemperature: 30,
+  minTemperature: -100,
+  maxTemperature: 0,
   minMeteors: 1,
   maxMeteors: 4,
   minDustDevils: 1,
@@ -154,7 +154,7 @@ const initialFilter = {
   minColdWaves: 1,
   maxColdWaves: 4,
   minDifficulty: 1,
-  maxDifficulty: 300,
+  maxDifficulty: 240,
 };
 
 export const initialState = {
