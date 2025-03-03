@@ -132,6 +132,7 @@ export default function LocationsList() {
 
   return (
     <Wrapper style={{ minWidth: "min-content", width: "60%" }}>
+      TODO: pagination
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
           title="Locations List"

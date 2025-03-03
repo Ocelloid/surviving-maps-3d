@@ -145,7 +145,6 @@ export default function Filter() {
 
   return (
     <Wrapper style={{ width: "15%", overflow: "auto", maxHeight: "96vh" }}>
-      TODO: pagination, filter
       <div className="relative flex flex-col gap-1">
         <p className="text-2xl uppercase text-blue-300">Filter</p>
         <Button
