@@ -184,7 +184,9 @@ export const locationRouter = createTRPCRouter({
         !!input.filter.namedLocationIds &&
         input.filter.namedLocationIds.length > 0
       )
-        filters.push(inArray(locations.id, input.filter.namedLocationIds));
+        filters.push(
+          inArray(locations.named_loc_id, input.filter.namedLocationIds),
+        );
 
       if (!!input.filter.mapNames && input.filter.mapNames.length > 0)
         filters.push(inArray(locations.map_name, input.filter.mapNames));
