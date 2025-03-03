@@ -170,12 +170,13 @@ export default function Filter() {
           color="success"
           onPress={() => {
             applyFilter();
-            setAppliedCoordinates({
-              lat_dir: filter.coordinates.split(" ")[0] ?? "",
-              lat_deg: filter.coordinates.split(" ")[1] ?? "",
-              lon_dir: filter.coordinates.split(" ")[2] ?? "",
-              lon_deg: filter.coordinates.split(" ")[3] ?? "",
-            });
+            if (filter.coordinates.split(" ").length > 3)
+              setAppliedCoordinates({
+                lat_dir: filter.coordinates.split(" ")[0] ?? "",
+                lat_deg: filter.coordinates.split(" ")[1] ?? "",
+                lon_dir: filter.coordinates.split(" ")[2] ?? "",
+                lon_deg: filter.coordinates.split(" ")[3] ?? "",
+              });
           }}
           isDisabled={isInvalid}
         >
