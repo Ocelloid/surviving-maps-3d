@@ -1,4 +1,4 @@
-import { and, eq, inArray, gte, lte, type SQL } from "drizzle-orm";
+import { and, eq, inArray, gte, lte, type SQL, count } from "drizzle-orm";
 import { z } from "zod";
 import {
   createTRPCRouter,
@@ -140,6 +140,7 @@ export const locationRouter = createTRPCRouter({
   getFilteredLocations: publicProcedure
     .input(
       z.object({
+        page: z.number(),
         filter: z.object({
           coordinates: z.string().optional(),
           versionId: z.number().nullable().optional(),
@@ -278,12 +279,17 @@ export const locationRouter = createTRPCRouter({
 
       const fliteredLocations = await ctx.db.query.locations.findMany({
         limit: 10,
+        offset: (input.page - 1) * 10,
         with: {
           namedLoc: true,
         },
         where: and(...filters),
       });
-      return fliteredLocations;
+      const countTotal = await ctx.db
+        .select({ count: count() })
+        .from(locations)
+        .where(and(...filters));
+      return { locations: fliteredLocations, total: countTotal };
     }),
 
   getFilterData: publicProcedure.query(async ({ ctx }) => {

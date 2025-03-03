@@ -8,8 +8,6 @@ import {
   Accordion,
   AccordionItem,
   Pagination,
-  PaginationItem,
-  PaginationCursor,
   CircularProgress,
 } from "@heroui/react";
 import { useEffect, useState } from "react";
@@ -77,13 +75,16 @@ export default function LocationsList() {
   const { appliedFilter, setLocation, setLocationLoading } = useStore();
   const [enabledChoice, setEnabledChoice] = useState(false);
   const [currentChoice, setCurrentChoice] = useState<Location | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [total, setTotal] = useState(0);
 
   const {
-    data: locationsList,
+    data: locationsListData,
     isLoading: isLocationsListLoading,
     refetch,
   } = api.location.getFilteredLocations.useQuery(
     {
+      page: currentPage,
       filter: appliedFilter,
     },
     {
@@ -111,6 +112,7 @@ export default function LocationsList() {
 
   useEffect(() => {
     if (appliedFilter) {
+      setCurrentPage(1);
       void refetch();
     }
   }, [appliedFilter, refetch]);
@@ -132,7 +134,6 @@ export default function LocationsList() {
 
   return (
     <Wrapper style={{ minWidth: "min-content", width: "60%" }}>
-      TODO: pagination
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
           title="Locations List"
@@ -141,14 +142,26 @@ export default function LocationsList() {
             trigger: "p-0",
             heading: "z-50 w-full top-0",
             title: "text-2xl uppercase text-blue-300",
-            content: "h-fit overflow-scroll max-h-[calc(100vh-112px)]",
+            content:
+              "h-fit overflow-y-scroll overflow-x-hidden max-h-[calc(100vh-112px)] flex-col flex gap-2",
           }}
         >
+          <Pagination
+            color="primary"
+            className="ml-auto"
+            page={currentPage}
+            total={
+              !!locationsListData?.total[0]
+                ? Number((locationsListData.total[0].count / 10).toFixed(0))
+                : 1
+            }
+            onChange={setCurrentPage}
+          />
           {isLocationsListLoading ? (
             <CircularProgress />
           ) : (
-            <div className="flex flex-grow flex-col gap-1">
-              {locationsList?.map((location) => (
+            <div className="flex flex-grow flex-col gap-1 overflow-hidden">
+              {locationsListData?.locations.map((location) => (
                 <LocationRow
                   key={location.id}
                   location={location}
