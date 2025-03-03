@@ -185,7 +185,7 @@ export const useStore = create<State & Actions>()(
         set({ isLocationLoading: loading });
       },
       setAppliedLocation: (location: Location) => {
-        set({ appliedLocation: location });
+        if (!!location) set({ appliedLocation: location });
       },
       setAppliedCoordinates: (coordinates: Coordinates) => {
         set({ appliedCoordinates: coordinates });

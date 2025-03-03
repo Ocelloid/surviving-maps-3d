@@ -29,11 +29,10 @@ export default function LocationDetails() {
   const {
     appliedFilter,
     appliedCoordinates,
-    appliedLocation,
     setLocationLoading,
     setAppliedLocation,
   } = useStore();
-
+  console.log(appliedFilter.versionId, appliedCoordinates);
   const { data: locData, isLoading } =
     api.location.getLocationByCoords.useQuery(
       {
@@ -82,30 +81,29 @@ export default function LocationDetails() {
         <div className="flex flex-col gap-2">
           <div className="flex flex-row items-center justify-between">
             <p className="text-2xl text-yellow-400">
-              {appliedLocation?.namedLoc?.name_en ?? "Unknown Location"}
+              {locData?.namedLoc?.name_en ?? "Unknown Location"}
             </p>
             <p className="text-xl">
-              {appliedLocation?.lat_dir} {appliedLocation?.lat_deg}{" "}
-              {appliedLocation?.lon_dir} {appliedLocation?.lon_deg}
+              {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
+              {locData?.lon_deg}
             </p>
           </div>
           <div className="gap-1">
             <div className="flex flex-row justify-between">
               <p className="text-blue-300">Difficulty Challenge</p>
-              {appliedLocation?.difficulty}
+              {locData?.difficulty}
             </div>
             <div className="flex flex-row justify-between">
               <p className="text-blue-300">Average Altitude</p>{" "}
-              {appliedLocation?.altitude} m
+              {locData?.altitude} m
             </div>
             <div className="flex flex-row justify-between">
               <p className="text-blue-300">Mean Temperature</p>
-              {appliedLocation?.temperature}
+              {locData?.temperature}
               {"°C"}
             </div>
             <div className="flex flex-row justify-between">
-              <p className="text-blue-300">Topography</p>{" "}
-              {appliedLocation?.topography}
+              <p className="text-blue-300">Topography</p> {locData?.topography}
             </div>
           </div>
           <div className="grid grid-cols-2 gap-2 text-xs">
@@ -113,44 +111,44 @@ export default function LocationDetails() {
             <p className="text-2xl uppercase text-blue-300">RESOURCES</p>
             <div className="flex flex-col gap-2">
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.dust_devils ?? 0} />
+                <Rhombi value={locData?.dust_devils ?? 0} />
                 <p>Dust Devils</p>
               </div>
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.dust_storms ?? 0} />
+                <Rhombi value={locData?.dust_storms ?? 0} />
                 <p>Dust Storms</p>
               </div>
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.concrete ?? 0} />
+                <Rhombi value={locData?.concrete ?? 0} />
                 <p>Meteors</p>
               </div>
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.water ?? 0} />
+                <Rhombi value={locData?.water ?? 0} />
                 <p>Cold Waves</p>
               </div>
             </div>
             <div className="flex flex-col gap-2">
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.metals ?? 0} />
+                <Rhombi value={locData?.metals ?? 0} />
                 <p>Metals</p>
               </div>
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.rare_metals ?? 0} />
+                <Rhombi value={locData?.rare_metals ?? 0} />
                 <p>Rare Metals</p>
               </div>
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.concrete ?? 0} />
+                <Rhombi value={locData?.concrete ?? 0} />
                 <p>Concrete</p>
               </div>
               <div className="grid grid-cols-2 items-center">
-                <Rhombi value={appliedLocation?.water ?? 0} />
+                <Rhombi value={locData?.water ?? 0} />
                 <p>Water</p>
               </div>
             </div>
           </div>
-          {!!appliedLocation?.map_name ? (
+          {!!locData?.map_name ? (
             <Image
-              src={`/topology/${appliedLocation.map_name}.png`}
+              src={`/topology/${locData.map_name}.png`}
               className="bevel-clip-sm mt-2 rounded-tl-2xl"
               priority={true}
               alt="topology"
@@ -164,11 +162,11 @@ export default function LocationDetails() {
             />
           )}
           <p className="-mt-2 ml-auto text-xs text-blue-300">
-            {appliedLocation?.map_name}
+            {locData?.map_name}
           </p>
           <p className="text-2xl uppercase text-blue-300">Breakthroughs</p>
           <div className="flex flex-col gap-4">
-            {appliedLocation?.bts_loc?.map((btsloc, i) => (
+            {locData?.bts_loc?.map((btsloc, i) => (
               <div className="flex flex-col gap-0" key={btsloc.id}>
                 <p>
                   {i + 1}. {btsloc.bt?.name_en}

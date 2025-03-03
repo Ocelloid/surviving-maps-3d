@@ -127,9 +127,11 @@ export default function Filter() {
         })),
       );
       setVersionId(filterData.versions[0]?.id ?? null);
+      applyFilter();
     }
   }, [
     filterData,
+    applyFilter,
     clearFilter,
     setVersions,
     setBreakthroughs,
