@@ -202,23 +202,22 @@ export const locationRouter = createTRPCRouter({
         input.filter.breakthroughIds.length > 0 &&
         input.filter.versionId
       )
-        filters.push(
-          inArray(
-            locations.id,
-            ctx.db
-              .select({ id: breakthroughsInLocations.loc_id })
-              .from(breakthroughsInLocations)
-              .where(
-                and(
-                  inArray(
-                    breakthroughsInLocations.bt_id,
-                    input.filter.breakthroughIds,
+        for (const bt_id of input.filter.breakthroughIds) {
+          filters.push(
+            inArray(
+              locations.id,
+              ctx.db
+                .select({ id: breakthroughsInLocations.loc_id })
+                .from(breakthroughsInLocations)
+                .where(
+                  and(
+                    eq(breakthroughsInLocations.bt_id, bt_id),
+                    eq(breakthroughsInLocations.ver_id, input.filter.versionId),
                   ),
-                  eq(breakthroughsInLocations.ver_id, input.filter.versionId),
                 ),
-              ),
-          ),
-        );
+            ),
+          );
+        }
 
       if (!!input.filter.minAltitude && !!input.filter.maxAltitude) {
         filters.push(gte(locations.altitude, input.filter.minAltitude));
