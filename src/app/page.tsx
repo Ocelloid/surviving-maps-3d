@@ -9,9 +9,11 @@ export default function Home() {
   useEffect(() => {
     if (!!window) {
       setShowCanvas(
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent,
-        ) || window.matchMedia("(max-width: 767px)").matches,
+        !(
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent,
+          ) || window.matchMedia("(max-width: 767px)").matches
+        ),
       );
     }
   }, []);
