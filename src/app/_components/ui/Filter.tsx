@@ -1,7 +1,7 @@
 "use client";
 import Wrapper from "./Wrapper";
 import { api } from "~/trpc/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useStore, initialState, MAP_NAMES, TOPOGRAPHY_NAMES } from "~/store";
 import {
   Button,
@@ -90,6 +90,13 @@ export default function Filter() {
   const [breakthroughs, setBreakthroughs] = useState<FilterSelection[]>([]);
   const [versions, setVersions] = useState<FilterSelection[]>([]);
 
+  const isInvalid = useMemo(() => {
+    if (filter.coordinates === "") return false;
+    return /^[NS] \d{1,3} [WE] \d{1,3}$/i.exec(filter.coordinates)
+      ? false
+      : true;
+  }, [filter.coordinates]);
+
   const { data: filterData, isLoading: isFilterDataLoading } =
     api.location.getFilterData.useQuery(undefined, {
       refetchOnWindowFocus: false,
@@ -138,8 +145,7 @@ export default function Filter() {
     if (confirmed) {
       clearFilter();
       setVersionId(filterData?.versions[0]?.id ?? null);
-      setBreakthroughIds(filterData?.breakthroughs.map((b) => b.id) ?? []);
-      setNamedLocationIds(filterData?.namedLocations.map((nl) => nl.id) ?? []);
+      applyFilter();
     }
   };
 
@@ -156,12 +162,19 @@ export default function Filter() {
         >
           Clear
         </Button>
-        <Button size="sm" color="success" onPress={() => applyFilter()}>
+        <Button
+          size="sm"
+          color="success"
+          onPress={() => applyFilter()}
+          isDisabled={isInvalid}
+        >
           Apply
         </Button>
         <Input
           value={filter.coordinates}
           onValueChange={setCoordinates}
+          errorMessage="The format is N/S # W/E #"
+          isInvalid={isInvalid}
           variant="underlined"
           size="sm"
           label="Coordinates"

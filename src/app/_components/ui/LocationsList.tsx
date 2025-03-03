@@ -76,7 +76,6 @@ export default function LocationsList() {
   const [enabledChoice, setEnabledChoice] = useState(false);
   const [currentChoice, setCurrentChoice] = useState<Location | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [total, setTotal] = useState(0);
 
   const {
     data: locationsListData,

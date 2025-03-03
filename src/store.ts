@@ -127,7 +127,7 @@ interface Actions {
 }
 
 const initialFilter = {
-  coordinates: "N 18 W 134",
+  coordinates: "",
   versionId: null,
   namedLocationIds: [],
   mapNames: [],
