@@ -68,16 +68,19 @@ export default function LocationDetails() {
 
   return (
     <Wrapper style={{ width: "25%", position: "relative" }}>
-      {isLoading && (
+      {!isLoading && (
         <div className="absolute left-0 top-0 z-20 flex size-full flex-col rounded-tl-3xl bg-blue-700/25">
           <CircularProgress
             aria-label="Loading..."
-            size="lg"
             className="m-auto"
+            classNames={{
+              base: "pb-36",
+              svg: "w-24 h-24",
+            }}
           />
         </div>
       )}
-      <div className="flex max-h-[calc(100vh-56px)] flex-col overflow-auto">
+      <div className="flex h-screen max-h-[calc(100vh-56px)] flex-col overflow-auto">
         <div className="flex flex-col gap-2">
           <div className="flex flex-row items-center justify-between">
             <p className="text-2xl text-yellow-400">

@@ -120,27 +120,35 @@ export default function LocationsList() {
             content: " overflow-hidden flex-col flex gap-2",
           }}
         >
-          {isLocationsListLoading ? (
-            <CircularProgress />
-          ) : (
-            <div
-              style={{
-                maxHeight:
-                  (locationsListData?.total[0]?.count ?? 0) / 10 > 1
-                    ? "calc(100vh - 140px)"
-                    : "calc(100vh - 96px)",
-              }}
-              className={`flex h-screen flex-grow flex-col gap-1 overflow-x-hidden overflow-y-scroll`}
-            >
-              {locationsListData?.locations.map((location) => (
-                <LocationRow
-                  key={location.id}
-                  location={location}
-                  handleChoose={handleApplyCoordinates}
-                />
-              ))}
-            </div>
-          )}
+          <div
+            style={{
+              maxHeight:
+                (locationsListData?.total[0]?.count ?? 0) / 10 > 1
+                  ? "calc(100vh - 140px)"
+                  : "calc(100vh - 96px)",
+            }}
+            className={`flex h-screen flex-grow flex-col gap-1 overflow-x-hidden overflow-y-scroll`}
+          >
+            {isLocationsListLoading ? (
+              <CircularProgress
+                aria-label="Loading..."
+                className="m-auto"
+                classNames={{
+                  svg: "w-24 h-24",
+                }}
+              />
+            ) : (
+              <>
+                {locationsListData?.locations.map((location) => (
+                  <LocationRow
+                    key={location.id}
+                    location={location}
+                    handleChoose={handleApplyCoordinates}
+                  />
+                ))}
+              </>
+            )}
+          </div>
           {(locationsListData?.total[0]?.count ?? 0) / 10 > 1 && (
             <Pagination
               color="primary"
