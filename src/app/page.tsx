@@ -2,14 +2,19 @@
 import MainCanvas from "~/app/_components/canvas/MainCanvas";
 import UI from "~/app/_components/ui/UI";
 import { Switch } from "@heroui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    ) || window.matchMedia("(max-width: 767px)").matches;
-  const [showCanvas, setShowCanvas] = useState(!isMobile);
+  const [showCanvas, setShowCanvas] = useState(false);
+  useEffect(() => {
+    if (!!window) {
+      setShowCanvas(
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent,
+        ) || window.matchMedia("(max-width: 767px)").matches,
+      );
+    }
+  }, []);
   return (
     <main className="relative flex h-full min-h-dvh flex-col">
       {showCanvas && <MainCanvas />}
