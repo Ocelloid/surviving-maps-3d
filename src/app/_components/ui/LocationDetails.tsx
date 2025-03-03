@@ -4,7 +4,12 @@ import { useStore } from "~/store";
 import Image from "next/image";
 import { api } from "~/trpc/react";
 import { useEffect } from "react";
-import { CircularProgress, Skeleton } from "@heroui/react";
+import {
+  CircularProgress,
+  Skeleton,
+  Accordion,
+  AccordionItem,
+} from "@heroui/react";
 
 export const Rhombi = ({ value }: { value: number | null }) => {
   return (
@@ -67,119 +72,133 @@ export default function LocationDetails() {
   }, [isLoading, setLocationLoading]);
 
   return (
-    <Wrapper style={{ width: "25%", position: "relative" }}>
-      {!isLoading && (
-        <div className="absolute left-0 top-0 z-20 flex size-full flex-col rounded-tl-3xl bg-blue-700/25">
-          <CircularProgress
-            aria-label="Loading..."
-            className="m-auto"
-            classNames={{
-              base: "pb-36",
-              svg: "w-24 h-24",
-            }}
-          />
-        </div>
-      )}
-      <div className="flex h-screen max-h-[calc(100vh-56px)] flex-col overflow-auto">
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-row items-center justify-between">
-            <p className="text-2xl text-yellow-400">
-              {locData?.namedLoc?.name_en ?? "Unknown Location"}
-            </p>
-            <p className="text-xl">
-              {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
-              {locData?.lon_deg}
-            </p>
-          </div>
-          <div className="gap-1">
-            <div className="flex flex-row justify-between">
-              <p className="text-blue-300">Difficulty Challenge</p>
-              {locData?.difficulty}
+    <Wrapper className="w-full md:w-1/4">
+      <Accordion isCompact={true} className="flex flex-col gap-2">
+        <AccordionItem
+          title="Location Info"
+          classNames={{
+            base: "-mx-2",
+            trigger: "p-0",
+            heading: "z-50 w-full top-0",
+            title: "text-2xl uppercase text-blue-300",
+            content: "overflow-hidden flex-col flex gap-2",
+          }}
+        >
+          {isLoading && (
+            <div className="absolute left-0 top-0 z-20 flex size-full flex-col rounded-tl-3xl bg-blue-700/25">
+              <CircularProgress
+                aria-label="Loading..."
+                className="m-auto"
+                classNames={{
+                  base: "pb-36",
+                  svg: "w-24 h-24",
+                }}
+              />
             </div>
-            <div className="flex flex-row justify-between">
-              <p className="text-blue-300">Average Altitude</p>{" "}
-              {locData?.altitude} m
-            </div>
-            <div className="flex flex-row justify-between">
-              <p className="text-blue-300">Mean Temperature</p>
-              {locData?.temperature}
-              {"°C"}
-            </div>
-            <div className="flex flex-row justify-between">
-              <p className="text-blue-300">Topography</p> {locData?.topography}
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-2 text-xs">
-            <p className="text-2xl uppercase text-blue-300">THREATS</p>
-            <p className="text-2xl uppercase text-blue-300">RESOURCES</p>
-            <div className="flex flex-col gap-2">
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.dust_devils ?? 0} />
-                <p>Dust Devils</p>
-              </div>
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.dust_storms ?? 0} />
-                <p>Dust Storms</p>
-              </div>
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.concrete ?? 0} />
-                <p>Meteors</p>
-              </div>
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.water ?? 0} />
-                <p>Cold Waves</p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.metals ?? 0} />
-                <p>Metals</p>
-              </div>
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.rare_metals ?? 0} />
-                <p>Rare Metals</p>
-              </div>
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.concrete ?? 0} />
-                <p>Concrete</p>
-              </div>
-              <div className="grid grid-cols-2 items-center">
-                <Rhombi value={locData?.water ?? 0} />
-                <p>Water</p>
-              </div>
-            </div>
-          </div>
-          {!!locData?.map_name ? (
-            <Image
-              src={`/topology/${locData.map_name}.png`}
-              className="bevel-clip-sm mt-2 rounded-tl-2xl"
-              priority={true}
-              alt="topology"
-              width={480}
-              height={270}
-            />
-          ) : (
-            <Skeleton
-              className="bevel-clip-sm mt-2 rounded-tl-2xl"
-              style={{ width: "100%", height: "200px" }}
-            />
           )}
-          <p className="-mt-2 ml-auto text-xs text-blue-300">
-            {locData?.map_name}
-          </p>
-          <p className="text-2xl uppercase text-blue-300">Breakthroughs</p>
-          <div className="flex flex-col gap-4">
-            {locData?.bts_loc?.map((btsloc, i) => (
-              <div className="flex flex-col gap-0" key={btsloc.id}>
-                <p>
-                  {i + 1}. {btsloc.bt?.name_en}
+          <div className="flex flex-col overflow-auto md:h-screen md:max-h-[calc(100vh-96px)]">
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-col justify-between xl:flex-row xl:items-center">
+                <p className="text-2xl text-yellow-400">
+                  {locData?.namedLoc?.name_en ?? "Unknown Location"}
                 </p>
-                <p className="text-xs italic">{btsloc.bt?.desc_en}</p>
+                <p className="text-xl">
+                  {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
+                  {locData?.lon_deg}
+                </p>
               </div>
-            ))}
+              <div className="gap-1">
+                <div className="flex flex-row justify-between">
+                  <p className="text-blue-300">Difficulty Challenge</p>
+                  {locData?.difficulty}
+                </div>
+                <div className="flex flex-row justify-between">
+                  <p className="text-blue-300">Average Altitude</p>{" "}
+                  {locData?.altitude} m
+                </div>
+                <div className="flex flex-row justify-between">
+                  <p className="text-blue-300">Mean Temperature</p>
+                  {locData?.temperature}
+                  {"°C"}
+                </div>
+                <div className="flex flex-row justify-between">
+                  <p className="text-blue-300">Topography</p>{" "}
+                  {locData?.topography}
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-2 text-xs xl:grid-cols-2">
+                <div className="flex flex-col gap-2">
+                  <p className="text-2xl uppercase text-blue-300">THREATS</p>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.dust_devils ?? 0} />
+                    <p>Dust Devils</p>
+                  </div>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.dust_storms ?? 0} />
+                    <p>Dust Storms</p>
+                  </div>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.concrete ?? 0} />
+                    <p>Meteors</p>
+                  </div>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.water ?? 0} />
+                    <p>Cold Waves</p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-2xl uppercase text-blue-300">RESOURCES</p>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.metals ?? 0} />
+                    <p>Metals</p>
+                  </div>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.rare_metals ?? 0} />
+                    <p>Rare Metals</p>
+                  </div>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.concrete ?? 0} />
+                    <p>Concrete</p>
+                  </div>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.water ?? 0} />
+                    <p>Water</p>
+                  </div>
+                </div>
+              </div>
+              {!!locData?.map_name ? (
+                <Image
+                  src={`/topology/${locData.map_name}.png`}
+                  className="bevel-clip-sm mt-2 rounded-tl-2xl"
+                  priority={true}
+                  alt="topology"
+                  width={480}
+                  height={270}
+                />
+              ) : (
+                <Skeleton
+                  className="bevel-clip-sm mt-2 rounded-tl-2xl"
+                  style={{ width: "100%", height: "200px" }}
+                />
+              )}
+              <p className="-mt-2 ml-auto text-xs text-blue-300">
+                {locData?.map_name}
+              </p>
+              <p className="text-2xl uppercase text-blue-300">Breakthroughs</p>
+              <div className="flex flex-col gap-4">
+                {locData?.bts_loc?.map((btsloc, i) => (
+                  <div className="flex flex-col gap-0" key={btsloc.id}>
+                    <p>
+                      {i + 1}. {btsloc.bt?.name_en}
+                    </p>
+                    <p className="text-xs italic">{btsloc.bt?.desc_en}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </AccordionItem>
+      </Accordion>
     </Wrapper>
   );
 }

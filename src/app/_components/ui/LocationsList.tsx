@@ -33,38 +33,42 @@ const LocationRow = ({
           {location.namedLoc?.name_en ?? "Unknown Location"}
         </p>
       </div>
-      <div className="flex flex-row items-center gap-4 text-xs">
-        <div className="flex-row gap-1">
-          <Rhombi value={location.concrete} />
-          Concrete
+      <div className="flex flex-col gap-1 xl:flex-row xl:gap-4">
+        <div className="flex flex-row items-center gap-1 text-xs md:gap-4">
+          <div className="flex-row gap-1">
+            <Rhombi value={location.concrete} />
+            Concrete
+          </div>
+          <div className="flex-row gap-1">
+            <Rhombi value={location.water} />
+            Water
+          </div>
+          <div className="flex-row gap-1">
+            <Rhombi value={location.metals} />
+            Metals
+          </div>
+          <div className="flex-row gap-1">
+            <Rhombi value={location.rare_metals} />
+            Rare Metals
+          </div>
         </div>
-        <div className="flex-row gap-1">
-          <Rhombi value={location.water} />
-          Water
-        </div>
-        <div className="flex-row gap-1">
-          <Rhombi value={location.metals} />
-          Metals
-        </div>
-        <div className="flex-row gap-1">
-          <Rhombi value={location.rare_metals} />
-          Rare Metals
-        </div>
-        <div className="flex-row gap-1">
-          <Rhombi value={location.meteors} />
-          <p>Meteors</p>
-        </div>
-        <div className="flex-row gap-1">
-          <Rhombi value={location.dust_devils} />
-          Dust Devils
-        </div>
-        <div className="flex-row gap-1">
-          <Rhombi value={location.dust_storms} />
-          Dust Storms
-        </div>
-        <div className="flex-row gap-1">
-          <Rhombi value={location.cold_waves} />
-          Cold Waves
+        <div className="flex flex-row items-center gap-1 text-xs md:gap-4">
+          <div className="flex-row gap-1">
+            <Rhombi value={location.meteors} />
+            <p>Meteors</p>
+          </div>
+          <div className="flex-row gap-1">
+            <Rhombi value={location.dust_devils} />
+            Dust Devils
+          </div>
+          <div className="flex-row gap-1">
+            <Rhombi value={location.dust_storms} />
+            Dust Storms
+          </div>
+          <div className="flex-row gap-1">
+            <Rhombi value={location.cold_waves} />
+            Cold Waves
+          </div>
         </div>
       </div>
     </div>
@@ -108,7 +112,7 @@ export default function LocationsList() {
   };
 
   return (
-    <Wrapper style={{ minWidth: "min-content", width: "60%" }}>
+    <Wrapper className="w-full md:w-3/5">
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
           title="Locations List"
@@ -117,17 +121,15 @@ export default function LocationsList() {
             trigger: "p-0",
             heading: "z-50 w-full top-0",
             title: "text-2xl uppercase text-blue-300",
-            content: " overflow-hidden flex-col flex gap-2",
+            content: "overflow-hidden flex-col flex gap-2",
           }}
         >
           <div
-            style={{
-              maxHeight:
-                (locationsListData?.total[0]?.count ?? 0) / 10 > 1
-                  ? "calc(100vh - 140px)"
-                  : "calc(100vh - 96px)",
-            }}
-            className={`flex h-screen flex-grow flex-col gap-1 overflow-x-hidden overflow-y-scroll`}
+            className={`flex flex-grow flex-col gap-1 overflow-x-hidden overflow-y-scroll md:h-screen ${
+              (locationsListData?.total[0]?.count ?? 0) / 10 > 1
+                ? "md:max-h-[calc(100vh-140px)]"
+                : "md:max-h-[calc(100vh-96px)]"
+            }`}
           >
             {isLocationsListLoading ? (
               <CircularProgress
