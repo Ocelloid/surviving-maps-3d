@@ -1,12 +1,12 @@
 "use client";
-import { useClientMediaQuery } from "~/app/api/clientMediaQuery";
 import MainCanvas from "~/app/_components/canvas/MainCanvas";
 import UI from "~/app/_components/ui/UI";
 import { Switch } from "@heroui/react";
 import { useState } from "react";
+import { useDevice } from "~/app/api/deviceState";
 
 export default function Home() {
-  const isMobile = useClientMediaQuery("(max-width: 600px)");
+  const { isMobile } = useDevice();
   const [showCanvas, setShowCanvas] = useState(!isMobile);
   return (
     <main className="relative flex h-full min-h-dvh flex-col">
