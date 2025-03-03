@@ -3,10 +3,12 @@ import MainCanvas from "~/app/_components/canvas/MainCanvas";
 import UI from "~/app/_components/ui/UI";
 import { Switch } from "@heroui/react";
 import { useState } from "react";
-import { useDevice } from "~/app/api/deviceState";
 
 export default function Home() {
-  const { isMobile } = useDevice();
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    ) || window.matchMedia("(max-width: 767px)").matches;
   const [showCanvas, setShowCanvas] = useState(!isMobile);
   return (
     <main className="relative flex h-full min-h-dvh flex-col">
