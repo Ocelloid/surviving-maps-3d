@@ -142,25 +142,13 @@ export default function LocationsList() {
             trigger: "p-0",
             heading: "z-50 w-full top-0",
             title: "text-2xl uppercase text-blue-300",
-            content:
-              "h-fit overflow-y-scroll overflow-x-hidden max-h-[calc(100vh-112px)] flex-col flex gap-2",
+            content: " overflow-hidden flex-col flex gap-2",
           }}
         >
-          <Pagination
-            color="primary"
-            className="ml-auto"
-            page={currentPage}
-            total={
-              !!locationsListData?.total[0]
-                ? Number((locationsListData.total[0].count / 10).toFixed(0))
-                : 1
-            }
-            onChange={setCurrentPage}
-          />
           {isLocationsListLoading ? (
             <CircularProgress />
           ) : (
-            <div className="flex flex-grow flex-col gap-1 overflow-hidden">
+            <div className="flex h-screen max-h-[calc(100vh-140px)] flex-grow flex-col gap-1 overflow-x-hidden overflow-y-scroll">
               {locationsListData?.locations.map((location) => (
                 <LocationRow
                   key={location.id}
@@ -170,6 +158,16 @@ export default function LocationsList() {
               ))}
             </div>
           )}
+          <Pagination
+            color="primary"
+            page={currentPage}
+            total={
+              !!locationsListData?.total[0]
+                ? Number((locationsListData.total[0].count / 10).toFixed(0))
+                : 1
+            }
+            onChange={setCurrentPage}
+          />
         </AccordionItem>
       </Accordion>
     </Wrapper>
