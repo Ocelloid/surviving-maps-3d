@@ -14,7 +14,6 @@ import {
   Accordion,
   AccordionItem,
 } from "@heroui/react";
-import Link from "next/link";
 
 function FilterSlider({
   value,
@@ -156,7 +155,7 @@ export default function Filter() {
   };
 
   return (
-    <Wrapper className="">
+    <Wrapper className="lg:w-1/4">
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
           title="Filter"
@@ -440,25 +439,6 @@ export default function Filter() {
               minValue={initialFilter.minDifficulty}
               maxValue={initialFilter.maxDifficulty}
             />
-            <p className="ml-auto mt-auto text-end text-xs text-blue-300">
-              data miner{" "}
-              <Link
-                href="https://choggi.org"
-                target="_blank"
-                className="underline"
-              >
-                ChoGGi
-              </Link>
-              <br />
-              web dev{" "}
-              <Link
-                href="https://ocelloid.com"
-                target="_blank"
-                className="underline"
-              >
-                Ocelloid
-              </Link>
-            </p>
           </div>
         </AccordionItem>
       </Accordion>

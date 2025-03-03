@@ -11,10 +11,10 @@ export default function Wrapper({
 }) {
   return (
     <div
-      className={`z-10 flex w-full flex-col md:h-full md:w-1/4 ${className}`}
+      className={`z-10 flex w-full flex-col md:h-full ${className}`}
       style={style}
     >
-      <div className="bevel-clip-sm flex h-full flex-grow flex-col rounded-tl-3xl bg-blue-700/25 p-4">
+      <div className="bevel-clip-sm flex h-full flex-grow flex-col rounded-tl-3xl bg-blue-700/25 p-4 pb-2">
         {children}
       </div>
     </div>

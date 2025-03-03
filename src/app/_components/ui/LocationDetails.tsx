@@ -72,7 +72,7 @@ export default function LocationDetails() {
   }, [isLoading, setLocationLoading]);
 
   return (
-    <Wrapper className="w-full md:w-1/4">
+    <Wrapper className="lg:w-1/4">
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
           title="Location"

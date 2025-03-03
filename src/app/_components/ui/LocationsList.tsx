@@ -11,6 +11,7 @@ import {
   CircularProgress,
 } from "@heroui/react";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const LocationRow = ({
   location,
@@ -33,8 +34,8 @@ const LocationRow = ({
           {location.namedLoc?.name_en ?? "Unknown Location"}
         </p>
       </div>
-      <div className="flex flex-col gap-1 xl:flex-row xl:gap-4">
-        <div className="flex flex-row items-center gap-1 text-xs md:gap-4">
+      <div className="flex flex-col gap-1 xl:flex-row 2xl:gap-4">
+        <div className="flex flex-row items-center gap-1 text-xs 2xl:gap-4">
           <div className="flex-row gap-1">
             <Rhombi value={location.concrete} />
             Concrete
@@ -52,7 +53,7 @@ const LocationRow = ({
             Rare Metals
           </div>
         </div>
-        <div className="flex flex-row items-center gap-1 text-xs md:gap-4">
+        <div className="flex flex-row items-center gap-1 text-xs 2xl:gap-4">
           <div className="flex-row gap-1">
             <Rhombi value={location.meteors} />
             <p>Meteors</p>
@@ -112,7 +113,7 @@ export default function LocationsList() {
   };
 
   return (
-    <Wrapper className="w-full md:w-3/5">
+    <Wrapper className="lg:w-1/2">
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
           title="Locations List"
@@ -161,6 +162,24 @@ export default function LocationsList() {
               onChange={setCurrentPage}
             />
           )}
+          <p className="ml-auto text-end text-xs text-blue-300 lg:-mt-6">
+            data by{" "}
+            <Link
+              href="https://choggi.org"
+              target="_blank"
+              className="underline"
+            >
+              ChoGGi
+            </Link>{" "}
+            web dev by{" "}
+            <Link
+              href="https://ocelloid.com"
+              target="_blank"
+              className="underline"
+            >
+              Ocelloid
+            </Link>
+          </p>
         </AccordionItem>
       </Accordion>
     </Wrapper>
