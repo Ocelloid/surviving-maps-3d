@@ -194,7 +194,6 @@ export const useStore = create<State & Actions>()(
         set({
           filter: initialFilter,
           appliedFilter: initialFilter,
-          appliedLocation: null,
           appliedCoordinates: initialCoordinates,
           isLocationLoading: true,
         });
