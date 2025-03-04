@@ -25,12 +25,12 @@ const LocationRow = ({
       onClick={() => handleChoose?.(location)}
       className="bevel-clip-xl flex cursor-pointer flex-col rounded-tl-xl bg-blue-700/25 px-2 py-1 shadow-md transition hover:shadow-xl hover:brightness-125"
     >
-      <div className="flex flex-row gap-1">
-        <p className="min-w-20 text-xl">
+      <div className="flex flex-row items-center gap-1">
+        <p className="min-w-24 text-xl">
           {location?.lat_dir} {location?.lat_deg} {location?.lon_dir}{" "}
           {location?.lon_deg}
         </p>
-        <p className="text-2xl text-yellow-400">
+        <p className="text-xl text-yellow-400">
           {location.namedLoc?.name_en ?? "Unknown Location"}
         </p>
       </div>
