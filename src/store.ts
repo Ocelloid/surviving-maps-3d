@@ -91,7 +91,9 @@ export type Filter = {
 };
 
 interface State {
+  spin: boolean;
   filter: Filter;
+  showCanvas: boolean;
   appliedFilter: Filter;
   isLocationLoading: boolean;
   appliedLocation: Location | null;
@@ -99,6 +101,8 @@ interface State {
 }
 
 interface Actions {
+  setSpin: (spin: boolean) => void;
+  setShowCanvas: (showCanvas: boolean) => void;
   setAppliedCoordinates: (coord: Coordinates) => void;
   setAppliedLocation: (location: Location) => void;
   setLocationLoading: (loading: boolean) => void;
@@ -176,11 +180,22 @@ const initialCoordinates = {
 export const useStore = create<State & Actions>()(
   persist(
     (set, get) => ({
+      spin: true,
       filter: initialFilter,
       appliedFilter: initialFilter,
       appliedLocation: null,
       appliedCoordinates: initialCoordinates,
       isLocationLoading: true,
+      showCanvas: false,
+      setSpin: (spin: boolean) => {
+        set({ spin: spin });
+      },
+      setShowCanvas: (showCanvas: boolean) => {
+        if (!showCanvas) {
+          set({ spin: false });
+        }
+        set({ showCanvas: showCanvas });
+      },
       setLocationLoading: (loading: boolean) => {
         set({ isLocationLoading: loading });
       },

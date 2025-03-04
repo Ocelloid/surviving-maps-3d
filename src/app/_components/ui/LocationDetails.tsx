@@ -37,7 +37,6 @@ export default function LocationDetails() {
     setLocationLoading,
     setAppliedLocation,
   } = useStore();
-  console.log(appliedFilter.versionId, appliedCoordinates);
   const { data: locData, isLoading } =
     api.location.getLocationByCoords.useQuery(
       {
@@ -71,6 +70,16 @@ export default function LocationDetails() {
     setLocationLoading(isLoading);
   }, [isLoading, setLocationLoading]);
 
+  const filteredBreakthroguhs =
+    locData?.bts_loc
+      ?.map((btsloc, i, arr) => {
+        return arr[i - 1]?.bt_id === btsloc.bt_id ||
+          arr[i + 1]?.bt_id === btsloc.bt_id
+          ? null
+          : btsloc;
+      })
+      .filter((b) => !!b) ?? [];
+
   return (
     <Wrapper className="lg:w-1/4">
       <Accordion isCompact={true} className="flex flex-col gap-2">
@@ -96,7 +105,7 @@ export default function LocationDetails() {
               />
             </div>
           )}
-          <div className="flex flex-col overflow-auto md:h-dvh md:max-h-[calc(100vh-96px)]">
+          <div className="flex flex-col overflow-auto md:h-dvh md:max-h-[calc(100vh-86px)]">
             <div className="flex flex-col gap-2">
               <div className="flex flex-col justify-between xl:flex-row xl:items-center">
                 <p className="text-2xl text-yellow-400">
@@ -186,7 +195,7 @@ export default function LocationDetails() {
               </p>
               <p className="text-2xl uppercase text-blue-300">Breakthroughs</p>
               <div className="flex flex-col gap-4">
-                {locData?.bts_loc?.map((btsloc, i) => (
+                {filteredBreakthroguhs.map((btsloc, i) => (
                   <div className="flex flex-col gap-0" key={btsloc.id}>
                     <p>
                       {i + 1}. {btsloc.bt?.name_en}

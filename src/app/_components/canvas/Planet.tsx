@@ -20,8 +20,13 @@ const convertAppliedCoordinatesToUV = (coord: Coordinates) => {
   return new THREE.Vector2(x, y);
 };
 
+// const convertAppliedCoodrinatesToNormal = (coord: Coordinates | null) => {
+//   const normal = new THREE.Vector3(0, 0, 0);
+//   return normal;
+// };
+
 export default function Planet() {
-  const { setAppliedCoordinates, setCoordinates, appliedCoordinates } =
+  const { setAppliedCoordinates, setCoordinates, appliedCoordinates, spin } =
     useStore();
   const meshRef = useRef<THREE.Mesh>(null);
   const [pin, setPin] = useState<THREE.Vector3>(
@@ -33,10 +38,14 @@ export default function Planet() {
   );
 
   useFrame((_state, delta) => {
-    if (meshRef.current) {
+    if (meshRef.current && spin) {
       meshRef.current.rotation.y += 0.01 * delta;
     }
   });
+
+  // useEffect(() => {
+  //   console.log(convertAppliedCoodrinatesToNormal(appliedCoordinates));
+  // }, [appliedCoordinates]);
 
   return (
     <mesh ref={meshRef}>

@@ -1,11 +1,11 @@
 "use client";
 import MainCanvas from "~/app/_components/canvas/MainCanvas";
 import UI from "~/app/_components/ui/UI";
-import { Switch } from "@heroui/react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useStore } from "~/store";
 
 export default function Home() {
-  const [showCanvas, setShowCanvas] = useState(false);
+  const { showCanvas, setShowCanvas } = useStore();
   useEffect(() => {
     if (!!window) {
       setShowCanvas(
@@ -16,22 +16,11 @@ export default function Home() {
         ),
       );
     }
-  }, []);
+  }, [setShowCanvas]);
   return (
-    <main className="relative flex h-full min-h-dvh flex-col">
+    <main className="flex h-full min-h-dvh flex-col">
       {showCanvas && <MainCanvas />}
       <UI />
-      <Switch
-        size="lg"
-        classNames={{
-          base: "flex flex-row-reverse gap-2",
-        }}
-        isSelected={showCanvas}
-        onValueChange={setShowCanvas}
-        className="absolute bottom-2 right-2 z-50 text-white"
-      >
-        3D Map (off by default for mobile)
-      </Switch>
     </main>
   );
 }
