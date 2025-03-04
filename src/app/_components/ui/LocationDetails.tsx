@@ -82,8 +82,13 @@ export default function LocationDetails() {
 
   return (
     <Wrapper className="lg:w-1/4">
-      <Accordion isCompact={true} className="flex flex-col gap-2">
+      <Accordion
+        isCompact={true}
+        className="flex flex-col gap-2"
+        defaultExpandedKeys={["details"]}
+      >
         <AccordionItem
+          key="details"
           title="Location"
           classNames={{
             base: "-mx-2",
@@ -105,7 +110,7 @@ export default function LocationDetails() {
               />
             </div>
           )}
-          <div className="flex flex-col overflow-auto md:h-dvh md:max-h-[calc(100vh-86px)]">
+          <div className="flex flex-col overflow-auto md:h-dvh md:max-h-[calc(100vh-90px)]">
             <div className="flex flex-col gap-2">
               <div className="flex flex-col justify-between xl:flex-row xl:items-center">
                 <p className="text-2xl text-yellow-400">
