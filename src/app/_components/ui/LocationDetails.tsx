@@ -81,7 +81,7 @@ export default function LocationDetails() {
       .filter((b) => !!b) ?? [];
 
   return (
-    <Wrapper className="lg:w-1/4">
+    <Wrapper className="relative lg:w-1/4">
       <Accordion
         isCompact={true}
         className="flex flex-col gap-2"
@@ -91,15 +91,15 @@ export default function LocationDetails() {
           key="details"
           title="Location"
           classNames={{
-            base: "-mx-2",
+            base: "-mx-2 ",
             trigger: "p-0",
             heading: "z-50 w-full top-0",
             title: "text-2xl uppercase text-blue-300",
-            content: "overflow-hidden flex-col flex gap-2",
+            content: "overflow-hidden flex-col flex gap-2 ",
           }}
         >
           {isLoading && (
-            <div className="absolute left-0 top-0 z-20 flex size-full flex-col rounded-tl-3xl bg-blue-700/25">
+            <div className="absolute left-0 top-0 z-20 flex size-full flex-col rounded-3xl bg-blue-700/25">
               <CircularProgress
                 aria-label="Loading..."
                 className="m-auto"
