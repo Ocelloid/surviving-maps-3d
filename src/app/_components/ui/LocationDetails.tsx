@@ -183,7 +183,7 @@ export default function LocationDetails() {
               {!!locData?.map_name ? (
                 <Image
                   src={`/topology/${locData.map_name}.png`}
-                  className="bevel-clip-sm mt-2 rounded-tl-2xl"
+                  className="bevel-clip-2xl mt-2 rounded-tl-2xl"
                   priority={true}
                   alt="topology"
                   width={480}
@@ -191,7 +191,7 @@ export default function LocationDetails() {
                 />
               ) : (
                 <Skeleton
-                  className="bevel-clip-sm mt-2 rounded-tl-2xl"
+                  className="bevel-clip-2xl mt-2 rounded-tl-2xl"
                   style={{ width: "100%", height: "200px" }}
                 />
               )}

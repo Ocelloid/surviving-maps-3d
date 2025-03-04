@@ -2,17 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-  .bevel-clip {
-    clip-path: polygon(
-      0 0,
-      calc(100% - 40px) 0,
-      100% 40px,
-      100% 100%,
-      40px 100%,
-      0 calc(100% - 40px)
-    );
-  }
-  .bevel-clip-sm {
+  .bevel-clip-2xl {
     clip-path: polygon(
       0 0,
       calc(100% - 20px) 0,
@@ -22,7 +12,7 @@
       0 calc(100% - 20px)
     );
   }
-  .bevel-clip-xs {
+  .bevel-clip-xl {
     clip-path: polygon(
       0 0,
       calc(100% - 10px) 0,

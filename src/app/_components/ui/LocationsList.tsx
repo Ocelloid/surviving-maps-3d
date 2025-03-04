@@ -23,7 +23,7 @@ const LocationRow = ({
   return (
     <div
       onClick={() => handleChoose?.(location)}
-      className="bevel-clip-xs flex cursor-pointer flex-col rounded-tl-xl bg-blue-700/25 px-2 py-1 shadow-md transition hover:shadow-xl hover:brightness-125"
+      className="bevel-clip-xl flex cursor-pointer flex-col rounded-tl-xl bg-blue-700/25 px-2 py-1 shadow-md transition hover:shadow-xl hover:brightness-125"
     >
       <div className="flex flex-row gap-1">
         <p className="min-w-20 text-xl">
