@@ -17,13 +17,13 @@ export const Rhombi = ({ value }: { value: number | null }) => {
       {Array.from({ length: value ?? 0 }).map((_, i) => (
         <div
           key={"filled_" + i}
-          className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-400/75"
+          className="size-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-400/75 xl:size-3 2xl:size-4"
         />
       ))}
       {Array.from({ length: 4 - (value ?? 0) }).map((_, i) => (
         <div
           key={"unfilled_" + i}
-          className="h-4 w-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-950"
+          className="size-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-950 xl:size-3 2xl:size-4"
         />
       ))}
     </div>
@@ -140,7 +140,7 @@ export default function LocationDetails() {
                   {locData?.topography}
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-2 text-xs xl:grid-cols-2">
+              <div className="grid grid-cols-1 gap-1 text-xs xl:grid-cols-2">
                 <div className="flex flex-col gap-2">
                   <p className="text-2xl uppercase text-blue-300">THREATS</p>
                   <div className="grid grid-cols-2 items-center">
