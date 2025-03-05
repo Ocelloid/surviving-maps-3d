@@ -1,6 +1,6 @@
 "use client";
 import * as THREE from "three";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import Pin from "./Pin";
 import MarsSD from "./mars/sd";
@@ -14,27 +14,45 @@ const convertUVtoCoordinates = (uv: THREE.Vector2) => {
   return new THREE.Vector2(x < -180 ? x + 360 : x, y);
 };
 
-const convertAppliedCoordinatesToUV = (coord: Coordinates) => {
+const convertACtoUV = (ac: Coordinates) => {
+  const newCoord = new THREE.Vector2(
+    Number(ac.lon_deg) * (ac.lon_dir === "W" ? -1 : 1),
+    Number(ac.lat_deg) * (ac.lat_dir === "N" ? -1 : 1),
+  );
+  const newUV = new THREE.Vector2(
+    ((newCoord.x < -180 ? newCoord.x + 360 : newCoord.x) + 360) / 360,
+    (newCoord.y + 90) / 180,
+  );
+  return newUV;
+};
+
+const convertCoordinatesToPolar = (coord: Coordinates) => {
   const x = Number(coord.lon_deg) * (coord.lon_dir === "W" ? -1 : 1);
-  const y = Number(coord.lat_deg) * (coord.lat_dir === "N" ? -1 : 1);
+  const y = Number(coord.lat_deg) * (coord.lat_dir === "S" ? -1 : 1);
   return new THREE.Vector2(x, y);
 };
 
-// const convertAppliedCoodrinatesToNormal = (coord: Coordinates | null) => {
-//   const normal = new THREE.Vector3(0, 0, 0);
-//   return normal;
-// };
+const convertUVtoNormal = (uv: THREE.Vector2) => {
+  // UV to Longitude and Latitude
+  const longitude = 2 * Math.PI * uv.x - Math.PI;
+  const latitude = Math.PI * uv.y - Math.PI / 2;
+
+  // Spherical to Cartesian (Normal Vector)
+  const x = Math.cos(latitude) * Math.cos(longitude);
+  const y = -1 * Math.sin(latitude);
+  const z = -1 * Math.cos(latitude) * Math.sin(longitude);
+
+  return new THREE.Vector3(x, y, z);
+};
 
 export default function Planet() {
   const { setAppliedCoordinates, setCoordinates, appliedCoordinates, spin } =
     useStore();
   const meshRef = useRef<THREE.Mesh>(null);
-  const [pin, setPin] = useState<THREE.Vector3>(
-    new THREE.Vector3(
-      0.6546557125770007,
-      0.3166304348005583,
-      -0.6864056397686533,
-    ),
+  const defaultPin = new THREE.Vector3(
+    0.6546557125770007,
+    0.3166304348005583,
+    -0.6864056397686533,
   );
 
   useFrame((_state, delta) => {
@@ -43,17 +61,17 @@ export default function Planet() {
     }
   });
 
-  // useEffect(() => {
-  //   console.log(convertAppliedCoodrinatesToNormal(appliedCoordinates));
-  // }, [appliedCoordinates]);
-
   return (
     <mesh ref={meshRef}>
       <Pin
-        pin={pin}
+        pin={
+          appliedCoordinates
+            ? convertUVtoNormal(convertACtoUV(appliedCoordinates))
+            : defaultPin
+        }
         coord={
           appliedCoordinates
-            ? convertAppliedCoordinatesToUV(appliedCoordinates)
+            ? convertCoordinatesToPolar(appliedCoordinates)
             : new THREE.Vector2(0, 0)
         }
       />
@@ -63,7 +81,6 @@ export default function Planet() {
             e.uv ?? new THREE.Vector2(0, 0),
           );
           if (Math.abs(newCoord.y) <= 70) {
-            setPin(e.normal ?? new THREE.Vector3(0, 0, 0));
             setAppliedCoordinates({
               lat_dir: newCoord.y > 0 ? "N" : "S",
               lat_deg: Math.abs(newCoord.y).toString(),
