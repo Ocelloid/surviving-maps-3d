@@ -10,7 +10,7 @@ import {
   Accordion,
   AccordionItem,
 } from "@heroui/react";
-import { titleLabels, detailsLabels } from "~/locale";
+import { titleLabels, detailsLabels, topographyNames } from "~/locale";
 
 export const Rhombi = ({ value }: { value: number | null }) => {
   return (
@@ -18,13 +18,13 @@ export const Rhombi = ({ value }: { value: number | null }) => {
       {Array.from({ length: value ?? 0 }).map((_, i) => (
         <div
           key={"filled_" + i}
-          className="size-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-400/75 xl:size-3 2xl:size-4"
+          className="size-3 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-400/75"
         />
       ))}
       {Array.from({ length: 4 - (value ?? 0) }).map((_, i) => (
         <div
           key={"unfilled_" + i}
-          className="size-4 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-950 xl:size-3 2xl:size-4"
+          className="size-3 -skew-x-12 rounded-sm border-1 border-indigo-200 bg-indigo-950"
         />
       ))}
     </div>
@@ -77,6 +77,28 @@ export default function LocationDetails() {
   const DETAILS_LABELS = detailsLabels.find(
     (l) => l.language === language,
   )!.labels;
+  const TOPOGRAPHY_NAMES = topographyNames.find(
+    (l) => l.language === language,
+  )!.kv;
+
+  const NAME =
+    language === "en"
+      ? locData?.namedLoc?.name_en
+      : language === "br"
+        ? locData?.namedLoc?.name_br
+        : language === "fr"
+          ? locData?.namedLoc?.name_fr
+          : language === "ge"
+            ? locData?.namedLoc?.name_ge
+            : language === "po"
+              ? locData?.namedLoc?.name_po
+              : language === "ru"
+                ? locData?.namedLoc?.name_ru
+                : language === "sc"
+                  ? locData?.namedLoc?.name_sc
+                  : language === "sp"
+                    ? locData?.namedLoc?.name_sp
+                    : null;
 
   const filteredBreakthroguhs =
     locData?.bts_loc
@@ -122,7 +144,7 @@ export default function LocationDetails() {
             <div className="flex flex-col gap-2">
               <div className="flex flex-col justify-between xl:flex-row xl:items-center">
                 <p className="text-2xl text-yellow-400">
-                  {locData?.namedLoc?.name_en ?? DETAILS_LABELS.unknownLocation}
+                  {NAME ?? DETAILS_LABELS.unknownLocation}
                 </p>
                 <p className="text-xl">
                   {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
@@ -145,12 +167,15 @@ export default function LocationDetails() {
                 </div>
                 <div className="flex flex-row justify-between">
                   <p className="text-blue-300">{DETAILS_LABELS.topography}</p>{" "}
-                  {locData?.topography}
+                  {
+                    TOPOGRAPHY_NAMES.find((t) => t.key === locData?.topography)
+                      ?.label
+                  }
                 </div>
               </div>
-              <div className="grid grid-cols-1 gap-1 text-xs xl:grid-cols-2">
+              <div className="grid grid-cols-1 gap-2 text-xs xl:grid-cols-2">
                 <div className="flex flex-col gap-2">
-                  <p className="text-2xl uppercase text-blue-300">
+                  <p className="-mb-2 text-2xl uppercase text-blue-300">
                     {DETAILS_LABELS.threats}
                   </p>
                   <div className="grid grid-cols-2 items-center">
@@ -171,7 +196,7 @@ export default function LocationDetails() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <p className="text-2xl uppercase text-blue-300">
+                  <p className="-mb-2 text-2xl uppercase text-blue-300">
                     {DETAILS_LABELS.resources}
                   </p>
                   <div className="grid grid-cols-2 items-center">
@@ -217,9 +242,44 @@ export default function LocationDetails() {
                 {filteredBreakthroguhs.map((btsloc, i) => (
                   <div className="flex flex-col gap-0" key={btsloc.id}>
                     <p>
-                      {i + 1}. {btsloc.bt?.name_en}
+                      {i + 1}.{" "}
+                      {language === "en"
+                        ? btsloc.bt?.name_en
+                        : language === "br"
+                          ? btsloc.bt?.name_br
+                          : language === "fr"
+                            ? btsloc.bt?.name_fr
+                            : language === "ge"
+                              ? btsloc.bt?.name_ge
+                              : language === "po"
+                                ? btsloc.bt?.name_po
+                                : language === "ru"
+                                  ? btsloc.bt?.name_ru
+                                  : language === "sc"
+                                    ? btsloc.bt?.name_sc
+                                    : language === "sp"
+                                      ? btsloc.bt?.name_sp
+                                      : null}
                     </p>
-                    <p className="text-xs italic">{btsloc.bt?.desc_en}</p>
+                    <p className="text-xs italic">
+                      {language === "en"
+                        ? btsloc.bt?.desc_en
+                        : language === "br"
+                          ? btsloc.bt?.desc_br
+                          : language === "fr"
+                            ? btsloc.bt?.desc_fr
+                            : language === "ge"
+                              ? btsloc.bt?.desc_ge
+                              : language === "po"
+                                ? btsloc.bt?.desc_po
+                                : language === "ru"
+                                  ? btsloc.bt?.desc_ru
+                                  : language === "sc"
+                                    ? btsloc.bt?.desc_sc
+                                    : language === "sp"
+                                      ? btsloc.bt?.desc_sp
+                                      : null}
+                    </p>
                   </div>
                 ))}
               </div>

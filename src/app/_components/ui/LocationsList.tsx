@@ -36,6 +36,24 @@ const LocationRow = ({
   const DETAILS_LABELS = detailsLabels.find(
     (l) => l.language === language,
   )!.labels;
+  const LOC_NAME =
+    language === "en"
+      ? location?.namedLoc?.name_en
+      : language === "br"
+        ? location?.namedLoc?.name_br
+        : language === "fr"
+          ? location?.namedLoc?.name_fr
+          : language === "ge"
+            ? location?.namedLoc?.name_ge
+            : language === "po"
+              ? location?.namedLoc?.name_po
+              : language === "ru"
+                ? location?.namedLoc?.name_ru
+                : language === "sc"
+                  ? location?.namedLoc?.name_sc
+                  : language === "sp"
+                    ? location?.namedLoc?.name_sp
+                    : null;
   return (
     <div
       onClick={() => handleChoose?.(location)}
@@ -47,45 +65,41 @@ const LocationRow = ({
           {location?.lon_deg}
         </p>
         <p className="text-xl text-yellow-400">
-          {location.namedLoc?.name_en ?? DETAILS_LABELS.unknownLocation}
+          {LOC_NAME ?? DETAILS_LABELS.unknownLocation}
         </p>
       </div>
-      <div className="flex flex-col gap-1 xl:flex-row 2xl:gap-4">
-        <div className="flex flex-row items-center gap-1 text-xs 2xl:gap-4">
-          <div className="flex-row gap-1">
-            <Rhombi value={location.concrete} />
-            {RESOURCES_LABELS.concrete}
-          </div>
-          <div className="flex-row gap-1">
-            <Rhombi value={location.water} />
-            {RESOURCES_LABELS.water}
-          </div>
-          <div className="flex-row gap-1">
-            <Rhombi value={location.metals} />
-            {RESOURCES_LABELS.metals}
-          </div>
-          <div className="flex-row gap-1">
-            <Rhombi value={location.rare_metals} />
-            {RESOURCES_LABELS.rareMetals}
-          </div>
+      <div className="grid grid-cols-4 flex-col text-xs xl:grid-cols-8">
+        <div className="flex-row gap-1">
+          <Rhombi value={location.concrete} />
+          {RESOURCES_LABELS.concrete}
         </div>
-        <div className="flex flex-row items-center gap-1 text-xs 2xl:gap-4">
-          <div className="flex-row gap-1">
-            <Rhombi value={location.meteors} />
-            {THREATS_LABELS.meteors}
-          </div>
-          <div className="flex-row gap-1">
-            <Rhombi value={location.dust_devils} />
-            {THREATS_LABELS.dustDevils}
-          </div>
-          <div className="flex-row gap-1">
-            <Rhombi value={location.dust_storms} />
-            {THREATS_LABELS.dustStorms}
-          </div>
-          <div className="flex-row gap-1">
-            <Rhombi value={location.cold_waves} />
-            {THREATS_LABELS.coldWaves}
-          </div>
+        <div className="flex-row gap-1">
+          <Rhombi value={location.water} />
+          {RESOURCES_LABELS.water}
+        </div>
+        <div className="flex-row gap-1">
+          <Rhombi value={location.metals} />
+          {RESOURCES_LABELS.metals}
+        </div>
+        <div className="flex-row gap-1">
+          <Rhombi value={location.rare_metals} />
+          {RESOURCES_LABELS.rareMetals}
+        </div>
+        <div className="flex-row gap-1">
+          <Rhombi value={location.meteors} />
+          {THREATS_LABELS.meteors}
+        </div>
+        <div className="flex-row gap-1">
+          <Rhombi value={location.dust_devils} />
+          {THREATS_LABELS.dustDevils}
+        </div>
+        <div className="flex-row gap-1">
+          <Rhombi value={location.dust_storms} />
+          {THREATS_LABELS.dustStorms}
+        </div>
+        <div className="flex-row gap-1">
+          <Rhombi value={location.cold_waves} />
+          {THREATS_LABELS.coldWaves}
         </div>
       </div>
     </div>

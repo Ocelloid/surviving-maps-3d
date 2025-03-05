@@ -65,6 +65,81 @@ type DetailsLabels = {
   resourceList: ResourceLabels;
 };
 
+export const topographyNames = [
+  {
+    language: "en",
+    kv: [
+      { key: "Relatively Flat", label: "Relatively Flat" },
+      { key: "Steep", label: "Steep" },
+      { key: "Rough", label: "Rough" },
+      { key: "Mountainous", label: "Mountainous" },
+    ],
+  },
+  {
+    language: "br",
+    kv: [
+      { key: "Relatively Flat", label: "Relativamente plano" },
+      { key: "Steep", label: "Pesado" },
+      { key: "Rough", label: "Ruidoso" },
+      { key: "Mountainous", label: "Montanhoso" },
+    ],
+  },
+  {
+    language: "fr",
+    kv: [
+      { key: "Relatively Flat", label: "Relativement plat" },
+      { key: "Steep", label: "Profond" },
+      { key: "Rough", label: "Rugueux" },
+      { key: "Mountainous", label: "Montagneux" },
+    ],
+  },
+  {
+    language: "ge",
+    kv: [
+      { key: "Relatively Flat", label: "Relativ flach" },
+      { key: "Steep", label: "Steif" },
+      { key: "Rough", label: "Rutschig" },
+      { key: "Mountainous", label: "Bergig" },
+    ],
+  },
+  {
+    language: "po",
+    kv: [
+      { key: "Relatively Flat", label: "Relativ flach" },
+      { key: "Steep", label: "Steif" },
+      { key: "Rough", label: "Rutschig" },
+      { key: "Mountainous", label: "Bergig" },
+    ],
+  },
+  {
+    language: "ru",
+    kv: [
+      { key: "Relatively Flat", label: "Почти плоская" },
+      { key: "Steep", label: "Резкая" },
+      { key: "Rough", label: "Грубая" },
+      { key: "Mountainous", label: "Горная" },
+    ],
+  },
+  {
+    language: "sc",
+    kv: [
+      { key: "Relatively Flat", label: "相对平坦" },
+      { key: "Steep", label: "急剧" },
+      { key: "Rough", label: "峭壁" },
+      { key: "Mountainous", label: "山峦" },
+    ],
+  },
+  {
+    language: "sp",
+    kv: [
+      { key: "Relatively Flat", label: "Relativamente plana" },
+      { key: "Steep", label: "Profundo" },
+      { key: "Rough", label: "Ruidoso" },
+      { key: "Mountainous", label: "Montañoso" },
+    ],
+  },
+];
+
 const languages = [
   { key: "en", label: "English" },
   { key: "br", label: "Português do Brasil" },

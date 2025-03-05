@@ -45,13 +45,6 @@ export const MAP_NAMES = [
   { key: "BlankTerraceBig_05", label: "BlankTerraceBig_05" },
 ];
 
-export const TOPOGRAPHY_NAMES = [
-  { key: "Relatively Flat", label: "Relatively Flat" },
-  { key: "Steep", label: "Steep" },
-  { key: "Rough", label: "Rough" },
-  { key: "Mountainous", label: "Mountainous" },
-];
-
 export type Coordinates = {
   lat_dir: string;
   lat_deg: string;

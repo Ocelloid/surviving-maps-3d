@@ -2,7 +2,7 @@
 import Wrapper from "./Wrapper";
 import { api } from "~/trpc/react";
 import { useEffect, useState, useMemo } from "react";
-import { useStore, initialFilter, MAP_NAMES, TOPOGRAPHY_NAMES } from "~/store";
+import { useStore, initialFilter, MAP_NAMES } from "~/store";
 import {
   Switch,
   Button,
@@ -15,7 +15,13 @@ import {
   Accordion,
   AccordionItem,
 } from "@heroui/react";
-import { languages, filterLabels, settingsLabels, titleLabels } from "~/locale";
+import {
+  languages,
+  filterLabels,
+  settingsLabels,
+  titleLabels,
+  topographyNames,
+} from "~/locale";
 
 function FilterSlider({
   value,
@@ -132,19 +138,54 @@ export default function Filter() {
       setBreakthroughs(
         filterData.breakthroughs.map((b) => ({
           key: b.id,
-          label: b.name_en ?? "",
+          label:
+            language === "en"
+              ? (b.name_en ?? "")
+              : language === "br"
+                ? (b.name_br ?? "")
+                : language === "fr"
+                  ? (b.name_fr ?? "")
+                  : language === "ge"
+                    ? (b.name_ge ?? "")
+                    : language === "po"
+                      ? (b.name_po ?? "")
+                      : language === "ru"
+                        ? (b.name_ru ?? "")
+                        : language === "sc"
+                          ? (b.name_sc ?? "")
+                          : language === "sp"
+                            ? (b.name_sp ?? "")
+                            : "",
         })),
       );
       setNamedLocations(
         filterData.namedLocations.map((nl) => ({
           key: nl.id,
-          label: nl.name_en ?? "",
+          label:
+            language === "en"
+              ? (nl.name_en ?? "")
+              : language === "br"
+                ? (nl.name_br ?? "")
+                : language === "fr"
+                  ? (nl.name_fr ?? "")
+                  : language === "ge"
+                    ? (nl.name_ge ?? "")
+                    : language === "po"
+                      ? (nl.name_po ?? "")
+                      : language === "ru"
+                        ? (nl.name_ru ?? "")
+                        : language === "sc"
+                          ? (nl.name_sc ?? "")
+                          : language === "sp"
+                            ? (nl.name_sp ?? "")
+                            : "",
         })),
       );
       setVersionId(filterData.versions[0]?.id ?? null);
       applyFilter();
     }
   }, [
+    language,
     filterData,
     applyFilter,
     clearFilter,
@@ -174,6 +215,9 @@ export default function Filter() {
   const SETTINGS_LABELS = settingsLabels.find(
     (l) => l.language === language,
   )!.labels;
+  const TOPOGRAPHY_NAMES = topographyNames.find(
+    (l) => l.language === language,
+  )!.kv;
 
   return (
     <div className="flex w-full flex-col gap-4 lg:w-1/4">
