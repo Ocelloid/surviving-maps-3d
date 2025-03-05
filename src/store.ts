@@ -93,6 +93,7 @@ export type Filter = {
 interface State {
   spin: boolean;
   filter: Filter;
+  language: string;
   showCanvas: boolean;
   appliedFilter: Filter;
   isLocationLoading: boolean;
@@ -102,6 +103,7 @@ interface State {
 
 interface Actions {
   setSpin: (spin: boolean) => void;
+  setLanguage: (lan: string) => void;
   setShowCanvas: (showCanvas: boolean) => void;
   setAppliedCoordinates: (coord: Coordinates) => void;
   setAppliedLocation: (location: Location) => void;
@@ -181,12 +183,16 @@ export const useStore = create<State & Actions>()(
   persist(
     (set, get) => ({
       spin: true,
+      language: "en",
       filter: initialFilter,
       appliedFilter: initialFilter,
       appliedLocation: null,
       appliedCoordinates: initialCoordinates,
       isLocationLoading: true,
       showCanvas: false,
+      setLanguage: (lan: string) => {
+        set({ language: lan });
+      },
       setSpin: (spin: boolean) => {
         set({ spin: spin });
       },

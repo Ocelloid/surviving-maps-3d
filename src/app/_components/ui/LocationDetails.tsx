@@ -10,6 +10,7 @@ import {
   Accordion,
   AccordionItem,
 } from "@heroui/react";
+import { titleLabels, detailsLabels } from "~/locale";
 
 export const Rhombi = ({ value }: { value: number | null }) => {
   return (
@@ -32,6 +33,7 @@ export const Rhombi = ({ value }: { value: number | null }) => {
 
 export default function LocationDetails() {
   const {
+    language,
     appliedFilter,
     appliedCoordinates,
     setLocationLoading,
@@ -70,6 +72,12 @@ export default function LocationDetails() {
     setLocationLoading(isLoading);
   }, [isLoading, setLocationLoading]);
 
+  const TITLE = titleLabels.find((l) => l.language === language)!.labels
+    .details;
+  const DETAILS_LABELS = detailsLabels.find(
+    (l) => l.language === language,
+  )!.labels;
+
   const filteredBreakthroguhs =
     locData?.bts_loc
       ?.map((btsloc, i, arr) => {
@@ -89,7 +97,7 @@ export default function LocationDetails() {
       >
         <AccordionItem
           key="details"
-          title="Location"
+          title={TITLE}
           classNames={{
             base: "-mx-2 ",
             trigger: "p-0",
@@ -114,7 +122,7 @@ export default function LocationDetails() {
             <div className="flex flex-col gap-2">
               <div className="flex flex-col justify-between xl:flex-row xl:items-center">
                 <p className="text-2xl text-yellow-400">
-                  {locData?.namedLoc?.name_en ?? "Unknown Location"}
+                  {locData?.namedLoc?.name_en ?? DETAILS_LABELS.unknownLocation}
                 </p>
                 <p className="text-xl">
                   {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
@@ -123,60 +131,64 @@ export default function LocationDetails() {
               </div>
               <div className="gap-1">
                 <div className="flex flex-row justify-between">
-                  <p className="text-blue-300">Difficulty Challenge</p>
+                  <p className="text-blue-300">{DETAILS_LABELS.difficulty}</p>
                   {locData?.difficulty}
                 </div>
                 <div className="flex flex-row justify-between">
-                  <p className="text-blue-300">Average Altitude</p>{" "}
+                  <p className="text-blue-300">{DETAILS_LABELS.altitude}</p>{" "}
                   {locData?.altitude} m
                 </div>
                 <div className="flex flex-row justify-between">
-                  <p className="text-blue-300">Mean Temperature</p>
+                  <p className="text-blue-300">{DETAILS_LABELS.temperature}</p>{" "}
                   {locData?.temperature}
                   {"°C"}
                 </div>
                 <div className="flex flex-row justify-between">
-                  <p className="text-blue-300">Topography</p>{" "}
+                  <p className="text-blue-300">{DETAILS_LABELS.topography}</p>{" "}
                   {locData?.topography}
                 </div>
               </div>
               <div className="grid grid-cols-1 gap-1 text-xs xl:grid-cols-2">
                 <div className="flex flex-col gap-2">
-                  <p className="text-2xl uppercase text-blue-300">THREATS</p>
+                  <p className="text-2xl uppercase text-blue-300">
+                    {DETAILS_LABELS.threats}
+                  </p>
+                  <div className="grid grid-cols-2 items-center">
+                    <Rhombi value={locData?.meteors ?? 0} />
+                    <p>{DETAILS_LABELS.threatList.meteors}</p>
+                  </div>
                   <div className="grid grid-cols-2 items-center">
                     <Rhombi value={locData?.dust_devils ?? 0} />
-                    <p>Dust Devils</p>
+                    <p>{DETAILS_LABELS.threatList.dustDevils}</p>
                   </div>
                   <div className="grid grid-cols-2 items-center">
                     <Rhombi value={locData?.dust_storms ?? 0} />
-                    <p>Dust Storms</p>
+                    <p>{DETAILS_LABELS.threatList.dustStorms}</p>
                   </div>
                   <div className="grid grid-cols-2 items-center">
-                    <Rhombi value={locData?.concrete ?? 0} />
-                    <p>Meteors</p>
-                  </div>
-                  <div className="grid grid-cols-2 items-center">
-                    <Rhombi value={locData?.water ?? 0} />
-                    <p>Cold Waves</p>
+                    <Rhombi value={locData?.cold_waves ?? 0} />
+                    <p>{DETAILS_LABELS.threatList.coldWaves}</p>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <p className="text-2xl uppercase text-blue-300">RESOURCES</p>
+                  <p className="text-2xl uppercase text-blue-300">
+                    {DETAILS_LABELS.resources}
+                  </p>
                   <div className="grid grid-cols-2 items-center">
                     <Rhombi value={locData?.metals ?? 0} />
-                    <p>Metals</p>
+                    <p>{DETAILS_LABELS.resourceList.metals}</p>
                   </div>
                   <div className="grid grid-cols-2 items-center">
                     <Rhombi value={locData?.rare_metals ?? 0} />
-                    <p>Rare Metals</p>
+                    <p>{DETAILS_LABELS.resourceList.rareMetals}</p>
                   </div>
                   <div className="grid grid-cols-2 items-center">
                     <Rhombi value={locData?.concrete ?? 0} />
-                    <p>Concrete</p>
+                    <p>{DETAILS_LABELS.resourceList.concrete}</p>
                   </div>
                   <div className="grid grid-cols-2 items-center">
                     <Rhombi value={locData?.water ?? 0} />
-                    <p>Water</p>
+                    <p>{DETAILS_LABELS.resourceList.water}</p>
                   </div>
                 </div>
               </div>
@@ -198,7 +210,9 @@ export default function LocationDetails() {
               <p className="-mt-2 ml-auto text-xs text-blue-300">
                 {locData?.map_name}
               </p>
-              <p className="text-2xl uppercase text-blue-300">Breakthroughs</p>
+              <p className="text-2xl uppercase text-blue-300">
+                {DETAILS_LABELS.breakthroughs}
+              </p>
               <div className="flex flex-col gap-4">
                 {filteredBreakthroguhs.map((btsloc, i) => (
                   <div className="flex flex-col gap-0" key={btsloc.id}>

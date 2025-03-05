@@ -15,6 +15,7 @@ import {
   Accordion,
   AccordionItem,
 } from "@heroui/react";
+import { languages, filterLabels, settingsLabels, titleLabels } from "~/locale";
 
 function FilterSlider({
   value,
@@ -60,6 +61,8 @@ export default function Filter() {
     spin,
     filter,
     showCanvas,
+    language,
+    setLanguage,
     setSpin,
     setShowCanvas,
     applyFilter,
@@ -164,6 +167,14 @@ export default function Filter() {
     }
   };
 
+  const TITLE_LABELS = titleLabels.find((l) => l.language === language)!.labels;
+  const FILTER_LABELS = filterLabels.find(
+    (l) => l.language === language,
+  )!.labels;
+  const SETTINGS_LABELS = settingsLabels.find(
+    (l) => l.language === language,
+  )!.labels;
+
   return (
     <div className="flex w-full flex-col gap-4 lg:w-1/4">
       <Wrapper className="h-min md:h-min">
@@ -174,7 +185,7 @@ export default function Filter() {
         >
           <AccordionItem
             key="filter"
-            title="Filter"
+            title={TITLE_LABELS.filter}
             classNames={{
               base: "-mx-2",
               trigger: "p-0",
@@ -192,7 +203,7 @@ export default function Filter() {
                   onPress={handleClearFilter}
                   className="w-full"
                 >
-                  Clear
+                  {FILTER_LABELS.clear}
                 </Button>
                 <Button
                   size="sm"
@@ -210,34 +221,31 @@ export default function Filter() {
                   }}
                   isDisabled={isInvalid}
                 >
-                  Apply
+                  {FILTER_LABELS.apply}
                 </Button>
               </div>
               <Input
                 value={filter.coordinates}
                 onValueChange={setCoordinates}
-                errorMessage="N/S -70 to 70 W/E 0 to 180"
+                errorMessage="N/S -70 – 70 W/E 0 – 180"
                 isInvalid={isInvalid}
                 variant="underlined"
                 size="sm"
-                label="Coordinates"
+                label={FILTER_LABELS.coordinates}
                 placeholder="N 18 W 134"
               />
               {!isFilterDataLoading ? (
                 <>
                   <Select
                     size="sm"
-                    label="Version"
+                    label={FILTER_LABELS.versionId}
                     variant="underlined"
                     selectedKeys={[Number(filter.versionId)]}
                     onSelectionChange={(keys) =>
                       setVersionId([...keys].map(Number)[0]!)
                     }
                   >
-                    <SelectSection
-                      title="Named Locations list"
-                      items={versions}
-                    >
+                    <SelectSection title="Versions list" items={versions}>
                       {(versionName) => (
                         <SelectItem>{versionName.label}</SelectItem>
                       )}
@@ -245,7 +253,7 @@ export default function Filter() {
                   </Select>
                   <Select
                     size="sm"
-                    label="Named Location"
+                    label={FILTER_LABELS.namedLocationIds}
                     variant="underlined"
                     selectionMode="multiple"
                     selectedKeys={filter.namedLocationIds}
@@ -257,7 +265,7 @@ export default function Filter() {
                   >
                     <SelectItem key={""}>Any</SelectItem>
                     <SelectSection
-                      title="Named Locations list"
+                      title={FILTER_LABELS.namedLocationsSection}
                       items={namedLocations}
                     >
                       {(namedLocation) => (
@@ -267,7 +275,7 @@ export default function Filter() {
                   </Select>
                   <Select
                     size="sm"
-                    label="Map"
+                    label={FILTER_LABELS.mapNames}
                     variant="underlined"
                     selectionMode="multiple"
                     selectedKeys={filter.mapNames}
@@ -278,13 +286,16 @@ export default function Filter() {
                     }
                   >
                     <SelectItem key={""}>Any</SelectItem>
-                    <SelectSection title="Map names" items={MAP_NAMES}>
+                    <SelectSection
+                      title={FILTER_LABELS.mapSection}
+                      items={MAP_NAMES}
+                    >
                       {(mapName) => <SelectItem>{mapName.label}</SelectItem>}
                     </SelectSection>
                   </Select>
                   <Select
                     size="sm"
-                    label="Topography"
+                    label={FILTER_LABELS.topographyNames}
                     variant="underlined"
                     selectionMode="multiple"
                     selectedKeys={filter.topographyNames}
@@ -296,7 +307,7 @@ export default function Filter() {
                   >
                     <SelectItem key={""}>Any</SelectItem>
                     <SelectSection
-                      title="Topography names"
+                      title={FILTER_LABELS.topographySection}
                       items={TOPOGRAPHY_NAMES}
                     >
                       {(topographyName) => (
@@ -306,7 +317,7 @@ export default function Filter() {
                   </Select>
                   <Select
                     size="sm"
-                    label="Breakthrough"
+                    label={FILTER_LABELS.breakthroughIds}
                     variant="underlined"
                     selectionMode="multiple"
                     selectedKeys={filter.breakthroughIds}
@@ -318,7 +329,7 @@ export default function Filter() {
                   >
                     <SelectItem key={""}>Any</SelectItem>
                     <SelectSection
-                      title="Breakthrough list"
+                      title={FILTER_LABELS.breakthroughsSection}
                       items={breakthroughs}
                     >
                       {(breakthroughName) => (
@@ -337,7 +348,7 @@ export default function Filter() {
                 </>
               )}
               <FilterSlider
-                label="Altitude"
+                label={FILTER_LABELS.altitude}
                 value={[filter.minAltitude, filter.maxAltitude]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -349,7 +360,7 @@ export default function Filter() {
                 step={50}
               />
               <FilterSlider
-                label="Concrete"
+                label={FILTER_LABELS.concrete}
                 value={[filter.minConcrete, filter.maxConcrete]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -360,7 +371,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxConcrete}
               />
               <FilterSlider
-                label="Water"
+                label={FILTER_LABELS.water}
                 value={[filter.minWater, filter.maxWater]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -371,7 +382,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxWater}
               />
               <FilterSlider
-                label="Metals"
+                label={FILTER_LABELS.metals}
                 value={[filter.minMetals, filter.maxMetals]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -382,7 +393,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxMetals}
               />
               <FilterSlider
-                label="Rare Metals"
+                label={FILTER_LABELS.rareMetals}
                 value={[filter.minRareMetals, filter.maxRareMetals]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -393,7 +404,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxRareMetals}
               />
               <FilterSlider
-                label="Temperature"
+                label={FILTER_LABELS.temperature}
                 value={[filter.minTemperature, filter.maxTemperature]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -404,7 +415,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxTemperature}
               />
               <FilterSlider
-                label="Meteors"
+                label={FILTER_LABELS.meteors}
                 value={[filter.minMeteors, filter.maxMeteors]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -415,7 +426,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxMeteors}
               />
               <FilterSlider
-                label="Dust Devils"
+                label={FILTER_LABELS.dustDevils}
                 value={[filter.minDustDevils, filter.maxDustDevils]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -426,7 +437,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxDustDevils}
               />
               <FilterSlider
-                label="Dust Storms"
+                label={FILTER_LABELS.dustStorms}
                 value={[filter.minDustStorms, filter.maxDustStorms]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -437,7 +448,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxDustStorms}
               />
               <FilterSlider
-                label="Cold Waves"
+                label={FILTER_LABELS.coldWaves}
                 value={[filter.minColdWaves, filter.maxColdWaves]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -448,7 +459,7 @@ export default function Filter() {
                 maxValue={initialFilter.maxColdWaves}
               />
               <FilterSlider
-                label="Difficulty Challenge"
+                label={FILTER_LABELS.difficulty}
                 value={[filter.minDifficulty, filter.maxDifficulty]}
                 onChange={(values) => {
                   const numbers = values as number[];
@@ -462,7 +473,7 @@ export default function Filter() {
           </AccordionItem>
           <AccordionItem
             key="settings"
-            title="Settings"
+            title={TITLE_LABELS.settings}
             classNames={{
               base: "-mx-2",
               trigger: "p-0",
@@ -477,12 +488,29 @@ export default function Filter() {
                 isSelected={showCanvas}
                 onValueChange={setShowCanvas}
               >
-                3D Map{" "}
-                <p className="-mt-1.5 text-xs">(can crash mobile browser)</p>
+                {SETTINGS_LABELS.map}
               </Switch>
               <Switch size="sm" isSelected={spin} onValueChange={setSpin}>
-                Spinning animation
+                {SETTINGS_LABELS.animation}
               </Switch>
+              <Select
+                size="sm"
+                label={SETTINGS_LABELS.language}
+                variant="underlined"
+                selectedKeys={[language]}
+                onSelectionChange={(keys) =>
+                  setLanguage([...keys].map(String)[0]!)
+                }
+              >
+                <SelectSection
+                  title={SETTINGS_LABELS.language}
+                  items={languages}
+                >
+                  {(languageName) => (
+                    <SelectItem>{languageName.label}</SelectItem>
+                  )}
+                </SelectSection>
+              </Select>
             </div>
           </AccordionItem>
         </Accordion>

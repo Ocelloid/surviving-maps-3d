@@ -12,6 +12,12 @@ import {
 } from "@heroui/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import {
+  titleLabels,
+  resourcesLabels,
+  threatsLabels,
+  detailsLabels,
+} from "~/locale";
 
 const LocationRow = ({
   location,
@@ -20,6 +26,16 @@ const LocationRow = ({
   location: Location;
   handleChoose?: (location: Location) => void;
 }) => {
+  const { language } = useStore();
+  const RESOURCES_LABELS = resourcesLabels.find(
+    (l) => l.language === language,
+  )!.labels;
+  const THREATS_LABELS = threatsLabels.find(
+    (l) => l.language === language,
+  )!.labels;
+  const DETAILS_LABELS = detailsLabels.find(
+    (l) => l.language === language,
+  )!.labels;
   return (
     <div
       onClick={() => handleChoose?.(location)}
@@ -31,44 +47,44 @@ const LocationRow = ({
           {location?.lon_deg}
         </p>
         <p className="text-xl text-yellow-400">
-          {location.namedLoc?.name_en ?? "Unknown Location"}
+          {location.namedLoc?.name_en ?? DETAILS_LABELS.unknownLocation}
         </p>
       </div>
       <div className="flex flex-col gap-1 xl:flex-row 2xl:gap-4">
         <div className="flex flex-row items-center gap-1 text-xs 2xl:gap-4">
           <div className="flex-row gap-1">
             <Rhombi value={location.concrete} />
-            Concrete
+            {RESOURCES_LABELS.concrete}
           </div>
           <div className="flex-row gap-1">
             <Rhombi value={location.water} />
-            Water
+            {RESOURCES_LABELS.water}
           </div>
           <div className="flex-row gap-1">
             <Rhombi value={location.metals} />
-            Metals
+            {RESOURCES_LABELS.metals}
           </div>
           <div className="flex-row gap-1">
             <Rhombi value={location.rare_metals} />
-            Rare Metals
+            {RESOURCES_LABELS.rareMetals}
           </div>
         </div>
         <div className="flex flex-row items-center gap-1 text-xs 2xl:gap-4">
           <div className="flex-row gap-1">
             <Rhombi value={location.meteors} />
-            <p>Meteors</p>
+            {THREATS_LABELS.meteors}
           </div>
           <div className="flex-row gap-1">
             <Rhombi value={location.dust_devils} />
-            Dust Devils
+            {THREATS_LABELS.dustDevils}
           </div>
           <div className="flex-row gap-1">
             <Rhombi value={location.dust_storms} />
-            Dust Storms
+            {THREATS_LABELS.dustStorms}
           </div>
           <div className="flex-row gap-1">
             <Rhombi value={location.cold_waves} />
-            Cold Waves
+            {THREATS_LABELS.coldWaves}
           </div>
         </div>
       </div>
@@ -77,8 +93,10 @@ const LocationRow = ({
 };
 
 export default function LocationsList() {
-  const { appliedFilter, setAppliedCoordinates } = useStore();
+  const { appliedFilter, setAppliedCoordinates, language } = useStore();
   const [currentPage, setCurrentPage] = useState(1);
+
+  const TITLE = titleLabels.find((l) => l.language === language)!.labels.list;
 
   const {
     data: locationsListData,
@@ -116,7 +134,7 @@ export default function LocationsList() {
     <Wrapper className="lg:w-1/2">
       <Accordion isCompact={true} className="flex flex-col gap-2">
         <AccordionItem
-          title="Locations List"
+          title={TITLE}
           classNames={{
             base: "-mx-2",
             trigger: "p-0",
