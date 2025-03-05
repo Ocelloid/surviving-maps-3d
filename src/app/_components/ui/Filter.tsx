@@ -100,6 +100,11 @@ export default function Filter() {
 
   const isInvalid = useMemo(() => {
     if (filter.coordinates === "") return false;
+    const coords = filter.coordinates.split(" ");
+    if (coords.length !== 4) return true;
+    const lat = Number(coords[1]);
+    const lon = Number(coords[3]);
+    if (lat > 70 || lat < -70 || lon > 180 || lon < -180) return true;
     return /^[NS] \d{1,3} [WE] \d{1,3}$/i.exec(filter.coordinates)
       ? false
       : true;
@@ -211,7 +216,7 @@ export default function Filter() {
               <Input
                 value={filter.coordinates}
                 onValueChange={setCoordinates}
-                errorMessage="The format is N/S # W/E #"
+                errorMessage="N/S -70 to 70 W/E 0 to 180"
                 isInvalid={isInvalid}
                 variant="underlined"
                 size="sm"
