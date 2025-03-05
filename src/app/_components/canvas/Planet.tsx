@@ -6,7 +6,6 @@ import Pin from "./Pin";
 import MarsSD from "./mars/sd";
 import MarsMD from "./mars/md";
 import { useStore, type Coordinates } from "~/store";
-// import MarsHD from "./mars/hd";
 
 const convertUVtoCoordinates = (uv: THREE.Vector2) => {
   const x = Number((360 * uv.x - 360).toFixed(0));
@@ -33,15 +32,11 @@ const convertCoordinatesToPolar = (coord: Coordinates) => {
 };
 
 const convertUVtoNormal = (uv: THREE.Vector2) => {
-  // UV to Longitude and Latitude
   const longitude = 2 * Math.PI * uv.x - Math.PI;
   const latitude = Math.PI * uv.y - Math.PI / 2;
-
-  // Spherical to Cartesian (Normal Vector)
   const x = Math.cos(latitude) * Math.cos(longitude);
   const y = -1 * Math.sin(latitude);
   const z = -1 * Math.cos(latitude) * Math.sin(longitude);
-
   return new THREE.Vector3(x, y, z);
 };
 
@@ -94,9 +89,7 @@ export default function Planet() {
         }}
       >
         <Suspense fallback={<MarsSD />}>
-          {/* <Suspense fallback={<MarsMD />}> */}
           <MarsMD />
-          {/* </Suspense> */}
         </Suspense>
       </group>
     </mesh>

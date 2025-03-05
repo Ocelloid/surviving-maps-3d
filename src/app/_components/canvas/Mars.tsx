@@ -16,10 +16,6 @@ export default function Mars() {
   const colorTexture = useTexture("/textures/mars_1k_color.jpg");
   const normalTexture = useTexture("/textures/mars_1k_normal.jpg");
 
-  // const geometry = new THREE.SphereGeometry(1.01, 180, 141);
-  // const material = new THREE.LineBasicMaterial({ color: 0xd3d3d3 });
-  // const wireframe = new THREE.EdgesGeometry(geometry);
-
   return (
     <Suspense
       fallback={
@@ -29,10 +25,6 @@ export default function Mars() {
         </Sphere>
       }
     >
-      {/* <Sphere ref={meshRef}>
-        <lineBasicMaterial color={0xd3d3d3} />
-        <lineSegments args={[wireframe, material]} />
-      </Sphere> */}
       <MarsHD />
     </Suspense>
   );
