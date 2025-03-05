@@ -11,8 +11,8 @@ export default function Controls() {
   return (
     <OrbitControls
       enablePan={false}
-      minPolarAngle={Math.PI / 6}
-      maxPolarAngle={Math.PI - Math.PI / 6}
+      minPolarAngle={Math.PI / 4}
+      maxPolarAngle={Math.PI - Math.PI / 4}
       mouseButtons={{ LEFT: 2, MIDDLE: 1, RIGHT: 0 }}
       onChange={(e) => {
         const cam = e?.target?.object;
