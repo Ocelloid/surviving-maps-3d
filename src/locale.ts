@@ -772,6 +772,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "sp",
     labels: {
+      any: "Cualquier",
       clear: "Limpiar",
       apply: "Aplicar",
       coordinates: "Coordenadas",
