@@ -176,7 +176,9 @@ POSTGRES_URL =
 pnpm db:push
 ```
 
-See step 5 from "Setup" section if you didn't seed the database yet. 8. Build the project and set up pm2
+See step 5 from "Setup" section if you didn't seed the database yet.
+
+8. Build the project and set up pm2
 
 ```bash
 sudo pnpm build
