@@ -1,4 +1,5 @@
 type FilterLabels = {
+  any: string;
   clear: string;
   apply: string;
   coordinates: string;
@@ -561,6 +562,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "en",
     labels: {
+      any: "Any",
       clear: "Clear",
       apply: "Apply",
       coordinates: "Coordinates",
@@ -590,6 +592,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "br",
     labels: {
+      any: "Qualquer",
       clear: "Limpar",
       apply: "Aplicar",
       coordinates: "Coordenadas",
@@ -619,6 +622,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "fr",
     labels: {
+      any: "Tout",
       clear: "Effacer",
       apply: "Appliquer",
       coordinates: "Coordonnées",
@@ -648,6 +652,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "ge",
     labels: {
+      any: "Alle",
       clear: "Leeren",
       apply: "Anwenden",
       coordinates: "Koordinaten",
@@ -677,6 +682,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "po",
     labels: {
+      any: "Wszystko",
       clear: "Wyczyść",
       apply: "Zastosuj",
       coordinates: "Koordynaty",
@@ -706,6 +712,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "ru",
     labels: {
+      any: "Любые",
       clear: "Очистить",
       apply: "Применить",
       coordinates: "Координаты",
@@ -735,6 +742,7 @@ const filterLabels: { language: string; labels: FilterLabels }[] = [
   {
     language: "sc",
     labels: {
+      any: "全部",
       clear: "清除",
       apply: "应用",
       coordinates: "坐标",

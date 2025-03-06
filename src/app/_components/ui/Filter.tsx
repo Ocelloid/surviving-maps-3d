@@ -307,7 +307,7 @@ export default function Filter() {
                         : setNamedLocationIds([...keys].map(Number))
                     }
                   >
-                    <SelectItem key={""}>Any</SelectItem>
+                    <SelectItem key={""}>{FILTER_LABELS.any}</SelectItem>
                     <SelectSection
                       title={FILTER_LABELS.namedLocationsSection}
                       items={namedLocations}
@@ -329,7 +329,7 @@ export default function Filter() {
                         : setMapNames([...keys].map(String))
                     }
                   >
-                    <SelectItem key={""}>Any</SelectItem>
+                    <SelectItem key={""}>{FILTER_LABELS.any}</SelectItem>
                     <SelectSection
                       title={FILTER_LABELS.mapSection}
                       items={MAP_NAMES}
@@ -349,7 +349,7 @@ export default function Filter() {
                         : setTopographyNames([...keys].map(String))
                     }
                   >
-                    <SelectItem key={""}>Any</SelectItem>
+                    <SelectItem key={""}>{FILTER_LABELS.any}</SelectItem>
                     <SelectSection
                       title={FILTER_LABELS.topographySection}
                       items={TOPOGRAPHY_NAMES}
@@ -371,7 +371,7 @@ export default function Filter() {
                         : setBreakthroughIds([...keys].map(Number))
                     }
                   >
-                    <SelectItem key={""}>Any</SelectItem>
+                    <SelectItem key={""}>{FILTER_LABELS.any}</SelectItem>
                     <SelectSection
                       title={FILTER_LABELS.breakthroughsSection}
                       items={breakthroughs}
