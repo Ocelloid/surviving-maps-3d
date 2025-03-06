@@ -52,7 +52,7 @@ export function NamedLocations() {
   return (
     <div className="flex flex-col gap-4">
       <Button className="mx-auto w-min" onPress={handleSeedLocations}>
-        Seed Locations
+        Seed Named Locations
       </Button>
       {isParsing && <p>Parsing CSV...</p>}
       {!isParsing &&
