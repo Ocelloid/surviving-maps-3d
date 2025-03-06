@@ -221,7 +221,7 @@ export default function Filter() {
 
   return (
     <div className="flex w-full flex-col gap-4 lg:w-1/4">
-      <Wrapper>
+      <Wrapper className="h-min md:h-min">
         <Accordion
           isCompact={true}
           className="flex flex-col gap-2"
