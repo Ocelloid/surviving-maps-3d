@@ -221,7 +221,7 @@ export default function Filter() {
 
   return (
     <div className="flex w-full flex-col gap-4 lg:w-1/4">
-      <Wrapper className="h-min md:h-min">
+      <Wrapper>
         <Accordion
           isCompact={true}
           className="flex flex-col gap-2"
@@ -238,7 +238,7 @@ export default function Filter() {
               content: "overflow-hidden flex-col flex gap-2",
             }}
           >
-            <div className="flex flex-col gap-1 overflow-y-auto overflow-x-hidden md:h-dvh md:max-h-[calc(100vh-140px)]">
+            <div className="flex flex-col gap-1 overflow-x-hidden overflow-y-hidden md:h-dvh md:max-h-[calc(100vh-140px)] md:overflow-y-auto">
               <div className="flex flex-row gap-2">
                 <Button
                   size="sm"
