@@ -160,7 +160,7 @@ psql
 ```sql
 ALTER USER user WITH PASSWORD 'password';
 GRANT ALL ON DATABASE “next-js” TO user;
-ALTER DATABASE “next-js” OWNER TO ИМЯ_ПОЛЬЗОВАТЕЛЯ;
+ALTER DATABASE “next-js” OWNER TO user;
 ```
 
 6. Add the database URL to the .env file
