@@ -1,3 +1,4 @@
+/* eslint-disable drizzle/enforce-delete-with-where */
 import { and, eq, inArray, gte, lte, type SQL, count } from "drizzle-orm";
 import { z } from "zod";
 import {
@@ -137,6 +138,50 @@ export type Version = {
 };
 
 export const locationRouter = createTRPCRouter({
+  clearDB: protectedProcedure.mutation(async ({ ctx }) => {
+    ctx.db
+      .delete(breakthroughsInLocations)
+      .then(() => {
+        console.log("deleted breakthroughs in locations");
+        ctx.db
+          .delete(namedLocations)
+          .then(() => {
+            console.log("deleted named locations");
+            ctx.db
+              .delete(breakthroughs)
+              .then(() => {
+                console.log("deleted breakthroughs");
+                ctx.db
+                  .delete(locations)
+                  .then(() => {
+                    console.log("deleted locations");
+                    ctx.db
+                      .delete(versions)
+                      .then(() => {
+                        console.log("deleted versions");
+                        console.log("cleared db");
+                      })
+                      .catch((err) => {
+                        console.error(err);
+                      });
+                  })
+                  .catch((err) => {
+                    console.error(err);
+                  });
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }),
+
   getFilteredLocations: publicProcedure
     .input(
       z.object({
@@ -502,8 +547,6 @@ export const locationRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      console.log(input);
-      //eslint-disable-next-line drizzle/enforce-delete-with-where
       await ctx.db.delete(namedLocations);
       await ctx.db.insert(namedLocations).values(
         input.names.map((row) => ({
@@ -527,7 +570,6 @@ export const locationRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      //eslint-disable-next-line drizzle/enforce-delete-with-where
       await ctx.db.delete(breakthroughs);
       await ctx.db.insert(breakthroughs).values(
         input.names.map((row, i) => ({
