@@ -27,24 +27,26 @@ pnpm install
 
 3. Create a `.env` file in the root directory and add the following variables:
 
-```js
+```bash
 // Authorisation is needed to log into the admin panel
+ADMIN_EMAIL="" // your email
+
 // Create a Discord Oauth and grab both from there
 // Edit env.js and /server/auth/config.ts to change the auth methods
 // I used Discord and an email server, but you do you
-AUTH_SECRET = ""; // any string
-NEXTAUTH_URL = ""; // your domain
-AUTH_DISCORD_ID = "";
-AUTH_DISCORD_SECRET = "";
-EMAIL_SERVER = "";
-EMAIL_SERVER_USER = "";
-EMAIL_SERVER_PASSWORD = "";
-EMAIL_SERVER_HOST = "";
-EMAIL_SERVER_PORT = "";
-EMAIL_FROM = "";
+AUTH_SECRET="" // any string
+NEXTAUTH_URL="" // your domain
+AUTH_DISCORD_ID=""
+AUTH_DISCORD_SECRET=""
+EMAIL_SERVER=""
+EMAIL_SERVER_USER=""
+EMAIL_SERVER_PASSWORD=""
+EMAIL_SERVER_HOST=""
+EMAIL_SERVER_PORT=""
+EMAIL_FROM=""
 
 // your Postgres database credentials
-POSTGRES_URL = "";
+POSTGRES_URL=""
 ```
 
 4. Run the project
