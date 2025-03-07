@@ -77,7 +77,7 @@ export function Breakthroughs() {
     });
   };
 
-  const handleSeedLocations = async () => {
+  const handleSeedBTs = async () => {
     const confirmed = window.confirm(
       "Are you sure you want to seed the breakthroughs? This will overwrite all existing breakthroughs.",
     );
@@ -102,7 +102,7 @@ export function Breakthroughs() {
 
   return (
     <div className="flex flex-col gap-4">
-      <Button className="mx-auto w-min" onPress={handleSeedLocations}>
+      <Button className="mx-auto w-min" onPress={handleSeedBTs}>
         Seed Breakthroughs
       </Button>
       {isParsing && <p>Parsing CSV...</p>}

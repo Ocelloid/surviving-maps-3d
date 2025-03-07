@@ -65,15 +65,16 @@ pnpm db:push
 Make sure that the required CSVs are in the /public/mapdata directory:
 
 ```
-Evans_GP.csv
-Picard_BB.csv
-Picard_GP.csv
-Picard_GP_BB.csv
-Picard.csv
-Tito_GP.csv
+nodlcs.csv
+bb_nopa.csv
+gp_bb_nopa.csv
+bb.csv
+gp_bb.csv
+gp.csv
 ```
 
-And following CSVs in the /public/strings directory:
+I took them from [ChoGGi's repo](https://github.com/ChoGGi/SurvivingMars_CheatMods/tree/master/Map%20Locations).
+Also, the /public/strings directory should contatn following CSVs:
 
 ```
 bt.csv
@@ -81,14 +82,16 @@ bt_desc.csv
 locations.csv
 ```
 
+If they aren't there or in the linked repo, idk, datamine them yourself I guess?
+
 - A. Log into the admin panel, navigate to Breakthroughs tab and click "Seed Breakthroughs". Watch your console for any errors.
 - B. If everything goes well, you can now navigate to Named Locations tab and click "Seed Named Locations". Watch your console for any errors.
 - C. If everything goes well, you can now navigate to Locations tab and click "Seed Locations".
 
 The process can take a long time. Watch your console for any errors.
-If something goes wrong, you're on your own pal, get good.
+If something goes wrong, there's a "Delete Breakthroughs" button in the admin panel, use it if you want to delete the connections between locations and breakthroughs for the chosen version. Try doing that first, and if that fails, you're on your own, buddy, get good.
 
-If there are new versions of the game, add new CSVs to the directory and follow the steps above.
+If there are new versions of the game, add new CSVs to the directory, edit the "app/\_components/Locations.tsx" file, and follow the steps above.
 
 Once you're done seeding the database, you can proceed to deploying the project.
 

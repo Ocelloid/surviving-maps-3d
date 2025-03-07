@@ -22,20 +22,20 @@ export default function Admin() {
     <div className="mx-auto flex h-full min-h-dvh w-full max-w-7xl flex-col gap-4 rounded-xl p-4 shadow-md dark">
       <Tabs
         aria-label="Admin Tabs"
-        defaultSelectedKey={"breakthroughs"}
+        defaultSelectedKey={"locs"}
         classNames={{
           tabList: "flex p-2 flex-row just0fy-between w-full",
           tab: "p-2",
         }}
       >
+        <Tab title="Locations" key="locs">
+          <Locations />
+        </Tab>
         <Tab title="Breakthroughs" key="breakthroughs">
           <Breakthroughs />
         </Tab>
         <Tab title="Named Locations" key="named">
           <NamedLocations />
-        </Tab>
-        <Tab title="Locations" key="locs">
-          <Locations />
         </Tab>
         <Tab title="Clear" key="clear">
           <Clear />

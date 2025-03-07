@@ -4,19 +4,20 @@ import Papa from "papaparse";
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 
 type CSVDataRow = {
+  Coordinates?: string;
   Altitude: string;
-  "Breakthrough 1": string;
-  "Breakthrough 2": string;
-  "Breakthrough 3": string;
-  "Breakthrough 4": string;
-  "Breakthrough 5": string;
-  "Breakthrough 6": string;
-  "Breakthrough 7": string;
-  "Breakthrough 8": string;
-  "Breakthrough 9": string;
-  "Breakthrough 10": string;
-  "Breakthrough 11": string;
-  "Breakthrough 12": string;
+  "Breakthrough 1"?: string;
+  "Breakthrough 2"?: string;
+  "Breakthrough 3"?: string;
+  "Breakthrough 4"?: string;
+  "Breakthrough 5"?: string;
+  "Breakthrough 6"?: string;
+  "Breakthrough 7"?: string;
+  "Breakthrough 8"?: string;
+  "Breakthrough 9"?: string;
+  "Breakthrough 10"?: string;
+  "Breakthrough 11"?: string;
+  "Breakthrough 12"?: string;
   "Breakthrough 13"?: string;
   "Breakthrough 14"?: string;
   "Breakthrough 15"?: string;
@@ -42,15 +43,12 @@ type CSVDataRow = {
 };
 
 const VERSIONS = [
-  { name: "Evans Green Planet", path: "/mapdata/Evans_GP.csv" },
-  { name: "Picard Below & Beyond", path: "/mapdata/Picard_BB.csv" },
-  {
-    name: "Picard Green Planet + Below & Beyond",
-    path: "/mapdata/Picard_GP_BB.csv",
-  },
-  { name: "Picard Green Planet", path: "/mapdata/Picard_GP.csv" },
-  { name: "Picard", path: "/mapdata/Picard.csv" },
-  { name: "Tito Green Planet", path: "/mapdata/Tito_GP.csv" },
+  { name: "No DLCs", path: "/mapdata/nodlcs.csv" },
+  { name: "BB - No PA", path: "/mapdata/bb_nopa.csv" },
+  { name: "GP + BB - No PA", path: "/mapdata/gp_bb_nopa.csv" },
+  { name: "BB", path: "/mapdata/bb.csv" },
+  { name: "GP + BB", path: "/mapdata/gp_bb.csv" },
+  { name: "GP", path: "/mapdata/gp.csv" },
 ];
 
 export function Locations() {

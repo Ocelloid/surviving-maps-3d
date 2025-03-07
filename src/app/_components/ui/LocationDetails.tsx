@@ -238,6 +238,22 @@ export default function LocationDetails() {
               <p className="text-2xl uppercase text-blue-300">
                 {DETAILS_LABELS.breakthroughs}
               </p>
+              {/* <div className="-mt-2 flex flex-col gap-0 text-justify text-xs italic text-blue-300">
+                <p>
+                  Only shows first 13 breakthroughs: anything higher than that
+                  isn&apos;t guaranteed (unless using paradox sponsor which
+                  gives an extra 2-4).
+                </p>
+                <p>
+                  1-4 are planetary anomalies, the rest are surface anomalies.
+                  You can turn them off by choosing &ldquo;no PA&rdquo; in the
+                  version.
+                </p>
+                <p>
+                  If you have B&B then you need to use ChoGGi&apos;s Fix Bugs
+                  mod on new games or ignore them.
+                </p>
+              </div> */}
               <Accordion
                 isCompact={true}
                 className="flex flex-col gap-2"
@@ -249,7 +265,7 @@ export default function LocationDetails() {
                   <AccordionItem
                     key={btsloc.id}
                     title={`${i + 1}. ${
-                      language === "en"
+                      (language === "en"
                         ? btsloc.bt?.name_en
                         : language === "br"
                           ? btsloc.bt?.name_br
@@ -265,7 +281,7 @@ export default function LocationDetails() {
                                     ? btsloc.bt?.name_sc
                                     : language === "sp"
                                       ? btsloc.bt?.name_sp
-                                      : null
+                                      : null) ?? "TODO translation"
                     }`}
                     classNames={{
                       base: "-mx-2",
@@ -274,7 +290,7 @@ export default function LocationDetails() {
                       content: "text-xs italic",
                     }}
                   >
-                    {language === "en"
+                    {(language === "en"
                       ? btsloc.bt?.desc_en
                       : language === "br"
                         ? btsloc.bt?.desc_br
@@ -290,7 +306,7 @@ export default function LocationDetails() {
                                   ? btsloc.bt?.desc_sc
                                   : language === "sp"
                                     ? btsloc.bt?.desc_sp
-                                    : "No description"}
+                                    : null) ?? "No description"}
                   </AccordionItem>
                 ))}
               </Accordion>

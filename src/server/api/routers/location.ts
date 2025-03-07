@@ -1,5 +1,5 @@
 /* eslint-disable drizzle/enforce-delete-with-where */
-import { and, eq, inArray, gte, lte, type SQL, count } from "drizzle-orm";
+import { and, eq, inArray, gte, lte, type SQL, count, desc } from "drizzle-orm";
 import { z } from "zod";
 import {
   createTRPCRouter,
@@ -27,18 +27,18 @@ const CSVLangRow = z.object({
 
 const CSVDataRow = z.object({
   Altitude: z.string(),
-  "Breakthrough 1": z.string(),
-  "Breakthrough 2": z.string(),
-  "Breakthrough 3": z.string(),
-  "Breakthrough 4": z.string(),
-  "Breakthrough 5": z.string(),
-  "Breakthrough 6": z.string(),
-  "Breakthrough 7": z.string(),
-  "Breakthrough 8": z.string(),
-  "Breakthrough 9": z.string(),
-  "Breakthrough 10": z.string(),
-  "Breakthrough 11": z.string(),
-  "Breakthrough 12": z.string(),
+  "Breakthrough 1": z.string().optional(),
+  "Breakthrough 2": z.string().optional(),
+  "Breakthrough 3": z.string().optional(),
+  "Breakthrough 4": z.string().optional(),
+  "Breakthrough 5": z.string().optional(),
+  "Breakthrough 6": z.string().optional(),
+  "Breakthrough 7": z.string().optional(),
+  "Breakthrough 8": z.string().optional(),
+  "Breakthrough 9": z.string().optional(),
+  "Breakthrough 10": z.string().optional(),
+  "Breakthrough 11": z.string().optional(),
+  "Breakthrough 12": z.string().optional(),
   "Breakthrough 13": z.string().optional(),
   "Breakthrough 14": z.string().optional(),
   "Breakthrough 15": z.string().optional(),
@@ -64,13 +64,13 @@ const CSVDataRow = z.object({
 });
 
 export type Location = {
-  id: number;
+  id?: number;
   lat_dir: string | null;
   lat_deg: string | null;
   lon_dir: string | null;
   lon_deg: string | null;
   altitude: number | null;
-  named_loc_id: number | null;
+  named_loc_id?: number | null;
   map_name: string | null;
   topography: string | null;
   concrete: number | null;
@@ -144,30 +144,14 @@ export const locationRouter = createTRPCRouter({
       .then(() => {
         console.log("deleted breakthroughs in locations");
         ctx.db
-          .delete(namedLocations)
+          .delete(locations)
           .then(() => {
-            console.log("deleted named locations");
+            console.log("deleted locations");
             ctx.db
-              .delete(breakthroughs)
+              .delete(versions)
               .then(() => {
-                console.log("deleted breakthroughs");
-                ctx.db
-                  .delete(locations)
-                  .then(() => {
-                    console.log("deleted locations");
-                    ctx.db
-                      .delete(versions)
-                      .then(() => {
-                        console.log("deleted versions");
-                        console.log("cleared db");
-                      })
-                      .catch((err) => {
-                        console.error(err);
-                      });
-                  })
-                  .catch((err) => {
-                    console.error(err);
-                  });
+                console.log("deleted versions");
+                console.log("cleared db");
               })
               .catch((err) => {
                 console.error(err);
@@ -338,10 +322,12 @@ export const locationRouter = createTRPCRouter({
     }),
 
   getFilterData: publicProcedure.query(async ({ ctx }) => {
-    const namedLocations = await ctx.db.query.namedLocations.findMany();
-    const breakthroughs = await ctx.db.query.breakthroughs.findMany();
-    const versions = await ctx.db.query.versions.findMany();
-    return { namedLocations, breakthroughs, versions };
+    const n = await ctx.db.query.namedLocations.findMany();
+    const b = await ctx.db.query.breakthroughs.findMany();
+    const v = await ctx.db.query.versions.findMany({
+      orderBy: desc(versions.id),
+    });
+    return { namedLocations: n, breakthroughs: b, versions: v };
   }),
 
   getNamedLocations: publicProcedure.query(async ({ ctx }) => {
@@ -389,7 +375,7 @@ export const locationRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       const version = input.version;
       const oldVersions = await ctx.db.query.versions.findMany();
-      let versionId = oldVersions.find((ver) => ver.name === version)?.id;
+      let versionId = oldVersions.find((ver) => ver.name === version)?.id ?? 0;
 
       if (!!versionId && !input.override) {
         return { status: 409, message: "Version already exists" };
@@ -406,6 +392,27 @@ export const locationRouter = createTRPCRouter({
           });
         versionId = newVersion[0]!.id;
         console.log("added new version: ", version);
+      } else if (input.override) {
+        ctx.db
+          .delete(breakthroughsInLocations)
+          .where(eq(breakthroughsInLocations.ver_id, versionId))
+          .then(() => {
+            console.log(
+              `deleted breakthroughs in locations for the version ${version}`,
+            );
+            ctx.db
+              .delete(versions)
+              .where(eq(versions.id, versionId))
+              .then(() => {
+                console.log(`deleted version ${version}`);
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
       }
 
       console.log("fetching additional info");
@@ -455,13 +462,11 @@ export const locationRouter = createTRPCRouter({
           )?.id,
         }));
         console.log("pending locations: ", pendingLocations.length);
-        let locationsBatch: Location[] = [];
         for (let i = 0; i < pendingLocations.length; i += 1000) {
-          locationsBatch = await ctx.db
-            .insert(locations)
-            .values(pendingLocations.slice(i, i + 1000));
-          console.log(`added ${locationsBatch.length} locations`);
-          newLocations.push(...locationsBatch);
+          const batch = pendingLocations.slice(i, i + 1000);
+          await ctx.db.insert(locations).values(batch);
+          console.log(`added ${batch.length} locations`);
+          newLocations.push(...batch);
           console.log(`added ${newLocations.length} locations total`);
         }
       } else {
@@ -528,7 +533,11 @@ export const locationRouter = createTRPCRouter({
         );
         seededBreakthroughs += pending.length;
         console.log(
-          `added breakthroughs for locations up to ${lastLoc?.lat_dir} ${lastLoc?.lat_deg} ${lastLoc?.lon_dir} ${lastLoc?.lon_deg}`,
+          `added breakthroughs for locations up to ${
+            lastLoc
+              ? `${lastLoc?.lat_dir} ${lastLoc?.lat_deg} ${lastLoc?.lon_dir} ${lastLoc?.lon_deg}`
+              : `${i + pending.length}`
+          }`,
         );
       }
 
@@ -570,9 +579,30 @@ export const locationRouter = createTRPCRouter({
       }),
     )
     .mutation(async ({ ctx, input }) => {
-      await ctx.db.delete(breakthroughs);
-      await ctx.db.insert(breakthroughs).values(
-        input.names.map((row, i) => ({
+      const oldBreakthroughs = await ctx.db.query.breakthroughs.findMany();
+      if (!oldBreakthroughs.length) {
+        await ctx.db.insert(breakthroughs).values(
+          input.names.map((row, i) => ({
+            name_en: row.name_en,
+            name_br: row.name_br,
+            name_fr: row.name_fr,
+            name_ge: row.name_ge,
+            name_po: row.name_po,
+            name_ru: row.name_ru,
+            name_sc: row.name_sc,
+            name_sp: row.name_sp,
+            desc_en: input.descs[i]!.name_en,
+            desc_br: input.descs[i]!.name_br,
+            desc_fr: input.descs[i]!.name_fr,
+            desc_ge: input.descs[i]!.name_ge,
+            desc_po: input.descs[i]!.name_po,
+            desc_ru: input.descs[i]!.name_ru,
+            desc_sc: input.descs[i]!.name_sc,
+            desc_sp: input.descs[i]!.name_sp,
+          })),
+        );
+      } else {
+        const newBTs = input.names.map((row, i) => ({
           name_en: row.name_en,
           name_br: row.name_br,
           name_fr: row.name_fr,
@@ -589,8 +619,18 @@ export const locationRouter = createTRPCRouter({
           desc_ru: input.descs[i]!.name_ru,
           desc_sc: input.descs[i]!.name_sc,
           desc_sp: input.descs[i]!.name_sp,
-        })),
-      );
+        }));
+        for (const bt of newBTs) {
+          if (!oldBreakthroughs.some((b) => b.name_en === bt.name_en)) {
+            await ctx.db.insert(breakthroughs).values([bt]);
+          } else {
+            await ctx.db
+              .update(breakthroughs)
+              .set(bt)
+              .where(eq(breakthroughs.name_en, bt.name_en));
+          }
+        }
+      }
     }),
 
   getFirstHundredLocations: publicProcedure.query(async ({ ctx }) => {
