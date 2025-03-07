@@ -238,12 +238,18 @@ export default function LocationDetails() {
               <p className="text-2xl uppercase text-blue-300">
                 {DETAILS_LABELS.breakthroughs}
               </p>
-              <div className="flex flex-col gap-4">
+              <Accordion
+                isCompact={true}
+                className="flex flex-col gap-2"
+                defaultExpandedKeys={
+                  filteredBreakthroguhs[0]?.id.toString() ?? ""
+                }
+              >
                 {filteredBreakthroguhs.map((btsloc, i) => (
-                  <div className="flex flex-col gap-0" key={btsloc.id}>
-                    <p>
-                      {i + 1}.{" "}
-                      {language === "en"
+                  <AccordionItem
+                    key={btsloc.id}
+                    title={`${i + 1}. ${
+                      language === "en"
                         ? btsloc.bt?.name_en
                         : language === "br"
                           ? btsloc.bt?.name_br
@@ -259,30 +265,35 @@ export default function LocationDetails() {
                                     ? btsloc.bt?.name_sc
                                     : language === "sp"
                                       ? btsloc.bt?.name_sp
-                                      : null}
-                    </p>
-                    <p className="text-xs italic">
-                      {language === "en"
-                        ? btsloc.bt?.desc_en
-                        : language === "br"
-                          ? btsloc.bt?.desc_br
-                          : language === "fr"
-                            ? btsloc.bt?.desc_fr
-                            : language === "ge"
-                              ? btsloc.bt?.desc_ge
-                              : language === "po"
-                                ? btsloc.bt?.desc_po
-                                : language === "ru"
-                                  ? btsloc.bt?.desc_ru
-                                  : language === "sc"
-                                    ? btsloc.bt?.desc_sc
-                                    : language === "sp"
-                                      ? btsloc.bt?.desc_sp
-                                      : null}
-                    </p>
-                  </div>
+                                      : null
+                    }`}
+                    classNames={{
+                      base: "-mx-2",
+                      title: "text-blue-300",
+                      trigger: "p-0",
+                      content: "text-xs italic",
+                    }}
+                  >
+                    {language === "en"
+                      ? btsloc.bt?.desc_en
+                      : language === "br"
+                        ? btsloc.bt?.desc_br
+                        : language === "fr"
+                          ? btsloc.bt?.desc_fr
+                          : language === "ge"
+                            ? btsloc.bt?.desc_ge
+                            : language === "po"
+                              ? btsloc.bt?.desc_po
+                              : language === "ru"
+                                ? btsloc.bt?.desc_ru
+                                : language === "sc"
+                                  ? btsloc.bt?.desc_sc
+                                  : language === "sp"
+                                    ? btsloc.bt?.desc_sp
+                                    : "No description"}
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
             </div>
           </div>
         </AccordionItem>
