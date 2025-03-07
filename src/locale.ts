@@ -30,6 +30,8 @@ type SettingsLabels = {
   map: string;
   animation: string;
   language: string;
+  move: string;
+  rotate: string;
 };
 
 type TitleLabels = {
@@ -229,6 +231,8 @@ const settingsLabels: { language: string; labels: SettingsLabels }[] = [
       map: "3D Map",
       animation: "Animation",
       language: "Language",
+      move: "Move Spot",
+      rotate: "Rotate",
     },
   },
   {
@@ -237,6 +241,8 @@ const settingsLabels: { language: string; labels: SettingsLabels }[] = [
       map: "Mapa 3D",
       animation: "Animação",
       language: "Idioma",
+      move: "Mover",
+      rotate: "Girar",
     },
   },
   {
@@ -245,6 +251,8 @@ const settingsLabels: { language: string; labels: SettingsLabels }[] = [
       map: "Carte 3D",
       animation: "Animation",
       language: "Langue",
+      move: "Déplacer",
+      rotate: "Tourner",
     },
   },
   {
@@ -253,6 +261,8 @@ const settingsLabels: { language: string; labels: SettingsLabels }[] = [
       map: "3D-Karte",
       animation: "Animation",
       language: "Sprache",
+      move: "Bewegen",
+      rotate: "Drehen",
     },
   },
   {
@@ -261,6 +271,8 @@ const settingsLabels: { language: string; labels: SettingsLabels }[] = [
       map: "Mapa 3D",
       animation: "Animacja",
       language: "Język",
+      move: "Przenieś",
+      rotate: "Obróć",
     },
   },
   {
@@ -269,11 +281,19 @@ const settingsLabels: { language: string; labels: SettingsLabels }[] = [
       map: "3D Карта",
       animation: "Анимация",
       language: "Язык",
+      move: "Двигать",
+      rotate: "Вращать",
     },
   },
   {
     language: "sc",
-    labels: { map: "地图", animation: "动画", language: "语言" },
+    labels: {
+      map: "地图",
+      animation: "动画",
+      language: "语言",
+      move: "移动",
+      rotate: "旋转",
+    },
   },
   {
     language: "sp",
@@ -281,6 +301,8 @@ const settingsLabels: { language: string; labels: SettingsLabels }[] = [
       map: "Mapa 3D",
       animation: "Animación",
       language: "Idioma",
+      move: "Mover",
+      rotate: "Rotar",
     },
   },
 ];

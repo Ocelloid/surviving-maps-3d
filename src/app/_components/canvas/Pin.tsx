@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useStore } from "~/store";
+import { settingsLabels } from "~/locale";
 
 export default function Pin({
   pin,
@@ -13,7 +14,7 @@ export default function Pin({
   pin: THREE.Vector3;
   coord: THREE.Vector2;
 }) {
-  const { appliedLocation, isLocationLoading } = useStore();
+  const { appliedLocation, isLocationLoading, language } = useStore();
   const pinRef = useRef<THREE.Group>(null);
   const hexagonRef = useRef<THREE.Group>(null);
   useFrame(() => {
@@ -27,6 +28,27 @@ export default function Pin({
     }
   });
   const hasName = !!appliedLocation?.namedLoc?.name_en && !isLocationLoading;
+  const MOVE = settingsLabels.find((l) => l.language === language)!.labels.move;
+  const ROTATE = settingsLabels.find((l) => l.language === language)!.labels
+    .rotate;
+  const LOC_NAME =
+    language === "en"
+      ? appliedLocation?.namedLoc?.name_en
+      : language === "br"
+        ? appliedLocation?.namedLoc?.name_br
+        : language === "fr"
+          ? appliedLocation?.namedLoc?.name_fr
+          : language === "ge"
+            ? appliedLocation?.namedLoc?.name_ge
+            : language === "po"
+              ? appliedLocation?.namedLoc?.name_po
+              : language === "ru"
+                ? appliedLocation?.namedLoc?.name_ru
+                : language === "sc"
+                  ? appliedLocation?.namedLoc?.name_sc
+                  : language === "sp"
+                    ? appliedLocation?.namedLoc?.name_sp
+                    : "";
   return (
     <group position={pin} scale={0.03} ref={pinRef}>
       <group ref={hexagonRef}>
@@ -55,7 +77,7 @@ export default function Pin({
           outlineWidth={0.05}
           color={"#facc15"}
         >
-          {appliedLocation?.namedLoc?.name_en}
+          {LOC_NAME}
         </Text>
       )}
       <Text
@@ -74,38 +96,42 @@ export default function Pin({
         position={[0, -3.25 + (hasName ? 0 : 1.25), -0.25]}
         rotation={[0, Math.PI, 0]}
       >
-        <Image
-          url="/lmb.png"
-          side={THREE.DoubleSide}
-          transparent
-          scale={[0.4, 0.6]}
-          position={[-2.5, 0, 0]}
-        />
-        <Text
-          position={[-1, 0, 0]}
-          color={"lightskyblue"}
-          outlineColor={"black"}
-          outlineWidth={0.025}
-          scale={0.5}
-        >
-          Move Spot
-        </Text>
-        <Image
-          url="/rmb.png"
-          side={THREE.DoubleSide}
-          transparent
-          scale={[0.4, 0.6]}
-          position={[1, 0, 0]}
-        />
-        <Text
-          position={[2, 0, 0]}
-          color={"lightskyblue"}
-          outlineColor={"black"}
-          outlineWidth={0.025}
-          scale={0.5}
-        >
-          Rotate
-        </Text>
+        <group position={[-2.5, 0, 0]}>
+          <Image
+            url="/lmb.png"
+            side={THREE.DoubleSide}
+            transparent
+            scale={[0.4, 0.6]}
+          />
+          <Text
+            position={[0.25, 0, 0]}
+            color={"lightskyblue"}
+            outlineColor={"black"}
+            outlineWidth={0.025}
+            anchorX={"left"}
+            scale={0.5}
+          >
+            {MOVE}
+          </Text>
+        </group>
+        <group position={[0.75, 0, 0]}>
+          <Image
+            url="/rmb.png"
+            side={THREE.DoubleSide}
+            transparent
+            scale={[0.4, 0.6]}
+          />
+          <Text
+            position={[0.25, 0, 0]}
+            color={"lightskyblue"}
+            outlineColor={"black"}
+            outlineWidth={0.025}
+            anchorX={"left"}
+            scale={0.5}
+          >
+            {ROTATE}
+          </Text>
+        </group>
       </group>
     </group>
   );
