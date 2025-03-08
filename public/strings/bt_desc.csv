@@ -1,5 +1,5 @@
-name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
-"Instantly gain 20% in all terraforming parameters.
+break_id,name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp,name_tr
+AncientTerraformingDevice,"Instantly gain 20% in all terraforming parameters.
 
 <color flavor>""Is such a thing even possible? Yes, it is!"" 
 <right>Giorgio A. Tsoukalos</color><left>","Ganhar instantaneamente 20% em todos os parâmetros de terraformação.
@@ -23,8 +23,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>乔吉奥·A·佐卡洛斯</color><left>","Recibe un 20 % en todos los parámetros de terraformación.
 
 <color flavor>""¿Es posible algo así? ¡Sí, lo es!"".
+<right>Giorgio A. Tsoukalos</color><left>","Tüm dünyalaştırma parametrelerinde anında %20 kazan.
+
+<color flavor>""Böylesine bir şey gerçekten mümkün mü? Evet, mümkün!'' 
 <right>Giorgio A. Tsoukalos</color><left>"
-"Newly grown forests have a chance to spawn Vistas and Research Sites.
+DesignedForestation,"Newly grown forests have a chance to spawn Vistas and Research Sites.
 
 <color flavor>""For in the true nature of things, if we rightly consider, every green tree is far more glorious than if it were made of gold and silver."" 
 <right>Martin Luther</color><left>","Florestas recém-criadas podem gerar Vistas e Locais de Pesquisa.
@@ -48,8 +51,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>马丁- 路德</color><left>","Los bosques nuevos tienen una probabilidad de generar vistas y zonas de investigación.
 
 <color flavor>""Ya que en la verdadera naturaleza de las cosas, si lo consideramos bien, cada árbol verde es mucho más glorioso que si estuviese hecho de oro y plata"".
+<right>Martin Luther</color><left>","Yeni yetişen ormanların doğa manzarası ve araştırma alanları ortaya çıkarma şansı vardır.
+
+<color flavor>""Her şeyin gerçek doğası gereği için enine boyuna düşünecek olursak aslında her yeşil ağaç, altın ya da gümüşken olabileceğinden çok daha muhteşemdir."" 
 <right>Martin Luther</color><left>"
-"Lake pumps are self-sufficient and no longer need to be supplied with Water.
+LakeVaporators,"Lake pumps are self-sufficient and no longer need to be supplied with Water.
 
 <color flavor>""Water is a very good servant, but it is a cruel master."" 
 <right>C.G.D. Roberts</color><left>","Bombas de lago são autossuficientes e não precisam mais ser abastecidas com Água.
@@ -73,8 +79,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>C.G.D.罗伯茨</color><left>","Las bombas de lago son autosuficientes y no necesitan más suministros de agua.
 
 <color flavor>""El agua es buena sirviente, pero también una maestra cruel"". 
+<right>C.G.D. Roberts</color><left>","Göl pompaları, kendi kendine yeterler ve pompaların  su ile beslenmesine gerek kalmaz.
+
+<color flavor>""Su çok iyi bir hizmetçi ama zalim bir efendidir."" 
 <right>C.G.D. Roberts</color><left>"
-"Landscaping projects progress without the need of Drones and are generally faster.
+LandscapingNanites,"Landscaping projects progress without the need of Drones and are generally faster.
 
 <color flavor>""Nothing is built on stone; all is built on sand, but we must build as if the sand were stone."" 
 <right>Jorge Luis Borges</color><left>","Projetos de paisagismo progridem sem a necessidade de Drones e são geralmente mais rápidos.
@@ -98,8 +107,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>豪尔赫·路易斯·博尔赫斯</color><left>","Los proyectos de paisajismo avanzan sin necesidad de drones y son más rápidos.
 
 <color flavor>""Nada está construido sobre piedra; todo está construido sobre arena, pero debemos construir como si la arena fuera piedra"".
+<right>Jorge Luis Borges</color><left>","Arazi şekillendirme projeleri drone'lara ihtiyaç duymadan ilerler ve genellikle daha hızlı tamamlanır.
+
+<color flavor>""Hiçbir şey taş üzerine inşa edilmemiştir; hepsi kum üzerine inşa edilmiştir ama kum taşmış gibi inşa etmeliyiz."" 
 <right>Jorge Luis Borges</color><left>"
-"Halves the Water<image UI/Icons/res_water_2.tga 1300> and the Temperature<image UI/Icons/res_temperature.tga 1300> requirements of grass, bushes, trees and Open Farm crops.
+ResilientVegetation,"Halves the Water<image UI/Icons/res_water_2.tga 1300> and the Temperature<image UI/Icons/res_temperature.tga 1300> requirements of grass, bushes, trees and Open Farm crops.
 
 <color flavor>""The leaves and the light are one."" 
 <right>Albert Einstein</color><left>","Corta pela metade a necessidade de Água<image UI/Icons/res_water_2.tga 1300> e Temperatura<image UI/Icons/res_temperature.tga 1300> da grama, dos arbustos, das árvores e de plantações de Fazendas Abertas.
@@ -123,8 +135,58 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>阿尔伯特·爱因斯坦</color><left>","Reduce a la mitad los requisitos de agua <image UI/Icons/res_water_2.tga 1300> y temperatura <image UI/Icons/res_temperature.tga 1300> para los cultivos de césped, arbustos, árboles y granjas abiertas.
 
 <color flavor>""Las hojas y la luz son la misma cosa"".
+<right>Albert Einstein</color><left>","Çimenlerin, çalıların, ağaçların ve açık tarla bitkilerinin su<image UI/Icons/res_water_2.tga 1300> ve sıcaklık<image UI/Icons/res_temperature.tga 1300> gereksinimlerini yarıya indirir.
+
+<color flavor>""Yapraklar ve ışık bir bütündür."" 
 <right>Albert Einstein</color><left>"
-"<color em>Buildings</color> construct themselves slowly without Drones. Nanites will seek out resources from nearby resource depots.
+CaptureAsteroid,"Landing an <color em>Asteroid Lander</color> on an Asteroid captures the Asteroid in orbit around Mars, which <color em>removes the time limit</color>.
+
+<color flavor>""This planet is 15 million years overdue for an asteroid strike like the one that killed the dinosaurs.""
+<right>L. Neil Smith</color><left>","Aterrissar um <color em>Pousador de Asteroide</color> em um Asteroide o captura em órbita ao redor de Marte, o que <color em>remove o limite de tempo</color>.
+
+<color flavor>""Um asteroide como aquele que matou os dinossauros já deveria ter atingido este planeta há 15 milhões de anos.""
+<right>L. Neil Smith</color><left>","Faire atterrir un <color em>atterrisseur d'astéroïdes</color> sur un astéroïde capture cet astéroïde en orbite autour de Mars, ce qui <color em>supprime la limite de temps</color>.
+
+<color flavor>« Cette planète aurait déjà dû subir une chute d'astéroïde similaire à celui qui a tué les dinosaures depuis 15 millions d'années. »
+<right>L. Neil Smith</color><left>","Durch die Landung eines <color em>Asteroidenlanders</color> auf einem Asteroiden wird dieser im Orbit des Mars gefangen, wodurch <color em>das Zeitlimit entfernt wird</color>.
+
+<color flavor>„Auf diesem Planeten ist ein Asteroideneinschlag wie der, der zum Aussterben der Dinosaurier geführt hat, seit 15 Millionen Jahren überfällig.“
+<right>L. Neil Smith</color><left>","Lądowanie <color em>lądownika asteroidowego</color> na asteroidzie spowoduje jej przechwycenie i wprowadzenie na orbitę wokół Marsa, co <color em>znosi limit czasowy</color>.
+
+<color flavor>„Ta planeta powinna już 15 milionów lat temu zostać trafiona asteroidą taką jak ta, która uśmierciła dinozaury”.
+<right>L. Neil Smith</color><left>","Посадка <color em>астероидного челнока</color> на астероид вынуждает это небесное тело задержаться на орбите Марса, тем самым <color em>убирая ограничение по времени</color>.
+
+<color flavor>«На эту планету еще 15 миллионов лет назад должен был упасть астероид сродни тому, что убил динозавров».
+<right>Л. Нил Смит</color><left>","让<color em>小行星登陆舱</color>在小行星上着陆即可捕获火星轨道上的小行星，并<color em>移除时间限制</color>。
+
+<color flavor>“这颗星球早在1500万年前就该经历一次小行星撞击了，就像导致恐龙灭绝的那次一样。”
+<right>L·尼尔·史密斯</color><left>","Aterrizar una <color em>sonda de asteroides</color> en un asteroide atrapa el asteroide en la órbita de Marte, lo que <color em>elimina el límite de tiempo</color>.
+
+<color flavor>""Este planeta necesitaba otro meteorito como el que mató a los dinosaurios hace 15 millones de años"".
+<right>L. Neil Smith</color><left>","Bir asteroide <color em>asteroit roketi</color> indirmek asteroidi Mars'ın yörüngesinde yakalar ve <color em>zaman sınırını kaldırır</color>.
+
+<color flavor>""Bu gezegen, dinozorların sonunu getiren asteroit yağmuru gibi, 15 milyon yıl önce gelmiş olması gereken bir asteroit yağmurunun gölgesi altında.""
+<right>L. Neil Smith</color><left>"
+CargobayOfHolding,"Reduces the cargo weight of <color em>resources</color> by 50%.
+
+<color flavor>This bay has an interior space considerably larger than its outside dimensions.</color>","Reduz o peso da carga de <color em>recursos</color> em 50%.
+
+<color flavor>Este compartimento tem um espaço interior consideravelmente maior do que o seu tamanho externo.</color>","Réduit le poids de la cargaison de <color em>ressources</color> de 50 %.
+
+<color flavor>Ce bijou dispose d'un espace interne bien plus grand que ses dimensions externes.</color>","Verringert das Frachtgewicht von <color em>Ressourcen</color> um 50 %.
+
+<color flavor>Dieser Frachtraum ist im Innern deutlich größer als von außen.</color>","Zmniejsza wagę <color em>zasobów</color> o 50%.
+
+<color flavor>Ta ładownia ma znacznie większą przestrzeń ładunkową, niż się wydaje, gdy patrzeć na nią z zewnątrz.</color>","Уменьшает грузовой вес <color em>ресурсов</color> на 50%<color flavor>.
+
+</color>Внутренние размеры этого отсека значительно больше внешних.","<color em>资源</color>货物重量降低50%。
+
+<color flavor>此舱的内部空间比外部尺寸大得多。</color>","Reduce el peso de carga de los <color em>recursos</color> un 50 %.
+
+<color flavor>El espacio interior de esta bodega de carga es considerablemente mayor al espacio que ocupa.</color>","<color em>Kaynakların</color> yük ağırlığını %50 azaltır.
+
+<color flavor>Bu kompartıman dışarıdan göründüğünden çok daha büyük bir iç kapasiteye sahip.</color>"
+ConstructionNanites,"<color em>Buildings</color> construct themselves slowly without Drones. Nanites will seek out resources from nearby resource depots.
 
 <color flavor>With a payload of several molecules and an electronic instrument used for both navigating and knowing its purpose, Construction Nanites form slightly saturated winds which to the casual observer would seem to erect buildings as if by magic.</color>","<color em>Construções</color> lentamente se erguem mesmo sem Drones. Nanites buscarão recursos em depósitos de recursos próximos.
 
@@ -140,8 +202,158 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>靠着分子级别的构造，和用来导航与接收命令的电子元件，建筑纳米机器人就像无孔不入的微风一样进行建造任务。在普通人的眼里，建筑仿佛就像施了魔法一样建好了。</color>","Las <color em>construcciones</color> se crean solas lentamente y sin drones. Los nanites buscarán recursos de los depósitos más cercanos.
 
-<color flavor>Con una carga de muchas moléculas y un instrumento utilizado tanto para navegar como para conocer su finalidad, los nanorrobots constructores crean leves corrientes de aire que parecen crear construcciones por arte de magia.</color>"
-"Buildings require <color em>maintenance</color> less often.
+<color flavor>Con una carga de muchas moléculas y un instrumento utilizado tanto para navegar como para conocer su finalidad, los nanorrobots constructores crean leves corrientes de aire que parecen crear construcciones por arte de magia.</color>","<color em>Binalar</color> drone'lar olmadan kendi kendilerini inşa ederler. Nanitler yakın kaynak depolarındaki kaynakları kullanır.
+
+<color flavor>Birçok molekülle ve hem yön bulmaya hem de hangi amaçla kullanılacağını bilmeye yarayan elektronik bir aletle yüklenen inşaat nanitleri, hafif dumanlı rüzgârlar gibi görünürler ve sıradan bir gözlemciye sanki binalar sihirle dikiliyormuş izlenimi verirler.</color>"
+GlobalSupport,"Unlock the <color em>unique building</color> and <color em>RC Vehicle</color> of a <color em>random sponsor</color>.
+
+This tech is <color em>repeatable</color> and can be researched multiple times.
+
+<color flavor>""Individually, we are one drop. Together, we are an ocean""
+<right>Ryunosuke Satoro</color><left>","Desbloqueie a <color em>construção única</color> e o <color em>Veículo RC</color> de um <color em>patrocinador aleatório</color>.
+
+Essa tecnologia pode ser <color em>reaplicada</color> e pesquisada várias vezes.
+
+<color flavor>""Sozinhos, somos uma gota. Juntos, somos um oceano.""
+<right>Ryunosuke Satoro</color><left>","Débloquer le <color em>bâtiment unique</color> et le <color em>Véhicule TC</color> d'un <color em>sponsor aléatoire</color>.
+
+Cette technologie est <color em>reproductible</color> et peut être recherchée plusieurs fois.
+
+<color flavor>« Individuellement, nous ne sommes que des gouttes. Ensemble, nous sommes un océan. »
+<right>Ryunosuke Satoro</color><left>","Schaltet das <color em>einzigartige Gebäude</color> und <color em>ferngesteuerte Fahrzeug</color> eines <color em>zufälligen Sponsors frei</color>.
+
+Diese Technologie ist <color em>wiederholbar</color>, sie kann mehrmals erforscht werden.
+
+<color flavor>„Einzeln sind wir ein Tropfen. Zusammen sind wir ein Ozean.“
+<right>Ryunosuke Satoro</color><left>","Odblokowuje <color em>unikatowy budynek</color> i <color em>pojazd sterowany</color> <color em>losowo wybranego sponsora</color>.
+
+Ta technologia jest <color em>powtarzalna</color> i można ją opracowywać wielokrotnie.
+
+<color flavor>„Z osobna jesteśmy tylko kroplami, ale razem tworzymy ocean”.
+<right>Ryunosuke Satoro</color><left>","Разблокирует <color em>уникальную постройку</color> и <color em>ДУ-аппарат</color> <color em>случайного организатора</color>.
+
+Это <color em>повторяемая</color> технология, которую можно исследовать несколько раз.
+
+<color flavor>«В одиночку мы — капля. Вместе мы — океан».
+<right>Рюноскэ Акутагава</color><left>","解锁<color em>独特建筑</color>和<color em>遥控载具</color> ，<color em>赞助者不限</color>。
+
+此技术<color em>可重复</color>且可以多次研究。
+
+<color flavor>“每个人都只是小水滴。汇聚一处，便成江海。”
+<right>芥川龙之介</color><left>","Desbloquea la <color em>construcción única</color> y el <color em>vehículo por CR</color> de un <color em>patrocinador aleatorio</color>.
+
+Esta tecnología es <color em>repetible</color> y se puede investigar varias veces.
+
+<color flavor>""Cada uno de nosotros es una gota de agua. Juntos, somos un océano"".
+<right>Ryunosuke Satoro</color><left>","<color em>Rastgele bir sponsorun</color> <color em>eşsiz binasını</color> ve <color em>UK taşıtını</color> aç.
+
+Bu teknoloji <color em>tekrarlanabilir</color> ve birçok kez araştırılabilir.
+
+<color flavor>""Tek başımıza tek bir damlayız. Birlikte bir okyanusuz.""
+<right>Ryunosuke Satoro</color><left>"
+MarsMarketing,"Receive 5 applicants with <color em>rare traits</color>.
+
+This tech is <color em>repeatable</color> and can be researched multiple times.
+
+<color flavor>""The goal, or should I say, the dream is to build a colony. A self-sufficient new world, far away from earth.""
+<right>Voice Over</color><left>","Receba 5 candidatos com <color em>personalidades raras</color>.
+
+Essa tecnologia pode ser <color em>reaplicada</color> e pesquisada várias vezes.
+
+<color flavor>""A meta, ou devo dizer, o sonho é construir uma colônia. Um novo mundo autossuficiente, longe da Terra.""
+<right>Narração</color><left>","Recevoir 5 candidats avec des <color em>traits rares</color>.
+
+Cette technologie est <color em>reproductible</color> et peut être recherchée plusieurs fois.
+
+<color flavor>« L'objectif ou, devrais-je dire, le rêve est de fonder une colonie. Un nouveau monde auto-suffisant, loin de la Terre. »
+<right>Voix off</color><left>","Erhalte 5 Bewerber mit <color em>seltenen Eigenschaften</color>.
+
+Diese Technologie ist <color em>wiederholbar</color>, sie kann mehrmals erforscht werden.
+
+<color flavor>„Das Ziel, oder sollte ich sagen, der Traum ist es, eine Kolonie zu errichten. Eine sich selbst versorgende neue Welt, weit weg von der Erde.“
+<right>Voiceover</color><left>","Otrzymujesz 5 ochotników mających <color em>rzadkie cechy</color>.
+
+Ta technologia jest <color em>powtarzalna</color> i można ją opracowywać wielokrotnie.
+
+<color flavor>„Celem, a raczej marzeniem jest wybudowanie kolonii. Samowystarczalnego nowego świata, z dala od Ziemi”.
+<right>Nagranie</color><left>","Получите добровольцев (5 чел.) с <color em>редкими чертами</color>.
+
+Это <color em>повторяемая</color> технология, которую можно исследовать несколько раз.
+
+<color flavor>«Цель, а вернее мечта, — построить колонию. Самодостаточный новый мир вдали от Земли».
+<right>Рассказчик</color><left>","获得5名拥有<color em>稀有特征</color>的应征者。
+
+此技术<color em>可重复</color>且可以多次研究。
+
+<color flavor>“目标，或者说梦想是建造一座殖民地。一个远离地球且自给自足的新世界。”
+<right>旁白</color><left>","Recibe 5 aspirantes con <color em>rasgos raros</color>.
+
+Esta tecnología es <color em>repetible</color> y se puede investigar varias veces.
+
+<color flavor>""El objetivo, o mejor dicho nuestro sueño, es construir una colonia, Un mundo plenamente autosuficiente lejos de la Tierra"".
+<right>Voz en off</color><left>","<color em>Nadir bireysel özelliklere</color> sahip 5 kolonist adayı edin.
+
+Bu teknoloji <color em>tekrarlanabilir</color> ve birçok kez araştırılabilir.
+
+<color flavor>""Amacım, hatta hayalim, bir koloni kurmak. Kendini idame edebilen, Dünya'dan uzaklarda yeni bir dünya.""
+<right>Seslendirme</color><left>"
+MolePeople,"Colonists restore sanity while sleeping in the Underground instead of losing sanity.
+Colonists also gain 10 morale while they are in the underground.
+
+<color flavor>If humanity had never seen sunlight, they wouldn't miss it.</color>","Os colonos recuperam sanidade quando dormem no subterrâneo em vez de perdê-la.
+Os colonos também ganham 10 de ânimo enquanto estão no subterrâneo.
+
+<color flavor>Se a humanidade nunca tivesse visto a luz do sol, não sentiria falta dela.</color>","Les colons récupèrent de la Santé Mentale en dormant dans le sous-sol, au lieu d'en perdre.
+Les colons gagnent aussi 10 de Moral quand ils sont dans le sous-sol.
+
+<color flavor>Si l'humanité n'avait jamais vu la lumière du soleil, cela ne lui manquerait pas.</color>","Kolonisten stellen Besonnenheit wieder her, wenn sie im Untergrund schlafen, statt sie zu verlieren.
+Kolonisten erhalten außerdem 10 Moral, während sie sich im Untergrund befinden.
+
+<color flavor>Wenn die Menschheit nie das Sonnenlicht gesehen hätte, würde sie es auch nicht vermissen.</color>","Śpiąc w podziemiu, koloniści odzyskują zdrowie psychiczne zamiast je tracić.
+Ponadto otrzymują 10 do morale podczas pobytu w podziemiu.
+
+<color flavor>Gdyby ludzkość nigdy nie znała światła słonecznego, nie tęskniłaby za nim.</color>","Отдыхая в Подземелье, колонисты восстанавливают душевное равновесие, а не теряют его.
+Также колонисты получают 10 оч. настроя, находясь в Подземелье.
+
+<color flavor>Не знай человечество солнечного света, оно бы и не скучало по нему.</color>","殖民地居民在地下睡眠时，理智度不再下降，而是上升。
+殖民地居民在地下时，还会获得10士气。
+
+<color flavor>假如人类从未见过阳光，他们也不会心生向往。</color>","Los colonos recuperan cordura al dormir en el subterráneo en vez de perderla.
+Los colonos también reciben 10 de moral al estar en el subterráneo.
+
+<color flavor>Si la humanidad nunca hubiera visto la luz del sol, no la extrañaría.</color>","Kolonistler yeraltında uyurken akıl sağlığı kaybetmek yerine akıl sağlığı kazanır.
+Kolonistler ayrıca yeraltındayken 10 moral kazanır.
+
+<color flavor>Eğer insanlık güneş ışığını hiç görmemiş olsaydı, özlemezdi.</color>"
+VehicleWeightOptimizations,"Reduces the cargo weight of <color em>drones and RC vehicles</color> by 100%.
+
+<color flavor>""At the end of the day, we can endure much more than we think we can.""
+<right>Frida Kahlo</color><left>","Reduz o peso de carga de <color em>drones e veículos RC</color> em 100%.
+
+<color flavor>""No fim do dia, podemos suportar muito mais do que pensamos.""
+<right>Frida Kahlo</color><left>","Réduit le poids de la cargaison des <color em>drones et véhicules TC</color> de 100 %.
+
+<color flavor>« En fin de compte, nous sommes capables d'endurer bien plus que ce que nous croyions. »
+<right>Frida Kahlo</color><left>","Das Frachtgewicht von <color em>Drohnen und ferngesteuerten Fahrzeugen</color> wird um 100 % verringert.
+
+<color flavor>„Am Ende des Tages können wir viel mehr aushalten als wir glauben.“
+<right>Frida Kahlo</color><left>","Waga <color em>dronów i pojazdów sterowanych</color> zmniejsza się o 100%.
+
+<color flavor>„Na koniec dnia okazuje się, że możemy znieść więcej, niż się nam wydawało”.
+<right>Frida Kahlo</color><left>","Уменьшает грузовой вес <color em>дронов и ДУ-аппаратов</color> на 100%.
+
+<color flavor>«В итоге мы можем вынести гораздо больше, чем сами предполагаем».
+<right>Фрида Кало</color><left>","<color em>无人机和遥控载具</color>的货物重量降低100%。
+
+<color flavor>“到头来，我们发现自己的承受能力比我们想象的强得多。”
+<right>弗里达·卡罗</color><left>","Reduce el peso de carga de <color em>los drones y los vehículos por CR</color> un 100 %.
+
+<color flavor>""Al final del día, somos capaces de soportar mucho más de lo que creemos que podemos"".
+<right>Frida Kahlo</color><left>","<color em>Drone'ların ve UK araçların</color> yük ağırlığını %100 azaltır.
+
+<color flavor>""Nihayetinde katlanabileceğimizi düşündüğümüzden çok daha fazlasına katlanabiliriz.""
+<right>Frida Kahlo</color><left>"
+HullPolarization,"Buildings require <color em>maintenance</color> less often.
 
 <color flavor>""Don't confound static electricity with ecstatic eccentricity. One will leave your hair up, the other will live up in the air!""
 <right>Ana Claudia Antunes</color><left>","Construções requerem <color em>manutenção</color> com menor frequência.
@@ -165,8 +377,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>安娜·克劳迪娅·安图内斯</color><left>","Las construcciones necesitan <color em>mantenimiento</color> menos a menudo.
 
 <color flavor>""No hay que confundir la energía estática con la excentricidad extática. ¡Una de ellas te dejará los pelos de punta, y la otra flota en el aire!"".
+<right>Ana Claudia Antunes</color><left>","Binalar daha az <color em>bakım</color> gerektirir.
+
+<color flavor> ""Statik elektriği sapıtık eksantrikle karıştırma. Biri saçını havaya kaldırır, diğeri aklı havada yaşar!""
 <right>Ana Claudia Antunes</color><left>"
-"When a colonist dies there's a 50% chance he or she is <color em>reconstructed</color> as youth with the same traits.
+ProjectPhoenix,"When a colonist dies there's a 50% chance he or she is <color em>reconstructed</color> as youth with the same traits.
 
 <color flavor>Like the legend of the Phoenix, all ends with beginnings. Consciousness being an electrical charge within a specific neuron pattern, replicating it eventually comes down to data fidelity.</color>","Quando um colono morre, há 50% de chance de ele ser <color em>reconstituído</color> como uma criança com os mesmos traços.
 
@@ -182,8 +397,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>正如传说中的凤凰一样，生命轮回不止。意识归根结底，不过是具有特定神经元模式的电荷。只要能将其完全复制，就能保存生前的全部记忆。</color>","Cuando muere un colono, hay un 50 % de probabilidad de que <color em>renazca</color> como un niño con los mismos caracteres.
 
-<color flavor>Como la leyenda del fénix, todo termina como comenzó. Puesto que la consciencia es una carga eléctrica dentro de un patrón neuronal específico, replicarla es cuestión de fidelidad de información.</color>"
-"Bodies of <color em>dead Colonists</color> are converted to Food.
+<color flavor>Como la leyenda del fénix, todo termina como comenzó. Puesto que la consciencia es una carga eléctrica dentro de un patrón neuronal específico, replicarla es cuestión de fidelidad de información.</color>","Bir kolonistin, öldüğünde %50 ihtimalle aynı bireysel özelliklere sahip bir genç olarak <color em>yeniden yapılma</color> şansı vardır.
+
+<color flavor>Anka kuşu efsanesi gibi, her son bir başlangıçtır. Belirli bir nöron örüntüsü içinde elektriksel bir yük olan bilinci kopyalamak, aynı verilerin alınabilmesine ve bu verilerin saklanılmasına izin verir.</color>"
+SoylentGreen,"Bodies of <color em>dead Colonists</color> are converted to Food.
 
 <color flavor>""Soylent Green is made out of people. They are making food out of people and we know that. We are actually OK with that.""</color>","Cadáveres de <color em>Colonos falecidos</color> são convertidos em Alimento.
 
@@ -199,8 +416,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>“绿色食物是用人的尸体制成的。他们把尸体做成食物，我们早就知道了，我们觉得没什么不妥。”</color>","Los cuerpos de los <color em>colonos fallecidos</color> se convierten en comida.
 
-<color flavor>""Soylent Green está hecho de personas. Sabemos que están haciendo comida con nosotros. Lo peor es que nos parece bien"".</color>"
-"Unlocks <color em>Rare Trait - Empath</color>. Empaths raise the Morale of all Colonists in the Dome. The effect stacks with other Empaths.
+<color flavor>""Soylent Green está hecho de personas. Sabemos que están haciendo comida con nosotros. Lo peor es que nos parece bien"".</color>","<color em>Ölü kolonistlerin</color> cesetleri gıdaya dönüştürülür.
+
+<color flavor>""Özel Besin Takviyesi insanlardan yapılır. İnsanlardan gıda elde ediyorlar ve biz bunu biliyoruz. Hatta bununla ilgili hiçbir sıkıntımız yok.""</color>"
+NeuralEmpathy,"Unlocks <color em>Rare Trait - Empath</color>. Empaths raise the Morale of all Colonists in the Dome. The effect stacks with other Empaths.
 
 <color flavor>""`The human brain has 100 billion neurons, each neuron connected to 10 thousand other neurons. Sitting on your shoulders is the most complicated object in the known universe.""
 <right>Michio Kaku</color><left>","Desbloqueia um <color em>Traço Raro - Empático.</color> Empáticos melhoram o Ânimo de todos os colonos dentro do Domo. Os efeitos são cumulativos com outros Empáticos.
@@ -224,8 +443,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>谷川道雄</color><left>","Desbloquea el <color em>carácter raro empatía.</color> La empatía aumenta la moral de todos los colonos de la cúpula. Los efectos se acumulan con los de otros colonos con este carácter.
 
 <color flavor>""El cerebro humano tiene 100 mil millones de neuronas, cada neurona conectada a otras 10 mil neuronas. Tienes sobre tus hombros el objeto más complicado del universo"".
+<right>Michio Kaku</color><left>","<color em>Nadir bireysel özellik - empat</color> açılır. Empatlar kubbedeki tüm kolonistlerin moralini yükseltir. Aynı anda birden fazla empat varsa moral etkileri birbirine eklenir.
+
+<color flavor>''İnsan beyninde her biri 10 bin diğer nörona bağlı 100 milyar nöron vardır. Beyin, bilinen evrendeki en karmaşık objedir.""
 <right>Michio Kaku</color><left>"
-"Colonists need to <color em>sleep</color> for only 1 hour and regain extra Sanity when sleeping.
+RapidSleep,"Colonists need to <color em>sleep</color> for only 1 hour and regain extra Sanity when sleeping.
 
 <color flavor>""Sleep, those little slices of death — how I loathe them."" 
 <right>Edgar Allan Poe</color><left>","Colonos precisam <color em>dormir</color> durante apenas uma hora, e recuperam Sanidade adicional durante o sono.
@@ -249,8 +471,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>埃德加·爱伦·坡</color><left>","Los colonos necesitan <color em>dormir</color> durante una sola hora y recuperan cordura adicional.
 
 <color flavor>""Dormir, esos pedacitos de muerte, oh, cómo los aborrezco"".
+<right>Edgar Allan Poe</color><left>","Kolonistler yalnızca 1 saat <color em>uykuya</color> ihtiyaç duyar ve uyurken ilave akıl sağlığı kazanırlar.
+
+<color flavor>""Uyku, şu küçük ölüm dilimleri... Onlardan nasıl da nefret ediyorum."" 
 <right>Edgar Allan Poe</color><left>"
-"Allows the construction of <color em>Biorobots</color> in the Drone Assembler. Biorobots eat and can gain traits but can't reproduce and never die from old age.
+ThePositronicBrain,"Allows the construction of <color em>Biorobots</color> in the Drone Assembler. Biorobots eat and can gain traits but can't reproduce and never die from old age.
 
 <color flavor>The human body is basically a complex bio machine that could be easily replicated with the exception of one major component – the brain. Now that we have finally unlocked that secret we can manufacture human-like Biorobots the same way we manufacture cars.</color><left>","Permite a construção de <color em>biorrobôs</color> no Montador de Drones. Biorrobôs comem e podem desenvolver traços, mas não podem se reproduzir e nunca morrem de velhice.
 
@@ -266,8 +491,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>人类的身体就像一台复杂的生化机器一样，每个零件都可以轻易复制，但大脑却是个例外。如今，我们终于发现了人脑的奥秘。我们可以像生产车辆一样，生产这种与人类别无两样的生化人。</color><left>","Permite la creación de <color em>biorrobots</color> en la fábrica de drones. Los biorrobots comen y pueden adquirir caracteres pero no pueden reproducirse o morir de viejos.
 
-<color flavor>El cuerpo humano es una compleja máquina biológica que sería fácilmente replicable exceptuando un componente, el cerebro. Ahora que superamos esta frontera, podemos crear biorrobots con la misma facilidad con la que creamos automóviles.</color><left>"
-"When a colonist suffers a Sanity breakdown, they fall asleep and wake up after 6 hours with 70 Sanity. Colonists can't commit suicide or gain flaws due to sanity breakdown.
+<color flavor>El cuerpo humano es una compleja máquina biológica que sería fácilmente replicable exceptuando un componente, el cerebro. Ahora que superamos esta frontera, podemos crear biorrobots con la misma facilidad con la que creamos automóviles.</color><left>","Drone birleştiricilerinde <color em>biyorobotların</color> yapımına olanak verir. Biyorobotlar yemek yerler ve bireysel özellik kazanabilirler ama üreyemez ve asla yaşlılıktan ölmezler.
+
+<color flavor>İnsan vücudu temelde karmaşık bir biyolojik makinedir ve tek bir ana bileşen dışında kolaylıkla kopyalanabilir. O ana bileşen beyindir. O sırrı nihayet açığa çıkardığımıza göre, insan benzeri biyorobotları, tıpkı arabaları ürettiğimiz gibi üretebiliriz.</color><left>"
+SafeMode,"When a colonist suffers a Sanity breakdown, they fall asleep and wake up after 6 hours with 70 Sanity. Colonists can't commit suicide or gain flaws due to sanity breakdown.
 
 <color flavor>Failsafe systems have been in place and used to prevent catastrophes in various fields for centuries. Until now we had no viable way of remotely detecting when the brain was headed towards a meltdown. A means to remotely render people unconscious, however, was already available.</color>","Quando um Colono sofre um colapso de Sanidade, ele cai no sono e acorda depois de 6 horas com 70 de Sanidade. Colonos não podem cometer suicídio nem ganhar defeitos devido a um colapso de sanidade.
 
@@ -283,8 +510,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>数百年来，许多领域都采用了故障保护系统，防止灾难发生。在此之前，当我们的大脑发生崩溃时，我们并没有什么办法能阻止它。但如今，我们已经可以通过远程操作，让人陷入无意识状态。</color>","Cuando un colono sufre una crisis de cordura, se desmaya durante 6 horas y después se despierta con un 70 % de cordura. Los colonos no pueden suicidarse ni recibir defectos al sufrir crisis.
 
-<color flavor>Durante siglos, los mecanismos de seguridad se implantaron y utilizaron para prevenir catástrofes en varios campos. Hasta ahora no teníamos forma posible de detectar cuándo el cerebro iba a sufrir un colapso. Sin embargo, sí teníamos una forma de dejar inconsciente a la gente a distancia.</color>"
-"Residents in the <color em>Arcology</color> get a bonus to work performance based on the number of unique perks and specializations of colonists living in the Arcology.
+<color flavor>Durante siglos, los mecanismos de seguridad se implantaron y utilizaron para prevenir catástrofes en varios campos. Hasta ahora no teníamos forma posible de detectar cuándo el cerebro iba a sufrir un colapso. Sin embargo, sí teníamos una forma de dejar inconsciente a la gente a distancia.</color>","Bir kolonist akıl sağlığı çöküşü yaşadığında uykuya dalar ve 6 saat sonra, 70 akıl sağlığı ile uyanır. Kolonistler akıl sağlığı çöküşü nedeniyle intihar etmez veya kusur edinmezler.
+
+<color flavor>Yedekli sistemler, yüzyıllardır çeşitli alanlarda  felaketleri önlemek için kullanılıyor. Şimdiye kadar beyinde bozulma yaşandığını uzaktan algılamanın uygun bir yolu yoktu. Öte yandan insanları uzaktan bilinçsiz hâle getirmenin bir yolu zaten mevcuttu.</color>"
+HiveMind,"Residents in the <color em>Arcology</color> get a bonus to work performance based on the number of unique perks and specializations of colonists living in the Arcology.
 
 <color flavor>""The tools that a society uses to create and maintain itself are as central to human life as a hive is to bee life. Though the hive is not part of any individual bee, it is part of the colony, both shaped by and shaping the lives of its inhabitants.""
 <right>Clay Shirky</color><left>","Residentes na <color em>Arcologia</color> ganham um bônus de performance baseado na quantidade de talentos e especializações dos colonos que vivem na mesma.
@@ -308,8 +537,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>克莱·舍基</color><left>","Los habitantes de la <color em>arcología</color> obtienen una bonificación al rendimiento en el trabajo basada en el número de destrezas únicas y en las especializaciones de los colonos que residen en la arcología.
 
 <color flavor>""Las herramientas que utiliza la sociedad para crear y mantenerse a sí misma son tan centrales para los humanos como el enjambre para las abejas. Aunque el enjambre no es parte de ninguna abeja, es parte de la colonia, ambas afectan y son afectadas por la vida de sus habitantes"".
+<right>Clay Shirky</color><left>","<color em>Arkoloji</color> sakinleri, orada yaşayan kolonistlerin eşsiz meziyetlerinin ve uzmanlıklarının sayısına bağlı olarak iş performansı bonusu alırlar.
+
+<color flavor>""Bir kovan arı yaşamı için ne kadar önemliyse, bir toplumun kendini yaratmak ve sürdürmek için kullandığı araçlar da insan yaşamı için o kadar önemlidir. Ve kovan, herhangi bir arının bir parçası değildir, koloninin bir parçasıdır. Hem orada yaşayanların yaşamını şekillendirir hem de o yaşayanlar tarafından şekillendirilir.""
 <right>Clay Shirky</color><left>"
-"Colonists have a 50% chance to lose a <color em>flaw</color> on their journey to Mars.
+SpaceRehabilitation,"Colonists have a 50% chance to lose a <color em>flaw</color> on their journey to Mars.
 
 <color flavor>It is never too late to improve on oneself, and the months spent traversing the void between Mars and Earth gives ample opportunity to do so.</color>","Colonos têm 50% de chance de perder um <color em>defeito</color> em sua jornada para Marte.
 
@@ -325,8 +557,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>改善自身永远不迟。地球与火星之间的几个月的飞行时间，恰好为人们提供了这样的机会。</color>","Los colonos tienen un 50 % de posibilidades de perder un <color em>defecto</color> en su camino a Marte.
 
-<color flavor>Nunca es demasiado tarde para mejorar como persona, y los meses de viaje entre Marte y la Tierra te dan la oportunidad de cambiar.</color>"
-"<color em>Recharge Stations</color> service Drones in a 3 hex-range instantly.
+<color flavor>Nunca es demasiado tarde para mejorar como persona, y los meses de viaje entre Marte y la Tierra te dan la oportunidad de cambiar.</color>","Kolonistler Mars'a yolculuklarında %50 oranında <color em>kusur</color> kaybetme şansına sahiptir.
+
+<color flavor>Birisinin kendini geliştirmesi için asla çok geç değildir ve Mars ile Dünya arasındaki boşluğu geçerek devirilen aylar bunu yapmak için bolca fırsat sağlar.</color>"
+WirelessPower,"<color em>Recharge Stations</color> service Drones in a 3 hex-range instantly.
 
 <color flavor>Tesla once predicted that wireless power would be obtainable anywhere on Earth, illuminating and powering vehicles in the most remote of places. Ultimately his prediction came true – he only got the planet wrong.</color>","<color em>Estações de Recarga</color> atendem a Drones em um raio de 3 hexágonos instantaneamente.
 
@@ -342,8 +576,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>特斯拉曾经预言过，无线供电将遍布地球的各个角落。即使最偏远的地区，也不用担心照明和载具供电。他的预言最终实现了，不过并不是在地球上实现的。</color>","Las <color em>estaciones de recarga</color> suministran energía a los drones en un rango de 3 hexágonos de forma instantánea.
 
-<color flavor>Tesla una vez predijo que la energía inalámbrica podría utilizarse en cualquier parte en la Tierra, iluminando y recargando los vehículos incluso en los rincones más recónditos. Estaba en lo cierto, pero se equivocó de planeta.</color>"
-"Allows <color em>Drones Prefabs</color> to be constructed in the Drone Assembler using Metals instead of Electronics.
+<color flavor>Tesla una vez predijo que la energía inalámbrica podría utilizarse en cualquier parte en la Tierra, iluminando y recargando los vehículos incluso en los rincones más recónditos. Estaba en lo cierto, pero se equivocó de planeta.</color>","<color em>Yeniden dolum istasyonları</color>, 3 altıgenden daha uzakta olmayan tüm drone'lara anında hizmet verir.
+
+<color flavor>Tesla bir zamanlar kablosuz gücün Dünya'nın herhangi bir yerinde elde edilebileceğini ve en uzak yerlerdeki araçları çalıştırıp çevreyi aydınlatabileceğini öngörmüştü. Sonunda bu öngörüsü gerçek oldu ama yanlış gezegeni söylemiş.</color>"
+PrintedElectronics,"Allows <color em>Drones Prefabs</color> to be constructed in the Drone Assembler using Metals instead of Electronics.
 
 <color flavor>Made entirely out of 2-dimensional nanomaterials, printed electronics combine effective electronic properties with low-cost production.</color>","Permite a construção de <color em>Drones</color> no Montador de Drones usando Metais em vez de Eletrônicos.
 
@@ -359,8 +595,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>这种打印出来的电子元件完全由二维纳米材料制成，既保障了电子元件的高效性，又保证了低廉的生产成本。</color>","Permite que los <color em>drones prefabricados</color> puedan ser construidos con metales en vez de electrónica en la fábrica de drones.
 
-<color flavor>Formados en su totalidad por materiales bidimensionales, los productos electrónicos imprimidos combinan propiedades efectivas con costos muy bajos.</color>"
-"Uncovers extremely rich underground <color em>Metal</color> deposits.
+<color flavor>Formados en su totalidad por materiales bidimensionales, los productos electrónicos imprimidos combinan propiedades efectivas con costos muy bajos.</color>","<color em>Prefabrik drone'ların</color> drone birleştiricilerinde, elektronik aksam yerine metal kullanılarak inşa edilmesine olanak verir.
+
+<color flavor>Tamamen 2 boyutlu nano malzemelerden üretilen yazdırılmış elektronik aksamlar, etkili elektronik özellikleri düşük maliyetli üretim ile birleştirir.</color>"
+CoreMetals,"Uncovers extremely rich underground <color em>Metal</color> deposits.
 
 <color flavor>Increased detail in reading traces of tectonic activities from eons ago has enabled us to accurately predict where to find high-grade metals deep in the crust, only relatively recently pushed up from the Martian mantle.</color>","Descobre depósitos subterrâneos de <color em>Metal</color> extremamente ricos.
 
@@ -376,8 +614,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过深入研究远古时期的地质活动，我们可以精准地预测地底深处优质金属的位置。不过，仅限近期从火星地幔中不断上升的部分金属。</color>","Descubre yacimientos subterráneos de <color em>metales</color> extremadamente ricos.
 
-<color flavor>Las mejoras en las lecturas de actividades tectónicas llevadas a cabo desde hace eones nos permiten predecir con certeza donde encontrar los metales de gran calidad de las profundidades de la corteza que ahora salen a la superficie del manto marciano.</color>"
-"Uncovers extremely rich underground <color em>Water</color> deposits.
+<color flavor>Las mejoras en las lecturas de actividades tectónicas llevadas a cabo desde hace eones nos permiten predecir con certeza donde encontrar los metales de gran calidad de las profundidades de la corteza que ahora salen a la superficie del manto marciano.</color>","Son derece zengin yeraltı <color em>metal</color> yataklarını ortaya çıkarır.
+
+<color flavor>Çağlar öncesinden kalma tektonik faaliyetlerin izlerini okumada artan ayrıntı düzeyi, nispeten yakın zamanda yükselen iyi kaliteli metalleri Mars yer kabuğunun neresinde bulacağımızı doğru bir şekilde tahmin etmemizi sağladı.</color>"
+CoreWater,"Uncovers extremely rich underground <color em>Water</color> deposits.
 
 <color flavor>Primordial underground lakes in the nethermost regions of Mars’s crust have been accurately hypothesized and successfully pinpointed due to advances in our understanding of the Martian geological past.</color>","Descobre reservatórios subterrâneos de <color em>Água</color> extremamente ricos.
 
@@ -393,8 +633,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>随着对火星地质历史的深入了解，我们已精准预测并成功找到火星地底深处的远古地下湖泊。</color>","Descubre yacimientos subterráneos de <color em>agua</color> extremadamente ricos.
 
-<color flavor>Los lagos subterráneos primigenios de las regiones más profundas de la corteza de marte fueron hipotéticamente encontrados y localizados gracias a los avances en el conocimiento del pasado geológico marciano.</color>"
-"Uncovers extremely rich underground <color em>Rare Metal</color> deposits.
+<color flavor>Los lagos subterráneos primigenios de las regiones más profundas de la corteza de marte fueron hipotéticamente encontrados y localizados gracias a los avances en el conocimiento del pasado geológico marciano.</color>","Son derece zengin yeraltı <color em>su</color> yataklarını ortaya çıkarır.
+
+<color flavor>Mars kabuğunun en alt kısmında yer alan ilkel yeraltı göllerinin varlığı, Mars'ın jeolojik geçmişine dair edindiğimiz bilgilerin artması sayesinde başarılı bir şekilde tespit edildi.</color>"
+CoreRareMetals,"Uncovers extremely rich underground <color em>Rare Metal</color> deposits.
 
 <color flavor>Applying new principles to chemical analysis of ancient crystallized magma has made it possible to locate several exceptionally potent Rare Metal veins deep underground.</color>","Descobre depósitos subterrâneos de <color em>Metais Raros</color> extremamente ricos.
 
@@ -410,8 +652,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过采用新的科学技术对远古岩浆结晶进行化学分析，我们找到了地底深处的数条含量丰富的稀有金属矿脉。</color>","Descubre yacimientos subterráneos extremadamente ricos en <color em>metales raros.</color>
 
-<color flavor>La aplicación de nuevos principios al análisis químico del antiguo magma cristalizado permitió localizar varias venas de metales raros excepcionalmente potentes en el subsuelo.</color>"
-"Instant and free <color em>power cable</color> construction. Power cables do not suffer from power faults.
+<color flavor>La aplicación de nuevos principios al análisis químico del antiguo magma cristalizado permitió localizar varias venas de metales raros excepcionalmente potentes en el subsuelo.</color>","Son derece zengin yeraltı <color em>nadir metal</color> yataklarını ortaya çıkarır.
+
+<color flavor>Eski kristalleşmiş magmanın kimyasal analizine yeni ilkelerin uygulanması, yeraltının derinliklerindeki olağanüstü derecede büyük birçok nadir metal damarının bulunmasını mümkün kıldı.</color>"
+SuperiorCables,"Instant and free <color em>power cable</color> construction. Power cables do not suffer from power faults.
 
 <color flavor>A hydrogel of high conductivity and electrical self-healing properties, without any external stimuli and of great strength and flexibility, has been developed based on Nanostructured Conductive Polymers.</color>","Construção instantânea e gratuita de <color em>cabos de energia.</color> Cabos de energia não sofrem com falhas de energia.
 
@@ -427,8 +671,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>这种电缆的材料为纳米结构传导聚合物制成的水凝胶。它具备高传导性与自我修复性，无需外界刺激，强度和柔韧性极佳。</color>","Construcción instantánea de <color em>cables de energía</color> gratuitos. Los cables de alimentación no sufren fallas de alimentación.
 
-<color flavor>Se desarrolló un hidrogel de alta conductividad y propiedades autocurativas eléctricas, sin ningún estímulo externo, de gran resistencia y flexibilidad, sobre la base de polímeros conductores nanoestructurados.</color>"
-"Instant and free <color em>pipe</color> construction. Pipes don't suffer from leaks.
+<color flavor>Se desarrolló un hidrogel de alta conductividad y propiedades autocurativas eléctricas, sin ningún estímulo externo, de gran resistencia y flexibilidad, sobre la base de polímeros conductores nanoestructurados.</color>","Anında ve ücretsiz <color em>elektrik kablosu</color> yapımı. Elektrik kablolarında elektrik arızaları yaşanmaz.
+
+<color flavor>Nano yapılı iletken polimerler baz alınarak, yüksek iletkenliğe ve elektriksel kendi kendini iyileştirme özelliklerine sahip, herhangi bir dış uyarıcı içermeyen ve büyük dayanıklılık ve esnekliğe sahip bir hidrojel geliştirildi.</color>"
+SuperiorPipes,"Instant and free <color em>pipe</color> construction. Pipes don't suffer from leaks.
 
 <color flavor>A pressure-induced, self-healing coating with remarkable insulation properties has been developed and field-tested to be used en masse on our pipe system.</color>","Construção instantânea e gratuita de <color em>dutos.</color> Dutos não sofrem com vazamentos.
 
@@ -444,8 +690,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>这种管道采用了压感自我修复涂层，拥有出色的绝缘性能，目前已投入所有管道系统中进行实地测试。</color>","Construcción instantánea y gratuita de <color em>tuberías.</color> Las tuberías no sufren fugas.
 
-<color flavor>Se desarrolló y probó en condiciones reales un revestimiento aislante inducido por presión con propiedades de aislamiento notables y autorreparable para ser utilizado en masa en el sistema de tuberías.</color>"
-"Uncovers new Anomalies – <color em>Alien Artifacts</color> – which provide a tech cost reduction to all fields when scanned.
+<color flavor>Se desarrolló y probó en condiciones reales un revestimiento aislante inducido por presión con propiedades de aislamiento notables y autorreparable para ser utilizado en masa en el sistema de tuberías.</color>","Anında ve ücretsiz <color em>boru</color> yapımı. Borularda sızıntı yaşanmaz.
+
+<color flavor>Dikkat çekici yalıtım özelliklerine sahip, basınçla tetiklenen, kendi kendini iyileştiren bir kaplama geliştirildi ve kaplamanın boru sistemimizde kullanılması için saha testi yapıldı. </color>"
+AlienImprints,"Uncovers new Anomalies – <color em>Alien Artifacts</color> – which provide a tech cost reduction to all fields when scanned.
 
 <color flavor>Hard as it is to believe, our observations suggest that intelligent life has visited Mars long ago and that remnants of these visits could still be here. These artifacts could help us improve and expand our understanding of the universe.</color>","Desvenda novas Anomalias – <color em>Artefatos Alienígenas</color> – que fornecem uma redução de custo a todos os campos quando escaneadas.
 
@@ -461,8 +709,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>难以置信，我们的观察结果显示，很久之前就有智能生命造访过火星。造访时留下的东西可以依然遗留在火星上。这些文物可以帮助我们增进对宇宙的理解。</color>","Descubre nuevas anomalías, <color em>Artefactos alienígenas,</color> que reducen el costo tecnológico de todos los campos cuando se escanean.
 
-<color flavor>Es difícil de creer, nuestras observaciones sugieren que la vida inteligente visitó Marte hace mucho tiempo y que los restos de estas visitas todavía podrían estar aquí. Estos artefactos podrían ayudarnos a mejorar y expandir nuestra comprensión del universo.</color>"
-"All colonists gain +20  performance during <color em>night shifts</color>
+<color flavor>Es difícil de creer, nuestras observaciones sugieren que la vida inteligente visitó Marte hace mucho tiempo y que los restos de estas visitas todavía podrían estar aquí. Estos artefactos podrían ayudarnos a mejorar y expandir nuestra comprensión del universo.</color>","Tarandığında, tüm alanlarda teknoloji maliyetlerinde azalma sağlayan <color em>Uzaylı Yapıtları</color> isimli yeni anomalileri ortaya çıkarır.
+
+<color flavor>İnanması zor ama gözlemlerimiz, akıllı yaşamın Mars'ı uzun zaman önce ziyaret ettiğine ve bu ziyaretlerin kalıntılarının hâlâ burada olabileceğine işaret ediyor. Bu yapıtlar, evren hakkındaki bilgilerimizi geliştirmemize ve genişletmemize yardımcı olabilir.</color>"
+NocturnalAdaptation,"All colonists gain +20  performance during <color em>night shifts</color>
 
 <color flavor>The greater distance from the Sun makes it so that all colonists have to cope with the psychological strain of receiving reduced sunlight. This fact, combined with newly discovered techniques allow us to considerably boost the productivity of those who work outright nightshifts.</color>","Todos os Colonos recebem +20 de performance durante <color em>turnos noturnos</color>
 
@@ -478,8 +728,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>由于与太阳距离过远，所有殖民地居民都早已做好了难见天日的心理准备。这些心里准备，加之我们新发现的技术，可以大大提高那些夜班工人的工作效率。</color>","Todos los colonos ganan 20 más de rendimiento durante los <color em>turnos de noche.</color>
 
-<color flavor>La mayor distancia del Sol hace que todos los colonos tengan que lidiar con la tensión psicológica de recibir menos luz solar. Este hecho, combinado con técnicas recién descubiertas, nos permite aumentar considerablemente la productividad de los que trabajan en turnos de noche.</color>"
-"Doubles the chance that a Colonist will have or gain a <color em>rare trait</color>.
+<color flavor>La mayor distancia del Sol hace que todos los colonos tengan que lidiar con la tensión psicológica de recibir menos luz solar. Este hecho, combinado con técnicas recién descubiertas, nos permite aumentar considerablemente la productividad de los que trabajan en turnos de noche.</color>","Tüm kolonistler <color em>gece vardiyaları</color> boyunca 20 performans kazanır
+
+<color flavor>Güneş'e olan uzaklık ne kadar çok olursa, tüm kolonistler az güneş ışığının getirdiği psikolojik zorluklarla o kadar çok başa çıkmak zorunda kalır. Bu gerçek, yeni keşfedilen tekniklerle de birleştirildiğinde, gece vardiyasında çalışanların üretkenliğini önemli ölçüde artırmamızı sağlar.</color>"
+GeneSelection,"Doubles the chance that a Colonist will have or gain a <color em>rare trait</color>.
 
 <color flavor>Advanced and impeccably precise gene splicing instruments will now give us better control on the traits Colonists are born with on Mars.</color>","Dobra a chance que um colono tem de possuir ou ganhar um <color em>traço raro.</color>
 
@@ -495,8 +747,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过先进的精密基因拼接工具，我们可以更好地控制火星出生居民的特性。</color>","Aumenta la probabilidad de que los colonos tengan o ganen un <color em>carácter raro.</color>
 
-<color flavor>Los instrumentos avanzados y la precisión de empalme en los genes nos darán ahora un mejor control sobre los caracteres con los que nacen los colonos en Marte.</color>"
-"All Colonists consume 25% less <color em>Food</color>.
+<color flavor>Los instrumentos avanzados y la precisión de empalme en los genes nos darán ahora un mejor control sobre los caracteres con los que nacen los colonos en Marte.</color>","Bir kolonistin bir <color em>nadir bireysel özelliğe</color> sahip olma veya onu kazanma şansını ikiye katlar.
+
+<color flavor> Gelişmiş ve kusursuz derecede hassas iş çıkaran gen birleştirme araçları sayesinde Mars'ta doğan kolonistlerin sahip oldukları bireysel özellikler üzerindeki kontrolümüzü artıracak.</color>"
+MartianDiet,"All Colonists consume 25% less <color em>Food</color>.
 
 <color flavor>Radically changing eating habits that have been in place for centuries is made quite easier after changing the planet they were evolved on in the first place.</color>","Todos os Colonos consomem 25% menos <color em>Alimentos</color>.
 
@@ -512,8 +766,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>从世世代代居住的星球离开之后，再去改变持续了几个世纪的饮食习惯要容易得多。</color>","Todos los colonos consumen un 25 % menos de <color em>comida.</color>
 
-<color flavor>Cambiar los hábitos alimenticios que estuvieron vigentes durante décadas es un poco más fácil después de cambiar de planeta.</color>"
-"Fusion Reactors Upgrade (<color em>Eternal Fusion</color>) - Fusion Reactors no longer require <color em>workers</color> and operate at 150 performance.
+<color flavor>Cambiar los hábitos alimenticios que estuvieron vigentes durante décadas es un poco más fácil después de cambiar de planeta.</color>","Tüm kolonistler %25 daha az <color em>gıda</color> tüketirler.
+
+<color flavor>Yüzyıllardır yürürlükte olan beslenme alışkanlıklarını kökten değiştirmek, bu alışkanlıkların oluştuğu gezegeni değiştirdikten sonra çok daha kolay oldu.</color>"
+EternalFusion,"Fusion Reactors Upgrade (<color em>Eternal Fusion</color>) - Fusion Reactors no longer require <color em>workers</color> and operate at 150 performance.
 
 <color flavor>Our understanding of the once holy grail of energetics - Fusion Energy has reached the level where once a fusion reaction has been triggered, it can be left to regulate and sustain itself on its own… within a confined and safe medium of course.</color>","Aprimoramento dos Reatores de Fusão (<color em>Fusão Perpétua</color>) - Reatores de Fusão não necessitam mais de <color em>trabalhadores</color> e funcionam com 150 de performance.
 
@@ -529,8 +785,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>我们对这种能量界的圣杯是这么理解的——之后聚变过程能到达引发聚变反应的阈值之后，后续的反应就可以自发维持……当然，是在密闭安全的容器中。</color>","Mejora de reactores de fusión <color em>(fusión eterna)</color>. Los reactores de fusión ya no requieren <color em>trabajadores</color> y su rendimiento se establece en 150.
 
-<color flavor>Nuestra comprensión del Santo Grial de la energética: la energía de fusión alcanzó el nivel en el que una vez que se desencadena una reacción de fusión, se puede dejar de regular y mantener por sí misma... dentro de un medio confinado y seguro, por supuesto.</color>"
-"Converts <color em>unused Power</color> into Research Points.
+<color flavor>Nuestra comprensión del Santo Grial de la energética: la energía de fusión alcanzó el nivel en el que una vez que se desencadena una reacción de fusión, se puede dejar de regular y mantener por sí misma... dentro de un medio confinado y seguro, por supuesto.</color>","Füzyon Reaktörü Yükseltmesi (<color em>Sonsuz Füzyon</color>) - Füzyon reaktörleri <color em>çalışan</color> gerektirmez ve 150 performans ile çalışır.
+
+<color flavor>Bir zamanlar enerji biliminin kutsal kâsesi sayılan füzyon enerjisi hakkındaki artan bilgimiz, artık bir füzyon reaksiyonu tetiklendiğinde, sınırlı ve güvenli bir ortamda onun kendi kendini düzenlemesi ve sürdürmesi için kendi hâline bırakabileceğimiz bir seviyeye ulaştı.</color>"
+SuperconductingComputing,"Converts <color em>unused Power</color> into Research Points.
 
 <color flavor>The ultra-cold environment that is Mars, combined with several recent breakthroughs in super conductors, has made the concept of superconductor computing, while still quite costly in terms of power, now manageable, thus opening the doors to the extremely fast superconductor computers.</color>","Converte <color em>Energia não utilizada</color> em Pontos de Pesquisa.
 
@@ -546,8 +804,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>火星上极端寒冷的环境，再加上超导体方面的突破性研究，使得超导体计算技术顺利问世。尽管这种技术耗电量依然极高，但已经到达了可以应用的程度。由此，运算速度极快的超导体计算机也应运而生。</color>","Convierte <color em>energía no utilizada</color> en puntos de investigación.
 
-<color flavor>El ambiente ultra frío que tiene Marte combinado con varios avances recientes en superconductores hizo que el concepto de computación superconductora, aunque todavía sea muy costoso, sea factible, abriendo así las puertas a las computadoras superconductoras extremadamente rápidas.</color>"
-"All Extractors continue to extract small amounts when their <color em>deposit is depleted</color>.
+<color flavor>El ambiente ultra frío que tiene Marte combinado con varios avances recientes en superconductores hizo que el concepto de computación superconductora, aunque todavía sea muy costoso, sea factible, abriendo así las puertas a las computadoras superconductoras extremadamente rápidas.</color>","<color em>Kullanılmayan elektriği</color>, araştırma puanlarına dönüştürür.
+
+<color flavor>Mars'ın ultra soğuk ortamının süper iletkenlere dair son zamanlarda yapılan birçok devrimsel teknoloji ile birleşimi, süper iletken hesaplama konseptini, elektrik açısından hâlâ oldukça maliyetli olsa da yönetilebilir hâle getirdi. Bu da, son derece hızlı süper iletken bilgisayarların kapısını açtı.</color>"
+NanoRefinement,"All Extractors continue to extract small amounts when their <color em>deposit is depleted</color>.
 
 <color flavor>Leaving scattered molecules of the precious resource a mining facility was tasked with extracting has always bothered scientists as being just too cynically wasteful. Luckily, with new Nano Refinement precision tools, this wasteful tendency has been remedied.</color>","Todos os extratores continuam a colher pequenas quantidades quando o <color em>depósito é esgotado.</color>
 
@@ -563,8 +823,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>采矿设施上会留下珍贵的资源颗粒。在科学家们的眼中，这些颗粒都属于对资源的浪费。不过，随着新的纳米提纯精密工具出现，这些浪费都得到了修正。</color>","Todos los extractores continúan extrayendo pequeñas cantidades cuando su yacimiento <color em>se agota.</color>
 
-<color flavor>Dejar dispersas las moléculas del recurso precioso que una instalación minera estaba encargada de extraer siempre ha molestado a los científicos por ser un derroche tan descarado. Afortunadamente con las nuevas herramientas de precisión en el nanorefinamiento, esta tendencia ineficiente fue remediada.</color>"
-"Drones carry <color em>two resources</color> at once.
+<color flavor>Dejar dispersas las moléculas del recurso precioso que una instalación minera estaba encargada de extraer siempre ha molestado a los científicos por ser un derroche tan descarado. Afortunadamente con las nuevas herramientas de precisión en el nanorefinamiento, esta tendencia ineficiente fue remediada.</color>","Tüm ekskavatörler, üzerinde çalıştıkları <color em>yatak tükendiğinde</color> küçük miktarlarda kaynak çıkarmaya devam eder.
+
+<color flavor>Bilim insanları, bir madencilik tesisinin çıkarmaktan sorumlu olduğu değerli kaynağın dağınık moleküllerini geride bırakmasından her zaman için rahatsız olmuş ve bunu bir savurganlık olarak nitelendirmişlerdir. Neyse ki, hassas nano arıtım araçlarıyla bu savurgan kullanıma çözüm getirebildi.</color>"
+ArtificialMuscles,"Drones carry <color em>two resources</color> at once.
 
 <color flavor>Nature has long provided inspiration for technological advances. Muscles made from carbon fiber are the latest example of cutting-edge biotech and, mixed with Mars’s low gravity, our Drones have basically doubled their carrying capacity.</color>","Drones carregam <color em>dois recursos</color> por vez.
 
@@ -580,8 +842,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>大自然为技术进步提供了无穷无尽的灵感。而前沿生物技术——碳素纤维肌肉正是其中之一。再加之火星重力较低，我们的无人机的承载能力基本可以变为原来的两倍。</color>","Los drones llevan <color em>dos recursos</color> al mismo tiempo.
 
-<color flavor>La naturaleza siempre fue la inspiración para los avances tecnológicos. Los músculos hechos de fibras de carbono son el último ejemplo de biotecnología extraordinaria y, mezclado con la baja gravedad marciana, nuestros Drones básicamente duplicaron su capacidad para cargar peso.</color>"
-"Colonists in Domes with a <color em>Spire</color> have increased Morale.
+<color flavor>La naturaleza siempre fue la inspiración para los avances tecnológicos. Los músculos hechos de fibras de carbono son el último ejemplo de biotecnología extraordinaria y, mezclado con la baja gravedad marciana, nuestros Drones básicamente duplicaron su capacidad para cargar peso.</color>","Drone'lar, tek seferde <color em>iki kaynak</color> birden taşır.
+
+<color flavor>Doğa, uzun zamandır teknolojik gelişmeler için ilham kaynağı olmuştur. Karbon fiberden yapılan kaslar, son sürüm biyoteknolojinin en son örneği ve bunu, Mars'ın düşük yerçekimi ile birleştirdiğimizde, drone'larımızın taşıma kapasiteleri iki katına çıktı.</color>"
+InspiringArchitecture,"Colonists in Domes with a <color em>Spire</color> have increased Morale.
 
 <color flavor>Even on the seemingly most ordinary of days, Colonists on Mars must never forget how extraordinary their lives actually are. Every time they pause from their newfound routines on this alien world and gaze upon the man-made spires that rise proudly towards the Martian sky, they will be reminded of the incredible feat their lives are part of.</color>","Colonos em Domos com um <color em>Pilar</color> possuem mais Ânimo.
 
@@ -597,8 +861,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>即便过着看似日常的生活，火星上的居民们也从来不会忘记，他们的生活有多么不可思议。当他们在火星世界的日常工作中感到烦闷时，只要他们看到火星上空高耸入云的人造穹顶，他们就会意识到，他们的生活是多么令人难以置信的奇迹。</color>","Los colonos en cúpulas con <color em>torre</color> mejoraron su moral.
 
-<color flavor>Incluso en días aparentemente más comunes, los colonos en Marte nunca deben olvidar lo extraordinaria que es la realidad de sus vidas. Cada vez que descansan de sus nuevas rutinas en este mundo extraño y contemplan las torres hechas por el hombre que se alzan con orgullo hacia el cielo marciano, siempre recordarán la increíble hazaña de que sus vidas forman parte.</color>"
-"Unlocks giant crops which have an <color em>increased Food output</color>.
+<color flavor>Incluso en días aparentemente más comunes, los colonos en Marte nunca deben olvidar lo extraordinaria que es la realidad de sus vidas. Cada vez que descansan de sus nuevas rutinas en este mundo extraño y contemplan las torres hechas por el hombre que se alzan con orgullo hacia el cielo marciano, siempre recordarán la increíble hazaña de que sus vidas forman parte.</color>","<color em>Silindir binalı</color> kubbelerdeki kolonistlerin morali yükseldi.
+
+<color flavor>Görünüşte en sıradan günlerde bile, Mars'taki kolonistler hayatlarının gerçekte ne kadar olağanüstü olduğunu asla unutmamalıdır. Bu yabancı dünyada yeni keşfettikleri rutinlerine her ara verdiklerinde ve Mars'ın göğüne doğru gururla yükselen insan yapımı kulelere baktıklarında, bir parçası oldukları bu inanılmaz başarıyı hatırlayacaklar.</color>"
+GiantCrops,"Unlocks giant crops which have an <color em>increased Food output</color>.
 
 <color flavor>Gene editing the plant strains brought from Earth to Mars so they can better cope with some of the Martian environment’s peculiarities has allowed us to grow super-sized versions of their Earthling cousins.</color>","Libera as plantações gigantes que possuem <color em>elevada produção de Alimentos.</color>
 
@@ -614,8 +880,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过基因改造，这些源自地球的植物产生了特殊的变化，可以更好地适应一些火星上的独特环境。有了这种技术，我们就能种植巨化版的地球作物了。</color>","Desbloquea los cultivos gigantes que tienen una <color em>mayor producción de alimentos.</color>
 
-<color flavor> Editar genéticamente las variedades de plantas traídas de la Tierra a Marte para que soporten mejor las peculiaridades del ambiente marciano nos ha permitido hacer versiones enormes de sus primos de la Tierra.</color>"
-"Dome <color em>Concrete costs</color> reduced by 80%.
+<color flavor> Editar genéticamente las variedades de plantas traídas de la Tierra a Marte para que soporten mejor las peculiaridades del ambiente marciano nos ha permitido hacer versiones enormes de sus primos de la Tierra.</color>","<color em>Artırılmış gıda üretimine</color> sahip dev mahsulleri açar.
+
+<color flavor>Mars ortamının bazı özellikleriyle daha iyi başa çıkabilmeleri için, Dünya'dan Mars'a getirilen bitki türlerine yapılan gen düzenlemesi, Dünyalı kuzenlerinin çok daha büyük boyutlu versiyonlarını yetiştirmemize olanak sağladı.</color>"
+NeoConcrete,"Dome <color em>Concrete costs</color> reduced by 80%.
 
 <color flavor>Mixing recently discovered materials made from Martian polymers with the Martian regolith have unlocked the wonder material that is Neo-Concrete. It is vastly stronger, yet lighter than its predecessor.</color>","<color em>Custo de Concreto</color> dos Domos reduzido em 80%.
 
@@ -631,8 +899,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>最新研制而成的材料，由火星聚合物和风化层混合而成。这种神奇的新型材料就是新型混凝土。与以往的混凝土相比，这种新型混凝土更坚固、更轻便。</color>","El <color em>costo de hormigón</color> de la cúpula se redujo en un 80 %.
 
-<color flavor>La mezcla de materiales descubiertos recientemente hechos de polímeros marcianos con regolito marciano ha desbloqueado el material maravilloso que es el neohormigón. Es mucho más fuerte pero más ligero que su predecesor.</color>"
-"<color em>Drones</color> move 40% faster.
+<color flavor>La mezcla de materiales descubiertos recientemente hechos de polímeros marcianos con regolito marciano ha desbloqueado el material maravilloso que es el neohormigón. Es mucho más fuerte pero más ligero que su predecesor.</color>","Kubbe <color em>beton maliyetleri</color> %80 oranında düştü.
+
+<color flavor>Yakın zamanda keşfedilen ve Mars polimerlerinden yapılan malzemelerin, Mars regoliti ile karıştırılması, yeni beton adında harika malzemenin kilidini açtı. Önceki versiyonuna göre, çok daha güçlü ama daha da hafif.</color>"
+AdvancedDroneDrive,"<color em>Drones</color> move 40% faster.
 
 <color flavor>Our engineers have unveiled the first motor design to replace the old engines of our drones that were created in Earth laboratories so long ago. This time we’ve combined all that is now known from having hands-on experience in dissecting a drone that has been doing field work on Mars for quite some time.</color>","<color em>Drones</color> se movem 40% mais rápido.
 
@@ -648,8 +918,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>工程师们成功设计出了全新的引擎，取代了很久以前在地球实验室中制造的旧式无人机引擎。这种新式引擎，是工程师们充分吸收火星野外工作积累的经验之后，精心设计而成的。</color>","Los <color em>drones</color> se mueven un 40 % más rápido.
 
-<color flavor>Nuestros ingenieros presentaron el primer diseño de motor para reemplazar los antiguos motores de nuestros drones que fueron creados en los laboratorios de la Tierra hace mucho tiempo. Esta vez combinando todo lo que ahora se sabe tras los análisis de la anatomía de un dron que ha estado haciendo trabajo de campo en Marte durante bastante tiempo.</color>"
-"<color em>Water</color> requirements of crops is reduced by 50%.
+<color flavor>Nuestros ingenieros presentaron el primer diseño de motor para reemplazar los antiguos motores de nuestros drones que fueron creados en los laboratorios de la Tierra hace mucho tiempo. Esta vez combinando todo lo que ahora se sabe tras los análisis de la anatomía de un dron que ha estado haciendo trabajo de campo en Marte durante bastante tiempo.</color>","<color em>Drone'lar</color>, %40 oranında daha hızlı hareket eder.
+
+<color flavor>Mühendislerimiz, çok uzun zaman önce Dünya'daki laboratuvarlarda yaratılan drone'larımızın eski motorlarının yerini alacak ilk motor tasarımını ortaya çıkardı. Uzun süredir Mars'ta sahada çalışan drone'ları parçalara ayırarak öğrendiğimiz tüm bilgileri bu sefer bir drone'u bir araya getirirken kullandık.</color>"
+DryFarming,"<color em>Water</color> requirements of crops is reduced by 50%.
 
 <color flavor>By mixing lab-made chemicals with the Martian regolith we have created what passes for Martian soil, providing improved subsurface water retention and reducing the need for watering.</color>","A <color em>Água</color> necessária nas plantações é reduzida em 50%.
 
@@ -665,8 +937,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过将实验室制造的化学物质与火星的风化层混合，我们已经成功地复制了火星表层的土壤。这种改造过的土壤具有更好的蓄水性，可以降低对水资源的消耗。</color>","Los requerimientos de <color em>agua</color> se reducen un 50 %.
 
-<color flavor>Mediante la mezcla de productos químicos de laboratorio con la regolita marciana hicimos que el suelo marciano tenga mejor retención de agua en el subsuelo y se reduzca la necesidad de riego.</color>"
-"Lowers <color em>Metals</color> costs for building construction by 25%.
+<color flavor>Mediante la mezcla de productos químicos de laboratorio con la regolita marciana hicimos que el suelo marciano tenga mejor retención de agua en el subsuelo y se reduzca la necesidad de riego.</color>","Mahsullerin <color em>su</color> gereksinimleri, %50 oranında azalır.
+
+<color flavor>Laboratuvar yapımı kimyasalları Mars regoliti ile karıştırarak, Mars toprağını geliştirdik. Bu sayede iyileştirilmiş yüzey altı su tutumu sağladık ve sulama ihtiyacını azalttık.</color>"
+MartianSteel,"Lowers <color em>Metals</color> costs for building construction by 25%.
 
 <color flavor>The unique composition of Martian ore has finally been thoroughly understood and new smelting techniques have been developed accordingly.</color>","Reduz os custos de <color em>Metais</color> necessários em construções em 25%.
 
@@ -682,8 +956,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>科研人员通过不懈研究，终于了解了火星金属的全部特性，并根据特性开发了新的锻造技术。</color>","Se redujeron los costos de <color em>metales</color> para construcción en un 25 %.
 
-<color flavor>La composición única del mineral marciano finalmente fue entendida y se desarrollaron nuevas técnicas de fundición.</color>"
-"Moisture Vaporator Upgrade (<color em>Vector Pump</color>) - Water production increased by 100%.
+<color flavor>La composición única del mineral marciano finalmente fue entendida y se desarrollaron nuevas técnicas de fundición.</color>","Bina inşaatı <color em>metal</color> maliyetlerini %25 oranında azaltır.
+
+<color flavor>Mars cevherinin benzersiz bileşimi sonunda tam olarak anlaşıldı ve buna uygun yeni eritme teknikleri geliştirildi.</color>"
+VectorPump,"Moisture Vaporator Upgrade (<color em>Vector Pump</color>) - Water production increased by 100%.
 
 <color flavor>A new atmosphere pump design that doubles the volume of air processed by our Vaporators in a single Sol.</color>","Aprimoramento dos Condensadores de Umidade <color em>(Bomba de Vetores)</color> - produção de Água aumenta em 100%.
 
@@ -699,8 +975,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>采用了全新设计的气泵，可以让水气搜集站在每个太阳日内处理的空气体积增加一倍。</color>","Mejora en el evaporador de humedad <color em>(bomba de vector)</color>, la producción de agua se incrementó en un 100 %.
 
-<color flavor>Un nuevo diseño de bomba de atmósfera que duplica el volumen de aire procesado por nuestros evaporadores en un solo Sol.</color>"
-"Fungal Farm Upgrade (<color em>Superfungus</color>) - Increases production while increasing Oxygen consumption.
+<color flavor>Un nuevo diseño de bomba de atmósfera que duplica el volumen de aire procesado por nuestros evaporadores en un solo Sol.</color>","Nem Sıvılaştırıcı Yükseltmesi (<color em>Vektör Pompa</color>) - Su üretimi %100 oranında arttı.
+
+<color flavor>Buharlaştırıcılarımız tarafından, tek bir Sol içinde işlenen hava hacmini iki katına çıkaran yeni bir atmosfer pompası tasarımı.</color>"
+Superfungus,"Fungal Farm Upgrade (<color em>Superfungus</color>) - Increases production while increasing Oxygen consumption.
 
 <color flavor>Historically, lab mistakes involving fungi have rarely been a cause for celebration. A recent mishap in the lab seems to be an exception, as we have created a new breed of fungi which hold much promise.</color>","Aprimoramento da Fazenda de Fungos (<color em>Superfungos</color>) - aumenta a produção enquanto aumenta o consumo de Oxigênio.
 
@@ -716,8 +994,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>有史以来，凡是与真菌有关的实验室意外事件，通常都不是什么可喜的事情。不过，最近的实验室意外事件却是个例外。这场意外为我们带来了一种充满潜力的全新菌种。</color>","Mejora en la granja de setas <color em>(superhongos)</color>, su producción incrementó pero también el consumo de oxígeno.
 
-<color flavor>Históricamente, los errores de laboratorios relacionados con hongos pocas veces son motivos de celebración. Un accidente reciente en el laboratorio parece ser una excepción, ya que hemos creado una nueva variedad de hongos muy prometedores.</color>"
-"<hide>Solar Arrays, </hide>Solar Panels and Large Solar Panels <color em>Power production</color> increased by 100%.
+<color flavor>Históricamente, los errores de laboratorios relacionados con hongos pocas veces son motivos de celebración. Un accidente reciente en el laboratorio parece ser una excepción, ya que hemos creado una nueva variedad de hongos muy prometedores.</color>","Mantar Çiftliği Yükseltmesi (<color em>Süpermantar</color>) - Oksijen tüketimini artırırken üretimi de artırır.
+
+<color flavor>Tarihsel olarak, mantarlarla ilgili laboratuvar hataları nadiren bir kutlama nedeni olmuştur. Çok umut vaat eden yeni bir mantar türü yarattığımız için, laboratuvarda yakın zamanda yaşanan bu aksilik, istisnai bir durum gibi görünüyor.</color>"
+HypersensitivePhotovoltaics,"<hide>Solar Arrays, </hide>Solar Panels and Large Solar Panels <color em>Power production</color> increased by 100%.
 
 <color flavor>An abundance of field experience has culminated in our engineers creating the perfect solar cells made specifically for the Martian atmosphere dust consistency.</color>","<hide>Aglomerados Solares, <color em>Produção de Energia</color> de </hide>Painéis Solares e Painéis Solares Grandes aumentada em 100%.
 
@@ -733,8 +1013,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过积累丰富的现场经验，我们的工程师创造了新型太阳能电池，特别适合用在火星充满尘土的环境之中。</color>","<hide>Solar Arrays, </hide>La <color em>producción de energía</color> de los paneles solares normales y grandes se incrementa en un 100 %.
 
-<color flavor>Una gran experiencia de campo ha llevado a que nuestros ingenieros creen celdas solares perfectamente hechas para la consistencia de polvo de la atmósfera marciana.</color>"
-"Wind Turbines <color em>Power production</color> increased by 100%.
+<color flavor>Una gran experiencia de campo ha llevado a que nuestros ingenieros creen celdas solares perfectamente hechas para la consistencia de polvo de la atmósfera marciana.</color>","<hide>Sıralı güneş paneli, </hide>güneş paneli ve büyük güneş paneli <color em>elektrik üretimi</color> %100 oranında arttı.
+
+<color flavor>İnanılmaz boyutlarda saha tecrübesine sahip olan mühendislerimiz, Mars atmosferine çok uygun olan kusursuz güneş pilleri yarattılar</color>"
+FrictionlessComposites,"Wind Turbines <color em>Power production</color> increased by 100%.
 
 <color flavor>Through clever application of graphene and carbon based frictionless materials, we have managed to maximize the push of the Martian wind while minimizing the friction which slows down the rotor’s rotation cycle, thus delivering far more bang for every buck of wind.</color>","<color em>Produção de Energia</color> das Aeroturbinas aumenta em 100%.
 
@@ -750,8 +1032,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过应用基于碳与石墨烯的无阻力复合材料，我们成功地优化了对火星风能的应用效率。同时，由于摩擦降低，风力发电机转子的旋转周期也变得更长，这让每一阵风都能带来更加强大的推力。</color>","La <color em>producción de energía</color> de los aerogeneradores se incrementó en un 100 %.
 
-<color flavor>Gracias a la ingeniosa aplicación de materiales sin fricción basados en grafeno y carbono, hemos logrado maximizar el empuje del viento marciano y minimizamos la fricción que hace lento el ciclo de rotación del rotor, proporcionando así más explosión para cada ráfaga de viento.</color>"
-"<hide>Low-G Lab, </hide>Research Lab & Hawking Institute Upgrade (<color em>Zero-Space Computing</color>) - Research points production increased.
+<color flavor>Gracias a la ingeniosa aplicación de materiales sin fricción basados en grafeno y carbono, hemos logrado maximizar el empuje del viento marciano y minimizamos la fricción que hace lento el ciclo de rotación del rotor, proporcionando así más explosión para cada ráfaga de viento.</color>","Rüzgar türbinleri <color em>elektrik üretimi</color>, %100 oranında arttı.
+
+<color flavor>Grafen ve karbon bazlı sürtünmesiz malzemelerin akıllıca uygulanmasıyla, pervanenin dönme devrini yavaşlatan sürtünmeyi en aza indirirken, Mars rüzgârının itme gücünü en üst düzeye çıkarmayı başardık ve böylece her rüzgâr dalgası için çok daha fazla enerji sağladık.</color>"
+ZeroSpaceComputing,"<hide>Low-G Lab, </hide>Research Lab & Hawking Institute Upgrade (<color em>Zero-Space Computing</color>) - Research points production increased.
 
 <color flavor>Thinking outside the box, Martian mathematicians have begun developing a new mathematical apparatus which will open the doors to new scientific models and theories.</color>","<hide>Laboratório de Baixa Gravidade, </hide>Aprimoramentos do Laboratório de Pesquisa e do Instituto Hawking (<color em>Computação de Espaço Zero</color>) - A produção de Pontos de Pesquisa foi aumentada.
 
@@ -767,8 +1051,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>火星数学家摆脱了常规思想的束缚，发展出了一项全新的数学工具，为新的科学模型与新的科学理论打开了大门。</color>","<hide>Low-G Lab, </hide>Research Lab & Hawking Institute Upgrade (<color em>Zero-Space Computing</color>) - Research points production increased.
 
-<color flavor>Thinking outside the box, Martian mathematicians have begun developing a new mathematical apparatus which will open the doors to new scientific models and theories.</color>"
-"New Dome: <color em>Oval Dome</color> () - An elongated Dome which has space for two Spires.
+<color flavor>Thinking outside the box, Martian mathematicians have begun developing a new mathematical apparatus which will open the doors to new scientific models and theories.</color>","<hide>Düşük Yerçekimi Laboratuvarı, </hide>Araştırma Laboratuvarı ve Hawking Enstitüsü Yükseltmesi (<color em>Sıfır Uzay Hesaplama</color>) - araştırma puanı üretimi arttı.
+
+<color flavor>Farklı bir açıdan düşünen Marslı matematikçiler, yeni bilimsel modellerin ve teorilerin kapılarını açacak yeni bir matematiksel cihaz geliştirmeye başladılar.</color>"
+MultispiralArchitecture,"New Dome: <color em>Oval Dome</color> () - An elongated Dome which has space for two Spires.
 
 <color flavor>A new, domestic approach to construction provides the same structural safety of our Domes while providing additional space for Spires.</color>","Novo Domo: <color em>Domo Oval</color> () - Um Domo alongado que possui espaço para dois Pilares.
 
@@ -784,8 +1070,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>通过新式的建筑技术，我们可以建造出与圆形穹顶同样安全的穹顶结构，同时为尖塔提供了额外的空间。</color>","Nueva cúpula: <color em>cúpula ovalada</color> (): una cúpula alargada con espacio para dos torres.
 
-<color flavor>Un enfoque doméstico y diferente en la construcción que proporciona la misma seguridad que el resto de cúpulas pero tiene un espacio adicional para colocar torres.</color>"
-"Extractor Upgrade (<color em>Magnetic Extraction</color>) - Production increased by 50%.
+<color flavor>Un enfoque doméstico y diferente en la construcción que proporciona la misma seguridad que el resto de cúpulas pero tiene un espacio adicional para colocar torres.</color>","Yeni kubbe: <color em>Oval kubbe</color> () - İki silindir binalı bölümü bulunan uzatılmış bir kubbe.
+
+<color flavor> Yeni, yerel bir inşaat yaklaşımı, kubbelerimizde aynı yapısal güvenliği sağlarken, silindir binalar için ek alan sağlar.</color>"
+MagneticExtraction,"Extractor Upgrade (<color em>Magnetic Extraction</color>) - Production increased by 50%.
 
 <color flavor>We have progressed upon fringe mining technologies, developing safe ways to bring Magnetic Extraction to our mines on Mars.</color>","Aprimoramento do Extrator (<color em>Extração Magnética</color>) - produção aumenta em 50%.
 
@@ -801,8 +1089,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>我们在采矿技术方面获得了新的进展。通过应用磁性萃取技术，我们可以更加安全地采集火星上的矿脉。</color>","Mejora del extractor <color em>(extracción magnética)</color>: incrementa la producción en un 50 %.
 
-<color flavor>Después de tener tecnologías de minería limitadas, desarrollamos formas seguras de implantar la extracción magnética en nuestras minas de Marte.</color>"
-"Doubles the performance bonus when Colonists are working on a <color em>heavy workload</color>.
+<color flavor>Después de tener tecnologías de minería limitadas, desarrollamos formas seguras de implantar la extracción magnética en nuestras minas de Marte.</color>","Sondaj Tesisi Yükseltmesi (<color em>Manyetik Sondaj</color>) - Üretim, %50 oranında arttı.
+
+<color flavor>Madencilik teknolojilerinde ilerleme kaydederek Mars'taki madenlerimize manyetik sondaj teknolojisini getirmenin güvenli yollarını geliştirdik.</color>"
+SustainedWorkload,"Doubles the performance bonus when Colonists are working on a <color em>heavy workload</color>.
 
 <color flavor>When every citizen knows that their efficiency more or less impacts the survival chances of the entire Colony, it becomes a matter of pride to work hard.</color>","Dobra a performance adicional quando os colonos estiverem trabalhando em <color em>cargas de trabalho pesadas.</color>
 
@@ -818,8 +1108,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>当每一位殖民地居民都明白，整个殖民地的生死存亡都取决于他们的工作效率时，努力工作就成了一件值得骄傲的事情。</color>","Duplica el bonus de rendimiento de los colonos cuando trabajan con una <color em>gran carga de trabajo.</color>
 
-<color flavor>Cuando los ciudadanos saben que su productividad afecta a la probabilidad de supervivencia de toda la colonia es motivo para trabajar más duro y sentirse orgulloso.</color>"
-"<color em>Seniors</color> can work and have children.
+<color flavor>Cuando los ciudadanos saben que su productividad afecta a la probabilidad de supervivencia de toda la colonia es motivo para trabajar más duro y sentirse orgulloso.</color>","Kolonistler <color em>ağır iş yükü</color> altında çalışırken performans bonusu iki katına çıkar.
+
+<color flavor>Her vatandaş, verimliliğinin bir şekilde tüm koloninin hayatta kalma şansını etkilediğini bildiğinde, sıkı çalışmak bir gurur meselesi haline gelir.</color>"
+ForeverYoung,"<color em>Seniors</color> can work and have children.
 
 <color flavor>The golden years have officially been postponed indefinitely as a recent breakthrough has finally unlocked the fountain of youth. Every man and woman on Mars has now the ability to remain within their most productive and fertile age forever.</color>","<color em>Idosos</color> podem trabalhar e ter filhos.
 
@@ -835,8 +1127,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>最新的突破性技术终于打开了人类的青春之泉，人类的黄金年龄被无限期地推迟。火星上的每位男女能永远停留在最年富力强、最适于生育的年龄。</color>","Los <color em>ancianos</color> ahora pueden trabajar y tener hijos.
 
-<color flavor>Tras el descubrimiento de la fuente de la juventud, posponemos los años dorados de manera oficial. Todo hombre o mujer de Marte puede continuar siendo útil y fértil si así lo desea.</color>"
-"<color em>Martianborn</color> gain 10 performance.
+<color flavor>Tras el descubrimiento de la fuente de la juventud, posponemos los años dorados de manera oficial. Todo hombre o mujer de Marte puede continuar siendo útil y fértil si así lo desea.</color>","<color em>Yaşlılar</color> çalışabilir ve çocuk sahibi olabilir.
+
+<color flavor>Altın yıllar resmen sonsuza dek rafa kalktı çünkü son dönemde yaşanan bir devrimsel teknoloji, sonunda gençlik pınarının kilidini açtı. Mars'taki her erkek ve kadın, artık sonsuza kadar en üretken ve doğurgan yaşlarında kalma yeteneğine sahip.</color>"
+MartianbornIngenuity,"<color em>Martianborn</color> gain 10 performance.
 
 <color flavor>Growing up in a unique environment, combined with some creative gene therapy, makes people better problem solvers. Martianborn are brought up in a society which thrives on the idea that every extra effort counts and the smarter the effort, the better.</color>","<color em>Nascidos em Marte</color> recebem 10 de performance.
 
@@ -852,8 +1146,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>火星上独特的环境，加之独创性的基因改良技术，使得火星出生的居民更擅长解决问题。在火星，任何额外的努力都不会白费。而且越聪明的选择，就会带来越好的成果。火星之子就是在这样的社会氛围中长大的。</color>","Los <color em>nacidos en Marte</color> consiguen 10 de rendimiento.
 
-<color flavor>Los nacidos en Marte crecieron en un ambiente tan único y recibieron terapias genéticas tan creativas que se convirtieron en personas capaces de resolver problemas con más facilidad. Los nacidos en Marte son educados en una sociedad que se basa en la idea de que cada esfuerzo cuenta y cuanto más ingenioso sea lo que hagan, mejor.</color>"
-"<color em>Passenger Rockets</color> carry 20 more Colonists.
+<color flavor>Los nacidos en Marte crecieron en un ambiente tan único y recibieron terapias genéticas tan creativas que se convirtieron en personas capaces de resolver problemas con más facilidad. Los nacidos en Marte son educados en una sociedad que se basa en la idea de que cada esfuerzo cuenta y cuanto más ingenioso sea lo que hagan, mejor.</color>","<color em>Mars doğumlu kolonistler</color> 10 performans kazanır.
+
+<color flavor>Bazı yaratıcı gen terapilerinin ve benzersiz bir ortamda büyümenin bir araya gelmesi insanların problemlerin üstesinden daha iyi gelebilmesini sağlar. Mars doğumlu kolonistler, ekstra çaba göstermenin önemli olduğu ve ne kadar akıllı çalışılırsa o kadar iyi olduğu fikrine dayanan bir toplumda büyür.</color>"
+CryoSleep,"<color em>Passenger Rockets</color> carry 20 more Colonists.
 
 <color flavor>Putting our Colonists in a state of suspended animation for the duration of the flight to Mars greatly reduces the space needed for a single Colonist on the rocket. Cryo-tubes will allow us to transport more Colonists on a single rocket.</color>","<color em>Foguetes de Passageiros</color> carregam 20 colonos adicionais.
 
@@ -869,8 +1165,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>有了这项技术之后，殖民地居民在前往火星的飞行期间会处于休眠状态。这可以极大减少每位居民所需要的空间，使客运火箭运输更多居民。</color>","Los <color em>cohetes de pasajeros</color> ahora pueden llevar 20 colonos adicionales.
 
-<color flavor>Al poner a los colonos en un estado de descanso en el viaje a Marte, conseguimos que se reduzca el espacio necesario en el cohete para llevar a un colono. Con las cápsulas de criopreservación, aumenta la capacidad de colonos en un solo cohete.</color>"
-"New Spire Building: <color em>Cloning Vats</color> (6<image UI/Icons/res_colonist.tga 1300> ) - creates Clones over time. Cloned colonists grow and age twice as fast.
+<color flavor>Al poner a los colonos en un estado de descanso en el viaje a Marte, conseguimos que se reduzca el espacio necesario en el cohete para llevar a un colono. Con las cápsulas de criopreservación, aumenta la capacidad de colonos en un solo cohete.</color>","<color em>Yolcu roketleri</color> ek 20 kolonist taşır.
+
+<color flavor>Kolonistlerimizi, Mars'a uçuş süresince uyku durumunda tutmak, roketteki kolonistler için gereken boş alan miktarını büyük ölçüde azaltır. Dondurucu tüpler tek bir rokette daha fazla kolonist taşımamızı sağlar.</color>"
+Cloning,"New Spire Building: <color em>Cloning Vats</color> (6<image UI/Icons/res_colonist.tga 1300> ) - creates Clones over time. Cloned colonists grow and age twice as fast.
 
 <color flavor>""Clones can think creatively. You will find that they are immensely superior to drones.""
 <right>Unnamed Martian Scientist</color><left>","Nova Construção Pilar: <color em>Tanques de Clonagem</color> (6<image UI/Icons/res_colonist.tga 1300> ) - gera Clones ao longo do tempo. Colonos clonados crescem e envelhecem duas vezes mais rápido.
@@ -894,8 +1192,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>某位匿名的火星科学家</color><left>","Nueva construcción de torre: <color em>Tanques de clonación</color> (6<image UI/Icons/res_colonist.tga 1300> ) - Crea clones cada cierto tiempo. Los colonos clonados crecen y envejecen el doble de rápido.
 
 <color flavor>""Los clones pueden pensar con creatividad. Esto les hace ser muy superiores a los drones"".
-<right>Científico marciano desconocido</color><left>"
-"<color em>Domes</color> restore Sanity to their inhabitants every Sol.
+<right>Científico marciano desconocido</color><left>","Yeni silindir bina: <color em>Klonlama Merkezi</color> (6<image UI/Icons/res_colonist.tga 1300> ) - zaman içinde klon yaratır. Klonlanan kolonistler iki kat daha hızlı büyür ve yaşlanır.
+
+<color flavor>""Klonlar yaratıcı biçimde düşünebilirler. Onların drone'lardan çok daha üstün olduklarını anlayacaksın.""
+<right>İsimsiz Marslı Bilim İnsanı</color><left>"
+GoodVibrations,"<color em>Domes</color> restore Sanity to their inhabitants every Sol.
 
 <color flavor>Who knew that emitting a low level vibration could affect the human psyche in such a way?</color>","<color em>Domos</color> restauram a Sanidade de seus habitantes a cada Sol.
 
@@ -911,8 +1212,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>低频率振动可以对人类的心智状况产生这样的影响，这之前又有谁能想得到呢？</color>","Cada Sol, las <color em>cúpulas</color> restauran cordura a sus habitantes.
 
-<color flavor>¿Quién diría que emitir una pequeña vibración podría afectar de esta manera la psique humana?</color>"
-"<color em>Domes</color> cost 50% less basic resources.
+<color flavor>¿Quién diría que emitir una pequeña vibración podría afectar de esta manera la psique humana?</color>","<color em>Kubbeler</color>, her Sol sakinlerinin akıl sağlığını iyileştirir.
+
+<color flavor>Düşük seviyeli bir titreşim yaymanın, insan ruhunu bu şekilde etkileyebileceğini kim bilebilirdi?</color>"
+DomeStreamlining,"<color em>Domes</color> cost 50% less basic resources.
 
 <color flavor>Mastering of certain techniques, singled out to be crucial to the entire construction process, will result in the drop of Dome construction costs.</color>","<color em>Domos</color> custam 50% menos recursos básicos.
 
@@ -928,8 +1231,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>尖端技术对整个施工过程而言都至关重要的，因为它可以降低穹顶的建筑成本。</color>","Las <color em>cúpulas</color> cuestan un 50 % menos de recursos básicos.
 
-<color flavor>El dominio de ciertas técnicas, elegidas para ser el proceso de construcción, reduce el costo de la creación de la cúpula.</color>"
-"All <color em>Spires</color> can be ordered as prefabs from Earth.
+<color flavor>El dominio de ciertas técnicas, elegidas para ser el proceso de construcción, reduce el costo de la creación de la cúpula.</color>","<color em>Kubbeler</color>, %50 daha az temel kaynağa mal olur.
+
+<color flavor>Tüm inşaat süreci için büyük önem taşıdığı düşünülen belirli tekniklerde ustalaşma, kubbe inşa maliyetlerinin düşmesine neden olacak.</color>"
+PrefabCompression,"All <color em>Spires</color> can be ordered as prefabs from Earth.
 
 <color flavor>The ever-increasing miniaturization of technology along with different modules has made it possible to transport the structural behemoths known as Spires all the way from Earth.</color>","Todos os <color em>Pilares</color> podem ser encomendados e pré-fabricados na Terra.
 
@@ -945,8 +1250,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>由于微缩技术与运输模块技术不断发展，人类已经可以将庞大的尖塔从地球直接运输到火星。</color>","Todas las <color em>torres</color> pueden pedirse en forma de prefabricados a la Tierra.
 
-<color flavor>La posibilidad de miniaturización de tecnología y distintas unidades hicieron posible transportar las gigantescas torres desde la Tierra.</color>"
-"<color em>Metals Extractors</color> and <color em>Rare Metals Extractors</color> can work without crews at 50 performance.
+<color flavor>La posibilidad de miniaturización de tecnología y distintas unidades hicieron posible transportar las gigantescas torres desde la Tierra.</color>","Tüm <color em>silindir binalar</color>, Dünya'dan prefabrik yapılar olarak sipariş edilebilir.
+
+<color flavor>Teknolojinin farklı modüllerle birlikte sürekli artan minyatürleşme durumu, silindir binalar olarak bilinen yapısal dev parçaların Dünya'dan Mars'a taşınmasını mümkün kıldı.</color>"
+ExtractorAI,"<color em>Metals Extractors</color> and <color em>Rare Metals Extractors</color> can work without crews at 50 performance.
 
 <color flavor>Extracting algorithms have been successfully implemented by our new Extractor AI, allowing for a certain degree of autonomy in mining operations.</color>","<color em>Extrator de Metais</color> e <color em>Extrator de Metais Raros</color> podem funcionar sem uma equipe com 50 de performance.
 
@@ -962,8 +1269,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>我们已经将挖掘算法成功地注入到了全新的人工智能中，这在一定程度上实现了自动采矿作业。</color>","El <color em>extractor de metal</color> y el <color em>extractor de metales raros</color> pueden trabajar sin supervisión a 50 de rendimiento.
 
-<color flavor>Los algoritmos de extracción se aplicaron en nuestro nuevo extractor IA, permitiéndole cierto grado de autonomía durante las operaciones de extracción.</color>"
-"<color em>Non-medical Service Buildings</color> Upgrade (Service Bots) - service buildings no longer require workers and operate at 100 performance.
+<color flavor>Los algoritmos de extracción se aplicaron en nuestro nuevo extractor IA, permitiéndole cierto grado de autonomía durante las operaciones de extracción.</color>","<color em>Metal sondaj tesisleri</color> ve <color em>Nadir metal sondaj tesisleri</color>, çalışana ihtiyaç duymadan 50 performans ile çalışabilir.
+
+<color flavor>Çıkarma algoritmaları, yeni ekskavatör yapay zekası tarafından başarıyla uygulandı ve madencilik operasyonlarında belirli bir dereceye kadar otonomi sağlandı.</color>"
+ServiceBots,"<color em>Non-medical Service Buildings</color> Upgrade (Service Bots) - service buildings no longer require workers and operate at 100 performance.
 
 <color flavor>Freeing our colonists of dealing with the most mundane of chores.</color>","Aprimoramento de <color em>Construções de Serviço Não Médico</color> (Bots de Serviço) - construções de serviços não necessitam mais de trabalhadores e operam na performance de 100.
 
@@ -979,8 +1288,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>我们的居民不用再操心日常的琐事了。</color>","Mejora de <color em>construcciones de servicios no médicos</color> (bots de servicio). Las construcciones de servicio ya no necesitan trabajadores y funcionan a 100 de rendimiento.
 
-<color flavor>Liberar a nuestros colonos de las tareas más mundanas.</color>"
-"<color em>Amplify</color> upgrades grant a bigger boost to production.
+<color flavor>Liberar a nuestros colonos de las tareas más mundanas.</color>","<color em>Tıbbi Olmayan Hizmet Binaları</color> Yükseltmesi (Hizmet Robotları) - hizmet binaları artık çalışan gerektirmez ve 100 performansta çalışır.
+
+<color flavor>Kolonistlerimizi alelade işlerle uğraşmaktan kurtarıyoruz.</color>"
+OverchargeAmplification,"<color em>Amplify</color> upgrades grant a bigger boost to production.
 
 <color flavor>""Power! Unlimited Power!""
 <right>Sheev</color><left>","Aprimoramentos de <color em>Amplificação</color> garantem um maior impulso na produção.
@@ -1004,8 +1315,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>希夫</color><left>","Las mejoras del <color em>amplificador</color> conceden un mayor aumento de la producción.
 
 <color flavor>""¡Poder! ¡Poder ilimitado!""
+<right>Sheev</color><left>","<color em>Hacim genişletme</color> yükseltmeleri, üretimi daha da fazla artırır.
+
+<color flavor>""Güç! Sınırsız Güç!""
 <right>Sheev</color><left>"
-"Stirling Generator Upgrade (<color em>Plutonium Core</color>) - Increased Power production while opened.
+PlutoniumSynthesis,"Stirling Generator Upgrade (<color em>Plutonium Core</color>) - Increased Power production while opened.
 
 <color flavor>""Nor are we the culmination of evolution, except in the sense that there has never been another species so bizarrely ingenious that it could create both iambic pentameter and plutonium.""
 <right>David Quammen</color><left>","Aprimoramento do Gerador Stirling <color em>(Núcleo de Plutônio)</color>: produção de Energia aumentada enquanto aberto.
@@ -1029,8 +1343,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>戴维·夸曼</color><left>","Mejora del motor Stirling <color em>(núcleo de plutonio)</color>: aumenta la producción de energía al activarlo.
 
 <color flavor>""No somos el culmen de la civilización, excepto si tenemos en cuenta que nunca antes una especie fuera tan extrañamente ingeniosa como para crear tanto el pentámetro yámbico como el plutonio"".
+<right>David Quammen</color><left>","Stirling Jeneratörü Yükseltmesi (<color em>Plütonyum Çekirdeği</color>) - Açık olduğunda elektrik üretimi artar.
+
+<color flavor>""Hem iambik pentametre hem de plütonyum yaratabilecek kadar tuhaf bir zekâya sahip başka bir tür olmamasını bir kenara koyarsak, aslında evrimin doruk noktasında değiliz.""
 <right>David Quammen</color><left>"
-"<color em>Schools</color> can train the Workaholic and Hippie traits.
+InterplanetaryLearning,"<color em>Schools</color> can train the Workaholic and Hippie traits.
 
 <color flavor>Taking student exchange programs to a whole other level.</color>","<color em>Escolas</color> podem treinar os traços de Trabalhador Compulsivo e Hippie.
 
@@ -1046,8 +1363,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>将学生交换项目提高到一个全新的层次。</color>","Los <color em>colegios</color> pueden enseñar los caracteres de adicción al trabajo y hippie.
 
-<color flavor>Llevando el intercambio de estudiantes a otro nivel.</color>"
-"<color em>Colonists</color> gain 10 bonus work performance when all their stats are in the green.
+<color flavor>Llevando el intercambio de estudiantes a otro nivel.</color>","<color em>Okullar</color>, İşkolik ve Hippi bireysel özelliklerinin eğitimini verebilir.
+
+<color flavor>Öğrenci değişim programlarını tamamen başka bir düzeye taşıyoruz.</color>"
+Vocation-Oriented Society,"<color em>Colonists</color> gain 10 bonus work performance when all their stats are in the green.
 
 <color flavor>""Frankly, though, I think most people can learn a lot more than they think they can.""
 <right>Elon Musk</color><left>","<color em>Colonos</color> ganham 10 bônus na performance de trabalho quando todos os seus status estão verdes.
@@ -1071,8 +1390,11 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 <right>埃隆·马斯克</color><left>","Los <color em>colonos</color> consiguen 10 bonus de rendimiento de trabajo cuando todas sus estadísticas están en verde.
 
 <color flavor>""Con toda sinceridad, creo que la gente puede aprender mucho más de lo que cree"".
+<right>Elon Musk</color><left>","<color em>Kolonistler</color> tüm istatistikleri yeşil renkte olduğunda 10 iş performansı bonusu kazanır.
+
+<color flavor>""Açıkçası, çoğu insanın düşündüğünden çok daha fazlasını öğrenebileceğini düşünüyorum.""
 <right>Elon Musk</color><left>"
-"Rocket <color em>travel time</color> to and from Earth reduced by 50%.
+PlasmaRocket,"Rocket <color em>travel time</color> to and from Earth reduced by 50%.
 
 <color flavor>Plasma engines have numerous advantages over chemical rockets. All that is left to do is make sure they don't explode on launch.</color>","<color em>Tempo de viagem</color> de ida e volta de Foguete para a Terra reduzido em 50%.
 
@@ -1088,8 +1410,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>与传统的化学染料火箭相比，等离子火箭在各个方面都更有优势。只要保证在发射的时候不要爆炸就行了。</color>","El <color em>tiempo de viaje</color> a la Tierra y de vuelta se reduce un 50 %.
 
-<color flavor>Los motores de plasma tienen muchas ventajas que los cohetes químicos no tienen. Ya solo queda asegurarnos de que no explotan al despegar.</color>"
-"<color em>Drone Hubs</color> no longer require Power or maintenance.
+<color flavor>Los motores de plasma tienen muchas ventajas que los cohetes químicos no tienen. Ya solo queda asegurarnos de que no explotan al despegar.</color>","Dünya'dan ve Dünya'ya roket ile <color em>yolculuk süresi</color> %50 oranında azalır.
+
+<color flavor>Plazma motorlarının kimyasal roketlere göre çok sayıda avantajı vardır. Tek yapmamız gereken, fırlatma sırasında patlamadıklarından emin olmak.</color>"
+AutonomousHubs,"<color em>Drone Hubs</color> no longer require Power or maintenance.
 
 <color flavor>Self-sustainable Drone Hubs are of paramount importance in expanding our presence on Mars.</color>","<color em>Centrais de Drones</color> não requerem mais Energia nem manutenção.
 
@@ -1105,8 +1429,10 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>可以自给自足的无人机中心，是人类在火星殖民任务的重中之重。</color>","Las <color em>estaciones de drones</color> ya no necesitan energía ni mantenimiento.
 
-<color flavor>Las estaciones de drones autosostenibles son de importancia vital para aumentar nuestra presencia en Marte.</color>"
-"Factory Upgrade (<color em>Automation</color>) - Lowers the amount of Workers needed in factories.
+<color flavor>Las estaciones de drones autosostenibles son de importancia vital para aumentar nuestra presencia en Marte.</color>","<color em>Drone istasyonları</color>, artık elektrik veya bakım gerektirmez.
+
+<color flavor>Kendi kendini idame ettirebilir drone istasyonları, Mars'taki varlığımızı sağlamlaştırmak adına büyük önem taşıyor.</color>"
+FactoryAutomation,"Factory Upgrade (<color em>Automation</color>) - Lowers the amount of Workers needed in factories.
 
 <color flavor>Robots are poised to take our jobs here on Mars as well.</color>","Aprimoramento de Fábricas <color em>(Automação)</color> - reduz o número de funcionários necessários nas fábricas.
 
@@ -1122,29 +1448,43 @@ name_en,name_br,name_fr,name_ge,name_po,name_ru,name_sc,name_sp
 
 <color flavor>就算到了火星，机器人也在抢我们的饭碗。</color>","Mejora de fábrica <color em>(Automatización)</color> - reduce la cantidad de trabajadores necesarios en las fábricas.
 
-<color flavor>Los robots están programados para quitarnos el trabajo en la Tierra y en Marte.</color>"
-"New Dome: <color em>Diamond Dome</color> () - A diamond shaped Dome which has space for two Spires.
+<color flavor>Los robots están programados para quitarnos el trabajo en la Tierra y en Marte.</color>","Fabrika Yükseltmesi (<color em>Otomasyon</color>) - Fabrikalarda ihtiyaç duyulan çalışan sayısını azaltır.
+
+<color flavor>Robotlar işlerimizi burada, Mars'ta da elimizden almaya hazır.</color>"
+GemArchitecture,"New Dome: <color em>Diamond Dome</color> () - A diamond shaped Dome which has space for two Spires.
 
 <color flavor>""Diamonds are nothing more than chunks of coal that stuck to their jobs.""
-<right>Malcolm Forbes</color><left>","Novo Domo: <color em>Domo Diamante</color> () – Um Domo em formato de diamante que possui espaço para dois Pilares.
+<right>Malcolm Forbes</color><left>
+","Novo Domo: <color em>Domo Diamante</color> () - Um Domo em formato de diamante que possui espaço para dois Pilares.
 
-<color flavor>""Os diamantes são nada mais do que pedaços de carvão que continuaram trabalhando"".
-<right>Malcolm Forbes</color><left>","Nouveau Dôme : <color em>Dôme Losange</color> () - Un Dôme en forme de losange qui peut accueillir deux Flèches.
+<color flavor>""Os diamantes são nada mais do que pedaços de carvão que continuaram trabalhando.""
+<right>Malcolm Forbes</color><left>
+","Nouveau Dôme : <color em>Dôme Losange</color> () - Un Dôme en forme de losange qui peut accueillir deux Flèches.
 
-<color flavor>« Pourquoi apprendre à calculer la surface d'un losange ? Au cours de ma vie, je n'ai jamais compté aucun losange parmi mes relations. »
-<right>Jacques Sternberg</color><left>","Neue Kuppel: <color em>Diamantkuppel</color> () – Eine diamantförmige Kuppel, die Platz für zwei Spitzen bietet.
+<color flavor>« Les diamants ne sont rien d'autre que des morceaux de charbon qui ont poussé leur nature jusqu'au bout. »
+<right>Malcolm Forbes</color><left>
+","Neue Kuppel: <color em>Diamantkuppel</color> () – Eine diamantförmige Kuppel, die Platz für zwei Spitzen bietet.
 
 <color flavor>„Ein Diamant ist nichts als ein Stück Kohle, das Ausdauer hatte.“
-<right>Malcolm Forbes</color><left>","Nowa kopuła: <color em>kopuła czworokątna</color> () - kopuła w kształcie rombu, czy, jak mówią niektórzy, diamentu, z miejscem na dwie iglice.
+<right>Malcolm Forbes</color><left>
+","Nowa kopuła: <color em>kopuła czworokątna</color> () – kopuła w kształcie rombu, czy, jak mówią niektórzy, diamentu, z miejscem na dwie iglice.
 
 <color flavor>„Diamenty to tylko kawałki węgla przywiązane do swojej roboty”.
-<right>Malcolm Forbes</color><left>","Новый купол: <color em>ромбовидный купол</color> () — места в нем хватает на две высотки.
+<right>Malcolm Forbes</color><left>
+","Новый купол: <color em>ромбовидный купол</color> () — места в нем хватает на две высотки.
 
 <color flavor>«Алмазы — это просто кусочки угля, прикипевшие к своей работе».
-<right>Малькольм Форбс</color><left>","新穹顶：<color em>钻石穹顶</color>（） - 钻石型结构的穹顶，可以容纳两座尖塔。
+<right>Малькольм Форбс</color><left>
+","新穹顶：<color em>钻石穹顶</color>（）——钻石型结构的穹顶，可以容纳两座尖塔。
 
 <color flavor>“钻石，不过是一群坚守岗位的碳原子而已。”
-<right>马尔科姆.福布斯</color><left>","Nueva cúpula: <color em>Cúpula de diamante</color> (). Una cúpula con forma de rombo. Tiene espacio para dos torres.
+<right>马尔科姆·福布斯</color><left>
+","Nueva cúpula: <color em>Cúpula de diamante</color> (). Una cúpula con forma de rombo. Tiene espacio para dos torres.
 
 <color flavor>""Los diamantes no son más que trozos de carbón que se quedaron atrapados en sus trabajos"".
-<right>Malcolm Forbes</color><left>"
+<right>Malcolm Forbes</color><left>
+","Yeni Kubbe: <color em>Elmas Kubbe</color> () - İki silindir bina için yeri bulunan, eşkenar dörtgen şekilde tasarlanmış bir kubbe.
+
+<color flavor>""Elmaslar, işlerini fazlasıyla yoğun icra eden kömür parçalarından başka bir şey değildir.""
+<right>Malcolm Forbes</color><left>
+"

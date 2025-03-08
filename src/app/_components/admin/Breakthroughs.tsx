@@ -44,7 +44,12 @@ export function Breakthroughs() {
       .replaceAll("<right>", "")
       .replaceAll("</right>", "")
       .replaceAll("<left>", "")
-      .replaceAll("</left>", "");
+      .replaceAll("</left>", "")
+      .replaceAll("<hide>", "")
+      .replaceAll("</hide>", "")
+      .replaceAll(" (6<image UI/Icons/res_colonist.tga 1300> )", "")
+      .replaceAll("<image UI/Icons/res_water_2.tga 1300>", "")
+      .replaceAll("<image UI/Icons/res_temperature.tga 1300>", "");
   };
 
   const parseNamesCSV = async (
