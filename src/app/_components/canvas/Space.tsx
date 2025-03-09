@@ -14,8 +14,8 @@ export default function Space() {
     <Environment
       files={CUBEMAP_URLS}
       background
-      backgroundIntensity={1}
-      environmentIntensity={1}
+      backgroundIntensity={4}
+      environmentIntensity={4}
     />
   );
 }

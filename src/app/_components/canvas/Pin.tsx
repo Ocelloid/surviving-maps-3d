@@ -107,7 +107,7 @@ export default function Pin({
             position={[0.25, 0, 0]}
             color={"lightskyblue"}
             outlineColor={"black"}
-            outlineWidth={0.025}
+            outlineWidth={0.05}
             anchorX={"left"}
             scale={0.5}
           >
@@ -125,7 +125,7 @@ export default function Pin({
             position={[0.25, 0, 0]}
             color={"lightskyblue"}
             outlineColor={"black"}
-            outlineWidth={0.025}
+            outlineWidth={0.05}
             anchorX={"left"}
             scale={0.5}
           >
