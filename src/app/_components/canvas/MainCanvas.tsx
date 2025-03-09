@@ -17,8 +17,8 @@ export default function MainCanvas() {
   const sun = new PointLight("white", 1000);
   sun.position.set(-4, 3, -4);
 
-  const light = new PointLight("lightyellow", 150);
-  light.position.set(-5, 1, 5);
+  const light = new PointLight("lightpink", 300);
+  light.position.set(-5, 5, 5);
 
   const backlight1 = new PointLight("orangered", 100);
   backlight1.position.set(10, 5, -15);
