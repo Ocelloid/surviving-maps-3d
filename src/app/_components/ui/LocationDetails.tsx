@@ -148,7 +148,7 @@ export default function LocationDetails() {
                   {NAME ?? DETAILS_LABELS.unknownLocation}
                 </p>
                 <Button
-                  className="-mr-2 h-6 cursor-pointer bg-transparent p-2 text-xl"
+                  className="h-6 cursor-pointer bg-transparent p-2 text-xl"
                   onPress={() =>
                     navigator.clipboard.writeText(
                       `${locData?.lat_deg}${locData?.lat_dir}${locData?.lon_deg}${locData?.lon_dir}`,
