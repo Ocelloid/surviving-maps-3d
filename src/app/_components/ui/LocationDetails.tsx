@@ -9,6 +9,7 @@ import {
   Skeleton,
   Accordion,
   AccordionItem,
+  Button,
 } from "@heroui/react";
 import { titleLabels, detailsLabels, topographyNames } from "~/locale";
 
@@ -146,10 +147,16 @@ export default function LocationDetails() {
                 <p className="text-2xl text-yellow-400">
                   {NAME ?? DETAILS_LABELS.unknownLocation}
                 </p>
-                <p className="text-xl">
-                  {locData?.lat_dir} {locData?.lat_deg} {locData?.lon_dir}{" "}
-                  {locData?.lon_deg}
-                </p>
+                <Button
+                  className="-mr-2 h-6 cursor-pointer bg-transparent p-2 text-xl"
+                  onPress={() =>
+                    navigator.clipboard.writeText(
+                      `${locData?.lat_deg}${locData?.lat_dir}${locData?.lon_deg}${locData?.lon_dir}`,
+                    )
+                  }
+                >
+                  {`${locData?.lat_deg ?? ""}${locData?.lat_dir ?? ""}${locData?.lon_deg ?? ""}${locData?.lon_dir ?? ""}`}
+                </Button>
               </div>
               <div className="gap-1">
                 <div className="flex flex-row justify-between">
