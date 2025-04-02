@@ -106,7 +106,13 @@ const LocationRow = ({
   );
 };
 
-export default function LocationsList() {
+export default function LocationsList({
+  open,
+  openList,
+}: {
+  open: boolean;
+  openList: (flag: boolean) => void;
+}) {
   const { appliedFilter, setAppliedCoordinates, language } = useStore();
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -146,8 +152,14 @@ export default function LocationsList() {
 
   return (
     <Wrapper className="lg:w-1/2">
-      <Accordion isCompact={true} className="flex flex-col gap-2">
+      <Accordion
+        isCompact={true}
+        className="flex flex-col gap-2"
+        selectedKeys={open ? ["list"] : []}
+        onSelectionChange={(keys) => openList([...keys].includes("list"))}
+      >
         <AccordionItem
+          key="list"
           title={TITLE}
           classNames={{
             base: "-mx-2",

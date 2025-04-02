@@ -62,7 +62,11 @@ type FilterSelection = {
   label: string;
 };
 
-export default function Filter() {
+export default function Filter({
+  openList,
+}: {
+  openList: (flag: boolean) => void;
+}) {
   const {
     spin,
     filter,
@@ -255,6 +259,7 @@ export default function Filter() {
                   className="w-full"
                   onPress={() => {
                     applyFilter();
+                    openList(true);
                     if (filter.coordinates.split(" ").length > 3)
                       setAppliedCoordinates({
                         lat_dir: filter.coordinates.split(" ")[0] ?? "",
